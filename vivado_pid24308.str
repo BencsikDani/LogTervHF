@@ -1,0 +1,386 @@
+/*
+
+Xilinx Vivado v2021.2 (64-bit) [Major: 2021, Minor: 2]
+SW Build: 3367213 on Tue Oct 19 02:48:09 MDT 2021
+IP Build: 3369179 on Thu Oct 21 08:25:16 MDT 2021
+
+Process ID (PID): 24308
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sat May 07 12:14:59 CEST 2022
+Time zone: 	Central European Standard Time (Europe/Prague)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 2560x1440
+Screen resolution (DPI): 125
+Available screens: 1
+Default font: family=Segoe UI,name=Segoe UI,style=plain,size=15
+Scale size: 19
+
+Java version: 	11.0.11 64-bit
+Java home: 	E:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9
+Java executable: 	E:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	Marcell
+User home directory: C:/Users/Marcell
+User working directory: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF
+User country: 	HU
+User language: 	hu
+User locale: 	hu_HU
+
+RDI_BASEROOT: E:/Xilinx/Vivado
+HDI_APPROOT: E:/Xilinx/Vivado/2021.2
+RDI_DATADIR: E:/Xilinx/Vivado/2021.2/data
+RDI_BINDIR: E:/Xilinx/Vivado/2021.2/bin
+
+Vivado preferences file: C:/Users/Marcell/AppData/Roaming/Xilinx/Vivado/2021.2/vivado.xml
+Vivado preferences directory: C:/Users/Marcell/AppData/Roaming/Xilinx/Vivado/2021.2/
+Vivado layouts directory: C:/Users/Marcell/AppData/Roaming/Xilinx/Vivado/2021.2/data/layouts
+PlanAhead jar file: 	E:/Xilinx/Vivado/2021.2/lib/classes/planAhead.jar
+Vivado log file: 	C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/vivado.log
+Vivado journal file: 	C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/vivado.jou
+Engine tmp dir: 	C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/.Xil/Vivado-24308-Cibbersson
+
+Xilinx Environment Variables
+----------------------------
+XILINX: E:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_DSP: E:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_HLS: E:/Xilinx/Vitis_HLS/2021.2
+XILINX_PLANAHEAD: E:/Xilinx/Vivado/2021.2
+XILINX_VIVADO: E:/Xilinx/Vivado/2021.2
+XILINX_VIVADO_HLS: E:/Xilinx/Vivado/2021.2
+
+
+GUI allocated memory:	414 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,399 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// TclEventType: PROJECT_OPEN_DIALOG
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\Marcell\Desktop\BME\MSc\LogTerv\LogTervHF\LogTervHF.xpr. Version: Vivado v2021.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 110 MB (+112509kb) [00:00:06]
+// [Engine Memory]: 1,399 MB (+1315838kb) [00:00:06]
+// [GUI Memory]: 126 MB (+10835kb) [00:00:07]
+// WARNING: HEventQueue.dispatchEvent() is taking  1417 ms.
+// Tcl Message: open_project C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/Users/Dani/XilinxProjects/LogTervHF' since last save. INFO: [filemgmt 56-2] Default IP Output Path : Could not find the directory 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.gen/sources_1', nor could it be found using path 'C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 68 MB. Current time: 5/7/22, 12:14:59 PM CEST
+// Project name: LogTervHF; location: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF; part: xc7k70tfbg676-1
+dismissDialog("Open Project"); // bA
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 15 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), FIR_I : xil_defaultlib.fir_filter]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), FIR_I : xil_defaultlib.fir_filter]", 3, false, false, false, false, false, true); // D - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1095 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 45 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), FIR_I : xil_defaultlib.fir_filter]", 3, false); // D
+// Elapsed time: 149 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectCodeEditor("codec_if.v", 1, 8); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 132 MB (+137kb) [00:04:02]
+// Elapsed time: 71 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 4); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5, false, false, false, false, false, true); // D - Double Click
+// Elapsed time: 27 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5, false, false, false, false, false, true); // D - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5, false, false, false, false, true, false); // D - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ao
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_ADD_FILES, "Add Files"); // a
+dismissFileChooser();
+selectButton("CANCEL", "Cancel"); // JButton
+// 'g' command handler elapsed time: 13 seconds
+dismissDialog("Add Sources"); // c
+// Elapsed time: 43 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5, false, false, false, false, true, false); // D - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ao
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_ADD_FILES, "Add Files"); // a
+// Elapsed time: 11 seconds
+String[] filenames31467 = {"C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/pinout.xdc", "C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/timing.xdc"};
+setFileChooser(filenames31467);
+selectCheckBox(PAResourceAtoD.ConstraintsChooserPanel_COPY_CONSTRAINTS_FILES_INTO_PROJECT, "Copy constraints files into project", true); // g: TRUE
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 19 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset constrs_1 -norecurse {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/pinout.xdc C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/timing.xdc} 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: import_files -fileset constrs_1 {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/pinout.xdc C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/timing.xdc} 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, pinout.xdc]", 6, false); // D
+// Elapsed time: 20 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), FIR_I : xil_defaultlib.fir_filter]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), FIR_I : xil_defaultlib.fir_filter]", 3, false, false, false, false, true, false); // D - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // al
+// Elapsed time: 357 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  1058 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 32 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false, false, false, false, false, true); // D - Double Click
+dismissDialog("Opening Editor"); // bA
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, timing.xdc]", 7, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, timing.xdc]", 7, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1046 ms.
+dismissDialog("Opening Editor"); // bA
+selectCodeEditor("timing.xdc", 5, 10); // be
+selectCodeEditor("timing.xdc", 192, 14); // be
+// Elapsed time: 16 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false, false, false, false, false, true); // D - Double Click
+dismissDialog("Opening Editor"); // bA
+selectCodeEditor("codec_if.v", 99, 10); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "timing.xdc", 3); // m
+selectCodeEditor("timing.xdc", 443, 13); // be
+// Elapsed time: 184 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+dismissDialog("Opening Editor"); // bA
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), I2S_IF_I : codec_if (codec_if.v)]", 2, false, false, false, false, false, true); // D - Double Click
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 79 seconds
+selectCodeEditor("codec_if.v", 32, 664); // be
+selectCodeEditor("codec_if.v", 158, 663); // be
+selectCodeEditor("codec_if.v", 60, 515); // be
+// Elapsed time: 193 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "mclk"); // k
+selectCodeEditor("codec_if.v", 52, 198); // be
+// Elapsed time: 94 seconds
+selectCodeEditor("codec_if.v", 141, 201); // be
+// Elapsed time: 11 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "div_"); // k
+selectCodeEditor("codec_if.v", 5, 515); // be
+selectCodeEditor("codec_if.v", 194, 492); // be
+// Elapsed time: 10 seconds
+selectCodeEditor("codec_if.v", 285, 556); // be
+// Elapsed time: 73 seconds
+selectCodeEditor("codec_if.v", 125, 555); // be
+// Elapsed time: 95 seconds
+selectCodeEditor("codec_if.v", 61, 557); // be
+selectCodeEditor("codec_if.v", 274, 598); // be
+// [GUI Memory]: 140 MB (+1521kb) [00:29:18]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 81 MB. Current time: 5/7/22, 12:45:00 PM CEST
+// Elapsed time: 228 seconds
+selectCodeEditor("codec_if.v", 236, 533); // be
+selectCodeEditor("codec_if.v", 346, 634); // be
+selectCodeEditor("codec_if.v", 241, 562); // be
+selectCodeEditor("codec_if.v", 413, 659); // be
+selectCodeEditor("codec_if.v", 240, 595); // be
+// Elapsed time: 445 seconds
+selectCodeEditor("codec_if.v", 556, 423); // be
+// Elapsed time: 172 seconds
+selectCodeEditor("codec_if.v", 286, 303); // be
+selectCodeEditor("codec_if.v", 304, 323); // be
+selectCodeEditor("codec_if.v", 431, 439); // be
+// Elapsed time: 167 seconds
+selectCodeEditor("codec_if.v", 459, 355); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 72 MB. Current time: 5/7/22, 1:15:00 PM CEST
+// Elapsed time: 1192 seconds
+selectCodeEditor("codec_if.v", 65, 520); // be
+// Elapsed time: 107 seconds
+selectCodeEditor("codec_if.v", 65, 557); // be
+selectCodeEditor("codec_if.v", 151, 581); // be
+selectCodeEditor("codec_if.v", 503, 578); // be
+// Elapsed time: 38 seconds
+selectCodeEditor("codec_if.v", 284, 368); // be
+// Elapsed time: 51 seconds
+selectCodeEditor("codec_if.v", 285, 368); // be
+// Elapsed time: 26 seconds
+selectCodeEditor("codec_if.v", 467, 504); // be
+selectCodeEditor("codec_if.v", 285, 368); // be
+// Elapsed time: 116 seconds
+selectCodeEditor("codec_if.v", 444, 539); // be
+selectCodeEditor("codec_if.v", 282, 373); // be
+selectCodeEditor("codec_if.v", 287, 347); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("codec_if.v", 309, 389); // be
+selectCodeEditor("codec_if.v", 316, 368); // be
+selectCodeEditor("codec_if.v", 279, 366); // be
+// Elapsed time: 19 seconds
+selectCodeEditor("codec_if.v", 285, 367); // be
+selectCodeEditor("codec_if.v", 288, 346); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 78 seconds
+selectCodeEditor("codec_if.v", 397, 430); // be
+selectCodeEditor("codec_if.v", 392, 452); // be
+selectCodeEditor("codec_if.v", 395, 568); // be
+selectCodeEditor("codec_if.v", 295, 430); // be
+// Elapsed time: 28 seconds
+selectCodeEditor("codec_if.v", 471, 572); // be
+selectCodeEditor("codec_if.v", 350, 429); // be
+selectCodeEditor("codec_if.v", 558, 676); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 130 seconds
+selectCodeEditor("codec_if.v", 303, 480); // be
+selectCodeEditor("codec_if.v", 661, 571); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 232, 542); // be
+selectCodeEditor("codec_if.v", 318, 574); // be
+selectCodeEditor("codec_if.v", 174, 579); // be
+// Elapsed time: 132 seconds
+selectCodeEditor("codec_if.v", 204, 425); // be
+// Elapsed time: 270 seconds
+selectCodeEditor("codec_if.v", 162, 286); // be
+selectCodeEditor("codec_if.v", 24, 305); // be
+selectCodeEditor("codec_if.v", 287, 323); // be
+// Elapsed time: 10 seconds
+selectCodeEditor("codec_if.v", 195, 280); // be
+// Elapsed time: 105 seconds
+selectCodeEditor("codec_if.v", 107, 471); // be
+selectCodeEditor("codec_if.v", 476, 466); // be
+selectCodeEditor("codec_if.v", 197, 450); // be
+selectCodeEditor("codec_if.v", 375, 530); // be
+selectCodeEditor("codec_if.v", 194, 158); // be
+selectCodeEditor("codec_if.v", 201, 465); // be
+selectCodeEditor("codec_if.v", 171, 325); // be
+selectCodeEditor("codec_if.v", 230, 324); // be
+selectCodeEditor("codec_if.v", 253, 373); // be
+selectCodeEditor("codec_if.v", 180, 325); // be
+selectCodeEditor("codec_if.v", 177, 154); // be
+selectCodeEditor("codec_if.v", 317, 363); // be
+selectCodeEditor("codec_if.v", 61, 196); // be
+selectCodeEditor("codec_if.v", 321, 434); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 10 seconds
+selectCodeEditor("codec_if.v", 127, 582); // be
+selectCodeEditor("codec_if.v", 125, 518); // be
+selectCodeEditor("codec_if.v", 461, 513); // be
+selectCodeEditor("codec_if.v", 127, 517); // be
+selectCodeEditor("codec_if.v", 540, 497); // be
+selectCodeEditor("codec_if.v", 121, 583); // be
+selectCodeEditor("codec_if.v", 322, 650); // be
+// Elapsed time: 56 seconds
+selectCodeEditor("codec_if.v", 277, 601); // be
+selectCodeEditor("codec_if.v", 436, 661); // be
+selectCodeEditor("codec_if.v", 284, 599); // be
+selectCodeEditor("codec_if.v", 43, 531, false, false, false, true, false); // be - Popup Trigger
+selectMenuItem(RDIResource.HInputHandler_TOGGLE_LINE_COMMENTS, "Toggle Line Comments"); // ao
+selectCodeEditor("codec_if.v", 444, 607); // be
+selectCodeEditor("codec_if.v", 44, 505); // be
+selectCodeEditor("codec_if.v", 22, 486); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 620, 438); // be
+selectCodeEditor("codec_if.v", 352, 505); // be
+selectCodeEditor("codec_if.v", 334, 491); // be
+// Elapsed time: 11 seconds
+selectCodeEditor("codec_if.v", 19, 605); // be
+selectCodeEditor("codec_if.v", 1, 627); // be
+selectCodeEditor("codec_if.v", 18, 620); // be
+selectCodeEditor("codec_if.v", 18, 620, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 18, 620); // be
+selectCodeEditor("codec_if.v", 18, 620, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 230, 471); // be
+selectCodeEditor("codec_if.v", 310, 503); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 43 seconds
+selectCodeEditor("codec_if.v", 316, 334); // be
+selectCodeEditor("codec_if.v", 169, 323); // be
+selectCodeEditor("codec_if.v", 31, 299); // be
+selectCodeEditor("codec_if.v", 188, 304); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 165, 327); // be
+// Elapsed time: 16 seconds
+selectCodeEditor("codec_if.v", 597, 442); // be
+// Elapsed time: 21 seconds
+selectCodeEditor("codec_if.v", 200, 517); // be
+selectCodeEditor("codec_if.v", 33, 442, false, false, false, true, false); // be - Popup Trigger
+selectMenuItem(RDIResource.HInputHandler_TOGGLE_LINE_COMMENTS, "Toggle Line Comments"); // ao
+selectCodeEditor("codec_if.v", 541, 620); // be
+selectCodeEditor("codec_if.v", 4, 328); // be
+selectCodeEditor("codec_if.v", 396, 499); // be
+selectCodeEditor("codec_if.v", 61, 412); // be
+selectCodeEditor("codec_if.v", 58, 413); // be
+selectCodeEditor("codec_if.v", 224, 411); // be
+selectCodeEditor("codec_if.v", 224, 411, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 59, 409); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 71 MB. Current time: 5/7/22, 1:45:00 PM CEST
+// Elapsed time: 46 seconds
+selectCodeEditor("codec_if.v", 287, 408); // be
+selectCodeEditor("codec_if.v", 26, 416); // be
+selectCodeEditor("codec_if.v", 118, 430); // be
+selectCodeEditor("codec_if.v", 122, 431, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 341, 532); // be
+selectCodeEditor("codec_if.v", 249, 628); // be
+selectCodeEditor("codec_if.v", 102, 548, false, false, false, true, false); // be - Popup Trigger
+selectMenuItem(RDIResource.HInputHandler_TOGGLE_LINE_COMMENTS, "Toggle Line Comments"); // ao
+selectCodeEditor("codec_if.v", 482, 658); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 711, 134); // be
+// Elapsed time: 32 seconds
+selectCodeEditor("codec_if.v", 317, 426); // be
