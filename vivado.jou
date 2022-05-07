@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat May  7 23:21:42 2022
+# Process ID: 23440
+# Current directory: C:/Users/Dani/XilinxProjects/LogTervHF
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12240 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
+# Log file: C:/Users/Dani/XilinxProjects/LogTervHF/vivado.log
+# Journal file: C:/Users/Dani/XilinxProjects/LogTervHF\vivado.jou
+# Running On: DANINITRO-PC, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 17057 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
+file mkdir C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new
+close [ open C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft.v w ]
+add_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft.v
+update_compile_order -fileset sources_1
