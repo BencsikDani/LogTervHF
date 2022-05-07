@@ -85,15 +85,19 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PPRDIR/../gyak4/logterv_gyak4.srcs/sources_1/new/codec_if.v">
+      <File Path="$PSRCDIR/sources_1/imports/new/codec_if.v">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../gyak4/logterv_gyak4.srcs/sources_1/new/codec_if.v"/>
+          <Attr Name="ImportTime" Val="1586791704"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../gyak4/logterv_gyak4.srcs/sources_1/new/top_level.v">
+      <File Path="$PSRCDIR/sources_1/imports/new/top_level.v">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../gyak4/logterv_gyak4.srcs/sources_1/new/top_level.v"/>
+          <Attr Name="ImportTime" Val="1526548072"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
