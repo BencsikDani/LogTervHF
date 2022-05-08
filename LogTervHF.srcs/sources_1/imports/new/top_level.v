@@ -78,12 +78,28 @@ codec_if uut
    .aud_din1      (aud_din1)
 );
 
-always @ (posedge clk)
-if (aud_dout_vld[0]==1)
-   aud_din0 <= aud_dout;
+reg sam_cntr[9:0];
 
 always @ (posedge clk)
-if (aud_dout_vld[1]==1)
-   aud_din1 <= aud_dout;
+begin
+if (aud_dout_vld[0]==1)
+   aud_din0 <= aud_dout;
+sam_cntr = sam_cntr + 1;
+end
+
+circ_buf samples
+(
+.clk_a	(clk),
+.we_a	(aud_dout_vld[0]),
+.addr_a	(sam_cntr),
+.din_a	(),
+.dout_a	(),
+
+.clk_b	(clk),
+.we_b	(1'b0),
+.addr_b	(),
+.din_b	(),
+.dout_b	()
+);
     
 endmodule
