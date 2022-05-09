@@ -1,6 +1,9 @@
 `timescale 1ns / 1ps
 
 module butterfly(
+    input         clk,
+    input         rst,
+    
     input  [23:0] x1_real,
     input  [23:0] x1_imag,
     

@@ -1,0 +1,705 @@
+/*
+
+Xilinx Vivado v2021.2 (64-bit) [Major: 2021, Minor: 2]
+SW Build: 3367213 on Tue Oct 19 02:48:09 MDT 2021
+IP Build: 3369179 on Thu Oct 21 08:25:16 MDT 2021
+
+Process ID (PID): 29596
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sun May 08 23:39:38 CEST 2022
+Time zone: 	Central European Standard Time (Europe/Prague)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	E:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9
+Java executable: 	E:/Xilinx/Vivado/2021.2/tps/win64/jre11.0.11_9/bin/java.exe
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Dsun.java2d.d3d=false, -Dsun.awt.nopixfmt=true, -Dsun.java2d.dpiaware=true, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	Dani
+User home directory: C:/Users/Dani
+User working directory: C:/Users/Dani/XilinxProjects/LogTervHF
+User country: 	HU
+User language: 	hu
+User locale: 	hu_HU
+
+RDI_BASEROOT: E:/Xilinx/Vivado
+HDI_APPROOT: E:/Xilinx/Vivado/2021.2
+RDI_DATADIR: E:/Xilinx/Vivado/2021.2/data
+RDI_BINDIR: E:/Xilinx/Vivado/2021.2/bin
+
+Vivado preferences file: C:/Users/Dani/AppData/Roaming/Xilinx/Vivado/2021.2/vivado.xml
+Vivado preferences directory: C:/Users/Dani/AppData/Roaming/Xilinx/Vivado/2021.2/
+Vivado layouts directory: C:/Users/Dani/AppData/Roaming/Xilinx/Vivado/2021.2/data/layouts
+PlanAhead jar file: 	E:/Xilinx/Vivado/2021.2/lib/classes/planAhead.jar
+Vivado log file: 	C:/Users/Dani/XilinxProjects/LogTervHF/vivado.log
+Vivado journal file: 	C:/Users/Dani/XilinxProjects/LogTervHF/vivado.jou
+Engine tmp dir: 	C:/Users/Dani/XilinxProjects/LogTervHF/.Xil/Vivado-29596-DANINITRO-PC
+
+Xilinx Environment Variables
+----------------------------
+XILINX: E:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_DSP: E:/Xilinx/Vivado/2021.2/ids_lite/ISE
+XILINX_HLS: E:/Xilinx/Vitis_HLS/2021.2
+XILINX_PLANAHEAD: E:/Xilinx/Vivado/2021.2
+XILINX_VIVADO: E:/Xilinx/Vivado/2021.2
+XILINX_VIVADO_HLS: E:/Xilinx/Vivado/2021.2
+
+
+GUI allocated memory:	309 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,250 MB
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr. Version: Vivado v2021.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// Tcl Message: open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 56 MB. Current time: 5/8/22, 11:39:39 PM CEST
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 110 MB (+112916kb) [00:00:11]
+// [Engine Memory]: 1,250 MB (+1159088kb) [00:00:11]
+// WARNING: HEventQueue.dispatchEvent() is taking  2052 ms.
+// Tcl Message: open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF' since last save. INFO: [filemgmt 56-2] Default IP Output Path : Could not find the directory 'C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.gen/sources_1', nor could it be found using path 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.gen/sources_1'. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Project name: LogTervHF; location: C:/Users/Dani/XilinxProjects/LogTervHF; part: xc7k70tfbg676-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:07 . Memory (MB): peak = 1237.473 ; gain = 0.000 
+dismissDialog("Open Project"); // bA
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 118 MB (+2704kb) [00:00:17]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, coeff_rom (coeff_rom.v)]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, coeff_rom (coeff_rom.v)]", 3, false, false, false, false, false, true); // D - Double Click
+selectCodeEditor("coeff_rom.v", 118, 197); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("coeff_rom.v", 160, 264); // be
+selectCodeEditor("coeff_rom.v", 120, 282); // be
+// Elapsed time: 26 seconds
+selectCodeEditor("coeff_rom.v", 172, 296); // be
+typeControlKey(null, null, 'z');
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 10 seconds
+selectCodeEditor("coeff_rom.v", 43, 500); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("coeff_rom.v", 39, 412); // be
+selectCodeEditor("coeff_rom.v", 182, 293); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, butterfly (butterfly.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, butterfly (butterfly.v)]", 2, false, false, false, false, false, true); // D - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 15 seconds
+selectCodeEditor("top_level.v", 154, 300); // be
+// Elapsed time: 27 seconds
+selectCodeEditor("top_level.v", 122, 161); // be
+// Elapsed time: 218 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), samples : circ_buf (circ_buf.v)]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), samples : circ_buf (circ_buf.v)]", 3, false, false, false, false, false, true); // D - Double Click
+// Elapsed time: 22 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, coeff_rom (coeff_rom.v)]", 5, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, coeff_rom (coeff_rom.v)]", 5, false, false, false, false, false, true); // D - Double Click
+// [GUI Memory]: 125 MB (+1338kb) [00:08:17]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 65 MB. Current time: 5/9/22, 12:09:39 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 12:39:39 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 1:09:40 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 1:39:40 AM CEST
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 1440ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1450 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 2:09:40 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 2:39:41 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 3:09:41 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 3:39:42 AM CEST
+// WARNING: HEventQueue.dispatchEvent() is taking  20046421 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 941ms to process. Increasing delay to 3000 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 56 MB. Current time: 5/9/22, 9:20:33 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 9:50:37 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 10:20:38 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 10:50:38 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 11:20:39 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 11:50:39 AM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 12:20:39 PM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 12:50:40 PM CEST
+// Elapsed time: 47308 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true); // D - Node
+// WARNING: updateGUI() is taking  1825 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1827 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 55 MB. Current time: 5/9/22, 1:20:44 PM CEST
+// Elapsed time: 2015 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), uut : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), uut : codec_if (codec_if.v)]", 2, false, false, false, false, false, true); // D - Double Click
+selectCodeEditor("codec_if.v", 216, 83); // be
+selectCodeEditor("codec_if.v", 229, 98); // be
+selectCodeEditor("codec_if.v", 232, 78); // be
+// Elapsed time: 21 seconds
+selectCodeEditor("codec_if.v", 32, 115); // be
+// Elapsed time: 18 seconds
+selectCodeEditor("codec_if.v", 84, 121); // be
+selectCodeEditor("codec_if.v", 86, 135); // be
+// Elapsed time: 56 seconds
+selectCodeEditor("codec_if.v", 222, 176); // be
+selectCodeEditor("codec_if.v", 305, 194); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 86, 260); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("codec_if.v", 232, 76); // be
+selectCodeEditor("codec_if.v", 217, 59); // be
+selectCodeEditor("codec_if.v", 229, 82); // be
+selectCodeEditor("codec_if.v", 46, 59); // be
+// Elapsed time: 106 seconds
+selectCodeEditor("codec_if.v", 60, 215); // be
+selectCodeEditor("codec_if.v", 90, 294); // be
+selectCodeEditor("codec_if.v", 89, 314); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 100, 304); // be
+selectCodeEditor("codec_if.v", 99, 314); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// WARNING: HEventQueue.dispatchEvent() is taking  1762 ms.
+selectCodeEditor("codec_if.v", 302, 329); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 279, 285); // be
+// Elapsed time: 15 seconds
+selectCodeEditor("codec_if.v", 172, 296); // be
+// Elapsed time: 28 seconds
+selectCodeEditor("codec_if.v", 324, 334); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 91 seconds
+selectCodeEditor("codec_if.v", 268, 268); // be
+// Elapsed time: 20 seconds
+selectCodeEditor("codec_if.v", 95, 281); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 3, 301); // be
+// Elapsed time: 40 seconds
+selectCodeEditor("codec_if.v", 155, 306); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+typeControlKey(null, null, 'z');
+selectCodeEditor("codec_if.v", 73, 317); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 683, 318); // be
+// Elapsed time: 32 seconds
+selectCodeEditor("codec_if.v", 130, 374); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+typeControlKey(null, null, 'z');
+selectCodeEditor("codec_if.v", 78, 366); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// Elapsed time: 28 seconds
+selectCodeEditor("codec_if.v", 91, 396); // be
+selectCodeEditor("codec_if.v", 65, 396); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// Elapsed time: 11 seconds
+selectCodeEditor("codec_if.v", 280, 429); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 448, 451); // be
+selectCodeEditor("codec_if.v", 20, 404); // be
+selectCodeEditor("codec_if.v", 293, 380); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 37, 402); // be
+selectCodeEditor("codec_if.v", 364, 401); // be
+selectCodeEditor("codec_if.v", 251, 381); // be
+selectCodeEditor("codec_if.v", 286, 396); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 573, 367); // be
+selectCodeEditor("codec_if.v", 274, 377); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 261, 383); // be
+selectCodeEditor("codec_if.v", 213, 357); // be
+// Elapsed time: 11 seconds
+selectCodeEditor("codec_if.v", 156, 74); // be
+selectCodeEditor("codec_if.v", 273, 87); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 239, 112); // be
+selectCodeEditor("codec_if.v", 288, 120); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 239, 169); // be
+selectCodeEditor("codec_if.v", 95, 108); // be
+selectCodeEditor("codec_if.v", 102, 68); // be
+selectCodeEditor("codec_if.v", 225, 180); // be
+selectCodeEditor("codec_if.v", 58, 175); // be
+selectCodeEditor("codec_if.v", 272, 198); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 33, 177); // be
+selectCodeEditor("codec_if.v", 279, 280); // be
+selectCodeEditor("codec_if.v", 320, 297); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 280, 294); // be
+selectCodeEditor("codec_if.v", 179, 314); // be
+selectCodeEditor("codec_if.v", 273, 337); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 22, 354); // be
+selectCodeEditor("codec_if.v", 340, 373); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 129, 382); // be
+selectCodeEditor("codec_if.v", 266, 395); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 155, 383); // be
+selectCodeEditor("codec_if.v", 45, 351); // be
+selectCodeEditor("codec_if.v", 61, 316); // be
+selectCodeEditor("codec_if.v", 97, 283); // be
+selectCodeEditor("codec_if.v", 86, 281); // be
+selectCodeEditor("codec_if.v", 62, 281); // be
+selectCodeEditor("codec_if.v", 215, 347); // be
+selectCodeEditor("codec_if.v", 312, 367); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 255, 366); // be
+selectCodeEditor("codec_if.v", 217, 384); // be
+selectCodeEditor("codec_if.v", 293, 393); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 223, 380); // be
+selectCodeEditor("codec_if.v", 35, 348); // be
+selectCodeEditor("codec_if.v", 21, 296); // be
+selectCodeEditor("codec_if.v", 279, 314); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 749, 333); // be
+selectCodeEditor("codec_if.v", 261, 345); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 188, 353); // be
+selectCodeEditor("codec_if.v", 221, 330); // be
+selectCodeEditor("codec_if.v", 69, 330); // be
+selectCodeEditor("codec_if.v", 58, 361); // be
+// Elapsed time: 34 seconds
+selectCodeEditor("codec_if.v", 228, 384); // be
+// Elapsed time: 104 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// Elapsed time: 85 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, coeff_rom (coeff_rom.v)]", 3, false); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), uut : codec_if (codec_if.v)]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v), uut : codec_if (codec_if.v)]", 2, false, false, false, false, false, true); // D - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 56 MB. Current time: 5/9/22, 1:50:45 PM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 57 MB. Current time: 5/9/22, 2:20:46 PM CEST
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 56 MB. Current time: 5/9/22, 2:50:46 PM CEST
+// Elapsed time: 4078 seconds
+selectCodeEditor("codec_if.v", 630, 328); // be
+// Elapsed time: 1275 seconds
+selectButton(PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String) null); // D
+// Run Command: PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV
+selectCodeEditor("codec_if.v", 185, 262); // be
+// Elapsed time: 43 seconds
+selectCodeEditor("codec_if.v", 102, 268); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 34 seconds
+selectCodeEditor("codec_if.v", 105, 298); // be
+selectCodeEditor("codec_if.v", 105, 298, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 183, 312); // be
+// Elapsed time: 43 seconds
+selectCodeEditor("codec_if.v", 368, 397); // be
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 154, 423); // be
+selectCodeEditor("codec_if.v", 144, 418); // be
+selectCodeEditor("codec_if.v", 140, 419); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 141, 434); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 141, 448); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 176, 434); // be
+selectCodeEditor("codec_if.v", 176, 434, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 220, 425); // be
+selectCodeEditor("codec_if.v", 220, 425, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 224, 419); // be
+selectCodeEditor("codec_if.v", 224, 419, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 228, 416); // be
+selectCodeEditor("codec_if.v", 228, 416, false, false, false, false, true); // be - Double Click
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 218, 456); // be
+selectCodeEditor("codec_if.v", 218, 456, false, false, false, false, true); // be - Double Click
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 356, 446); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 184, 163); // be
+selectCodeEditor("codec_if.v", 261, 292); // be
+selectCodeEditor("codec_if.v", 237, 329); // be
+// Elapsed time: 54 seconds
+selectCodeEditor("codec_if.v", 243, 332); // be
+selectCodeEditor("codec_if.v", 249, 333); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("codec_if.v", 374, 331); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 26 seconds
+selectCodeEditor("codec_if.v", 85, 295); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 193 seconds
+selectCodeEditor("codec_if.v", 180, 351); // be
+// Elapsed time: 50 seconds
+selectCodeEditor("codec_if.v", 146, 152); // be
+selectCodeEditor("codec_if.v", 137, 165); // be
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 56 MB. Current time: 5/9/22, 3:20:46 PM CEST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 144 seconds
+selectCodeEditor("codec_if.v", 411, 302); // be
+selectCodeEditor("codec_if.v", 454, 295); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 346, 336); // be
+// Elapsed time: 15 seconds
+selectCodeEditor("codec_if.v", 456, 334); // be
+selectCodeEditor("codec_if.v", 462, 328); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 315, 315); // be
+selectCodeEditor("codec_if.v", 526, 294); // be
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 297, 321); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 398, 316); // be
+selectCodeEditor("codec_if.v", 398, 316, false, false, false, false, true); // be - Double Click
+selectCodeEditor("codec_if.v", 511, 312); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("codec_if.v", 479, 323); // be
+selectCodeEditor("codec_if.v", 512, 314); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 384, 325); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 423, 363); // be
+// Elapsed time: 20 seconds
+selectCodeEditor("codec_if.v", 402, 365); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 68 seconds
+selectCodeEditor("codec_if.v", 359, 385); // be
+selectCodeEditor("codec_if.v", 385, 396); // be
+// Elapsed time: 44 seconds
+selectCodeEditor("codec_if.v", 512, 128); // be
+selectCodeEditor("codec_if.v", 306, 253); // be
+selectCodeEditor("codec_if.v", 308, 265); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 507, 264); // be
+selectCodeEditor("codec_if.v", 312, 282); // be
+selectCodeEditor("codec_if.v", 528, 265); // be
+selectCodeEditor("codec_if.v", 366, 285); // be
+selectCodeEditor("codec_if.v", 381, 211); // be
+selectCodeEditor("codec_if.v", 316, 376); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 145, 401); // be
+selectCodeEditor("codec_if.v", 185, 396); // be
+selectCodeEditor("codec_if.v", 286, 379); // be
+// Elapsed time: 16 seconds
+selectCodeEditor("codec_if.v", 30, 279); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 23 seconds
+selectCodeEditor("codec_if.v", 180, 316); // be
+selectCodeEditor("codec_if.v", 226, 58); // be
+selectCodeEditor("codec_if.v", 166, 264); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 249, 280); // be
+selectCodeEditor("codec_if.v", 301, 290); // be
+selectCodeEditor("codec_if.v", 277, 203); // be
+// Elapsed time: 67 seconds
+selectCodeEditor("codec_if.v", 282, 166); // be
+selectCodeEditor("codec_if.v", 287, 180); // be
+// Elapsed time: 43 seconds
+selectCodeEditor("codec_if.v", 277, 206); // be
+selectCodeEditor("codec_if.v", 302, 198); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 466, 177); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 20 seconds
+selectCodeEditor("codec_if.v", 320, 199); // be
+selectCodeEditor("codec_if.v", 181, 221); // be
+selectCodeEditor("codec_if.v", 201, 212); // be
+// Elapsed time: 11 seconds
+selectCodeEditor("codec_if.v", 186, 228); // be
+selectCodeEditor("codec_if.v", 351, 210); // be
+// Elapsed time: 10 seconds
+selectCodeEditor("codec_if.v", 62, 262); // be
+selectCodeEditor("codec_if.v", 92, 112); // be
+selectCodeEditor("codec_if.v", 124, 292); // be
+selectCodeEditor("codec_if.v", 120, 346); // be
+selectCodeEditor("codec_if.v", 33, 289); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 88, 278); // be
+selectCodeEditor("codec_if.v", 159, 269); // be
+selectCodeEditor("codec_if.v", 181, 284); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("codec_if.v", 191, 229); // be
+selectCodeEditor("codec_if.v", 210, 288); // be
+selectCodeEditor("codec_if.v", 236, 337); // be
+selectCodeEditor("codec_if.v", 65, 280); // be
+selectCodeEditor("codec_if.v", 91, 282); // be
+selectCodeEditor("codec_if.v", 269, 293); // be
+selectCodeEditor("codec_if.v", 251, 287); // be
+// Elapsed time: 75 seconds
+selectCodeEditor("codec_if.v", 201, 298); // be
+selectCodeEditor("codec_if.v", 10, 267); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 327, 243); // be
+selectCodeEditor("codec_if.v", 169, 300); // be
+selectCodeEditor("codec_if.v", 112, 313); // be
+selectCodeEditor("codec_if.v", 123, 293); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 64 seconds
+selectCodeEditor("codec_if.v", 110, 421); // be
+selectCodeEditor("codec_if.v", 129, 459); // be
+selectCodeEditor("codec_if.v", 139, 452); // be
+selectCodeEditor("codec_if.v", 139, 74); // be
+selectCodeEditor("codec_if.v", 129, 188); // be
+selectCodeEditor("codec_if.v", 67, 183); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// Elapsed time: 38 seconds
+selectCodeEditor("codec_if.v", 194, 181); // be
+selectCodeEditor("codec_if.v", 166, 174); // be
+selectCodeEditor("codec_if.v", 157, 159); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 49 seconds
+selectCodeEditor("codec_if.v", 201, 244); // be
+selectCodeEditor("codec_if.v", 233, 235); // be
+selectCodeEditor("codec_if.v", 218, 254); // be
+// Elapsed time: 639 seconds
+selectCodeEditor("codec_if.v", 50, 273); // be
+// Elapsed time: 10 seconds
+selectCodeEditor("codec_if.v", 490, 196); // be
+selectCodeEditor("codec_if.v", 99, 309); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 107, 298); // be
+selectCodeEditor("codec_if.v", 493, 277); // be
+selectCodeEditor("codec_if.v", 33, 267); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 247, 270); // be
+selectCodeEditor("codec_if.v", 207, 279); // be
+selectCodeEditor("codec_if.v", 410, 329); // be
+selectCodeEditor("codec_if.v", 4, 312); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 256, 346); // be
+selectCodeEditor("codec_if.v", 114, 160); // be
+selectCodeEditor("codec_if.v", 170, 213); // be
+selectCodeEditor("codec_if.v", 558, 212); // be
+selectCodeEditor("codec_if.v", 49, 195); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 346, 213); // be
+// Elapsed time: 118 seconds
+selectCodeEditor("codec_if.v", 45, 333); // be
+selectCodeEditor("codec_if.v", 44, 322); // be
+selectCodeEditor("codec_if.v", 41, 334); // be
+selectCodeEditor("codec_if.v", 41, 321); // be
+selectCodeEditor("codec_if.v", 37, 339); // be
+// Elapsed time: 17 seconds
+selectCodeEditor("codec_if.v", 89, 214); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 330, 196); // be
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 57 MB. Current time: 5/9/22, 3:50:47 PM CEST
+// Elapsed time: 57 seconds
+selectCodeEditor("codec_if.v", 126, 365); // be
+selectCodeEditor("codec_if.v", 133, 364); // be
+selectCodeEditor("codec_if.v", 245, 343); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 14 seconds
+selectCodeEditor("codec_if.v", 182, 222); // be
+// Elapsed time: 74 seconds
+selectCodeEditor("codec_if.v", 127, 114); // be
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 110, 112); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 163, 110); // be
+// Elapsed time: 24 seconds
+selectCodeEditor("codec_if.v", 32, 76); // be
+// WARNING: HEventQueue.dispatchEvent() is taking  1535 ms.
+// Elapsed time: 99 seconds
+selectCodeEditor("codec_if.v", 375, 127); // be
+// Elapsed time: 96 seconds
+selectCodeEditor("codec_if.v", 13, 161); // be
+// Elapsed time: 18 seconds
+selectCodeEditor("codec_if.v", 72, 268); // be
+// Elapsed time: 228 seconds
+selectCodeEditor("codec_if.v", 198, 413); // be
+selectCodeEditor("codec_if.v", 18, 362); // be
+selectCodeEditor("codec_if.v", 13, 373); // be
+selectCodeEditor("codec_if.v", 18, 391); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 219, 423); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 139, 334); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 224 seconds
+selectCodeEditor("codec_if.v", 442, 230); // be
+selectCodeEditor("codec_if.v", 405, 241); // be
+// Elapsed time: 24 seconds
+selectCodeEditor("codec_if.v", 233, 486); // be
+selectCodeEditor("codec_if.v", 59, 129); // be
+selectCodeEditor("codec_if.v", 55, 151); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 35, 134); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 114 seconds
+selectCodeEditor("codec_if.v", 29, 149); // be
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 63, 195); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 146, 279); // be
+selectCodeEditor("codec_if.v", 151, 196); // be
+selectCodeEditor("codec_if.v", 361, 196); // be
+selectCodeEditor("codec_if.v", 405, 194); // be
+// Elapsed time: 22 seconds
+selectCodeEditor("codec_if.v", 504, 107); // be
+selectCodeEditor("codec_if.v", 93, 138); // be
+selectCodeEditor("codec_if.v", 88, 233); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 40, 231); // be
+selectCodeEditor("codec_if.v", 489, 261); // be
+selectCodeEditor("codec_if.v", 43, 251); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 419, 249); // be
+selectCodeEditor("codec_if.v", 355, 266); // be
+selectCodeEditor("codec_if.v", 201, 283); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 52 seconds
+selectCodeEditor("codec_if.v", 197, 160); // be
+selectCodeEditor("codec_if.v", 380, 121); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 189, 142); // be
+selectCodeEditor("codec_if.v", 277, 149); // be
+selectCodeEditor("codec_if.v", 181, 133); // be
+selectCodeEditor("codec_if.v", 174, 143); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("codec_if.v", 169, 225); // be
+// Elapsed time: 203 seconds
+selectCodeEditor("codec_if.v", 68, 194); // be
+// Elapsed time: 259 seconds
+selectCodeEditor("codec_if.v", 504, 42); // be
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 114, 436); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 83, 449); // be
+// Elapsed time: 23 seconds
+selectCodeEditor("codec_if.v", 200, 447); // be
+selectCodeEditor("codec_if.v", 200, 447, false, false, false, false, true); // be - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("codec_if.v", 501, 36); // be
+selectCodeEditor("codec_if.v", 515, 43); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 365, 455); // be
+selectCodeEditor("codec_if.v", 365, 455, false, false, false, false, true); // be - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 36 seconds
+selectCodeEditor("codec_if.v", 39, 283); // be
+selectCodeEditor("codec_if.v", 90, 238); // be
+// Elapsed time: 22 seconds
+selectCodeEditor("codec_if.v", 105, 161); // be
+typeControlKey((HResource) null, "codec_if.v", 'c'); // be
+selectCodeEditor("codec_if.v", 112, 312); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 292, 318); // be
+selectCodeEditor("codec_if.v", 495, 315); // be
+selectCodeEditor("codec_if.v", 114, 414); // be
+selectCodeEditor("codec_if.v", 269, 466); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("codec_if.v", 214, 468); // be
+selectCodeEditor("codec_if.v", 40, 146); // be
+typeControlKey((HResource) null, "codec_if.v", 'v'); // be
+selectCodeEditor("codec_if.v", 32, 233); // be
+// HMemoryUtils.trashcanNow. Engine heap size: 1,250 MB. GUI used memory: 56 MB. Current time: 5/9/22, 4:20:47 PM CEST
+// Elapsed time: 235 seconds
+selectCodeEditor("codec_if.v", 125, 267); // be
+// Elapsed time: 91 seconds
+selectCodeEditor("codec_if.v", 77, 412); // be
+selectCodeEditor("codec_if.v", 36, 345); // be
+selectCodeEditor("codec_if.v", 45, 486); // be
+selectCodeEditor("codec_if.v", 76, 443); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 86 seconds
+selectCodeEditor("codec_if.v", 258, 387); // be
+selectCodeEditor("codec_if.v", 105, 333); // be
+selectCodeEditor("codec_if.v", 405, 296); // be
+selectCodeEditor("codec_if.v", 59, 257); // be
+selectCodeEditor("codec_if.v", 50, 229); // be
+selectCodeEditor("codec_if.v", 70, 279); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("codec_if.v", 76, 324); // be
+selectCodeEditor("codec_if.v", 99, 440); // be
+selectCodeEditor("codec_if.v", 63, 357); // be
+selectCodeEditor("codec_if.v", 113, 145); // be
+selectCodeEditor("codec_if.v", 56, 146); // be
+selectCodeEditor("codec_if.v", 57, 78); // be
+selectCodeEditor("codec_if.v", 96, 125); // be
+selectCodeEditor("codec_if.v", 129, 282); // be
+selectCodeEditor("codec_if.v", 91, 180); // be
+selectCodeEditor("codec_if.v", 127, 243); // be
+selectCodeEditor("codec_if.v", 115, 244); // be
+selectCodeEditor("codec_if.v", 96, 232); // be
+selectCodeEditor("codec_if.v", 195, 223); // be
+selectCodeEditor("codec_if.v", 212, 209); // be
+// Elapsed time: 32 seconds
+selectCodeEditor("codec_if.v", 99, 280); // be
+selectCodeEditor("codec_if.v", 136, 323); // be
+selectCodeEditor("codec_if.v", 130, 309); // be
+selectCodeEditor("codec_if.v", 279, 300); // be
+selectCodeEditor("codec_if.v", 111, 319); // be
+selectCodeEditor("codec_if.v", 323, 293); // be
+selectCodeEditor("codec_if.v", 187, 274); // be
+selectCodeEditor("codec_if.v", 196, 270); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
