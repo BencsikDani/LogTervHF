@@ -20,13 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module coeff_rom(input clk, input we, input en,
-    input [10:0] addr, input [17:0] din,
-    output [17:0] dout);
+module coeff_rom(
+    input           clk,
+    input           we,
+    input           en,
+    input   [10:0]  addr,
+    input   [17:0]  din,
+    output  [17:0]  dout
+    );
+
 (* ram_style = "block" *) reg [17:0] memory[2047:0];
 
 initial $readmemh("INSERT.txt", memory);
 //Need to be INSERTED!!
+
 reg [17:0] dout_reg;
 always @ (posedge clk)
 if (en)
@@ -37,4 +44,3 @@ assign dout = dout_reg;
 //dbg_array??
 
 endmodule
-

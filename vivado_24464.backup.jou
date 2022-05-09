@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun May  8 19:57:56 2022
+# Process ID: 24464
+# Current directory: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4448 C:\Users\Marcell\Desktop\BME\MSc\LogTerv\LogTervHF\LogTervHF.xpr
+# Log file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/vivado.log
+# Journal file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF\vivado.jou
+# Running On: Cibbersson, OS: Windows, CPU Frequency: 3693 MHz, CPU Physical cores: 12, Host memory: 17102 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
+close [ open C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v w ]
+add_files C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close [ open C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/circ_buf.v w ]
+add_files C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/circ_buf.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
