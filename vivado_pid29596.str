@@ -670,3 +670,36 @@ selectCodeEditor("codec_if.v", 45, 486); // be
 selectCodeEditor("codec_if.v", 76, 443); // be
 // TclEventType: DG_GRAPH_STALE
 // TclEventType: FILE_SET_CHANGE
+// Elapsed time: 86 seconds
+selectCodeEditor("codec_if.v", 258, 387); // be
+selectCodeEditor("codec_if.v", 105, 333); // be
+selectCodeEditor("codec_if.v", 405, 296); // be
+selectCodeEditor("codec_if.v", 59, 257); // be
+selectCodeEditor("codec_if.v", 50, 229); // be
+selectCodeEditor("codec_if.v", 70, 279); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("codec_if.v", 76, 324); // be
+selectCodeEditor("codec_if.v", 99, 440); // be
+selectCodeEditor("codec_if.v", 63, 357); // be
+selectCodeEditor("codec_if.v", 113, 145); // be
+selectCodeEditor("codec_if.v", 56, 146); // be
+selectCodeEditor("codec_if.v", 57, 78); // be
+selectCodeEditor("codec_if.v", 96, 125); // be
+selectCodeEditor("codec_if.v", 129, 282); // be
+selectCodeEditor("codec_if.v", 91, 180); // be
+selectCodeEditor("codec_if.v", 127, 243); // be
+selectCodeEditor("codec_if.v", 115, 244); // be
+selectCodeEditor("codec_if.v", 96, 232); // be
+selectCodeEditor("codec_if.v", 195, 223); // be
+selectCodeEditor("codec_if.v", 212, 209); // be
+// Elapsed time: 32 seconds
+selectCodeEditor("codec_if.v", 99, 280); // be
+selectCodeEditor("codec_if.v", 136, 323); // be
+selectCodeEditor("codec_if.v", 130, 309); // be
+selectCodeEditor("codec_if.v", 279, 300); // be
+selectCodeEditor("codec_if.v", 111, 319); // be
+selectCodeEditor("codec_if.v", 323, 293); // be
+selectCodeEditor("codec_if.v", 187, 274); // be
+selectCodeEditor("codec_if.v", 196, 270); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
