@@ -47,11 +47,29 @@ module top_level(
 assign vol_clk = bt3;
 assign vol_ud  = sw0;
 
+reg [20:0] frame_start_cntr;
+reg frame_start_reg;
+wire frame_start;
+
+always @ (posedge clk)
+if (rst | frame_start_cntr == 21'd1666666)
+    frame_start_cntr <= 0;
+else frame_start_cntr <= frame_start_cntr + 1;
+    
+always @ (posedge clk)
+if  (frame_start_cntr == 0)
+    frame_start_reg <= 1;
+else
+    frame_start_reg <= 0;
+
+assign frame_start = frame_start_reg;
 
 wire [ 1:0] aud_dout_vld;
 wire [23:0] aud_dout;
 reg  [23:0] aud_din0;
 reg  [23:0] aud_din1;
+
+
 codec_if uut
 (
    .clk           (clk),
@@ -76,30 +94,6 @@ codec_if uut
    .aud_din_ack   (),
    .aud_din0      (aud_din0),
    .aud_din1      (aud_din1)
-);
-
-reg sam_cntr[9:0];
-
-always @ (posedge clk)
-begin
-if (aud_dout_vld[0]==1)
-   aud_din0 <= aud_dout;
-sam_cntr = sam_cntr + 1;
-end
-
-circ_buf samples
-(
-.clk_a	(clk),
-.we_a	(aud_dout_vld[0]),
-.addr_a	(sam_cntr),
-.din_a	(),
-.dout_a	(),
-
-.clk_b	(clk),
-.we_b	(1'b0),
-.addr_b	(),
-.din_b	(),
-.dout_b	()
 );
     
 endmodule

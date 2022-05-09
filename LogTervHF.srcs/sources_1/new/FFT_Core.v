@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: BME
+// Company: 
 // Engineer: 
 // 
-// Create Date: 08.05.2022 21:11:25
+// Create Date: 09.05.2022 21:15:03
 // Design Name: 
-// Module Name: coeff_rom
+// Module Name: FFT_Core
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,21 +20,23 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module coeff_rom(
-    input           clk,
-    input   [10:0]  addr,
-    output  [17:0]  dout
+module FFT_Core(
+    input clk,
+    input rst,
+    input frame_start,
+    input [23:0] cb_dout,
+    output [9:0] cb_addr_out,
+    
+
     );
+    
+reg [9:0]cb_addr_cntr;
 
-(* ram_style = "block" *) reg [17:0] memory[2047:0];
-initial $readmemh("coeff_half.txt", memory);
-
-reg [17:0] dout_reg;
 always @ (posedge clk)
-    dout_reg <= memory[addr];
+if (rst | frame_start)
+    cb_addr_cntr <= 0;
+else if(cb_addr_cntr != 10'b1111111111)
+    cb_addr_cntr = cb_addr_cntr + 1;
 
-assign dout = dout_reg;
-
-//dbg_array??
-
+assign cb_addr_out = cb_addr_cntr;
 endmodule

@@ -3,6 +3,28 @@
 // Company: 
 // Engineer: 
 // 
+// Create Date: 09.05.2022 21:32:32
+// Design Name: 
+// Module Name: smpl_ram
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
 // Create Date: 08.05.2022 22:45:56
 // Design Name: 
 // Module Name: circ_buf
@@ -20,7 +42,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module circ_buf #(
+module smpl_ram #(
    parameter DATA_W = 24,
    parameter ADDR_W = 10
 )(
