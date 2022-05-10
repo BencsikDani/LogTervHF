@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 09.05.2022 21:15:03
+// Create Date: 10.05.2022 09:28:19
 // Design Name: 
-// Module Name: FFT_Core
+// Module Name: fft_to_dB
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,27 +20,34 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module FFT_Core(
+module fft_to_dB(
     input clk,
     input rst,
-    input frame_start,
-    input [23:0] cb_dout,
-    output [9:0] cb_addr_out,
-    
-    output fft_rdy,
-    output fft_dout_re,
-    output fft_dout_im,
-    input fft_addr_in_re,
-    input fft_addr_in_im
+    input [23:0] dre,
+    input [23:0] dim,
+    output [23:0] dout
     );
+
+reg [47:0] powre;
+reg [47:0] powim;
+reg [48:0] sum;
     
-reg [9:0]cb_addr_cntr;
+mul_24x24 re(
+    .clk(clk),
+    .a(dre),
+    .b(dre),
+    .m(powre)
+);
+    
+mul_24x24 im(
+    .clk(clk),
+    .a(dim),
+    .b(dim),
+    .m(powim)
+);
 
 always @ (posedge clk)
-if (rst | frame_start)
-    cb_addr_cntr <= 0;
-else if(cb_addr_cntr != 10'b1111111111)
-    cb_addr_cntr = cb_addr_cntr + 1;
+sum <= powre + powim;
 
-assign cb_addr_out = cb_addr_cntr;
+
 endmodule

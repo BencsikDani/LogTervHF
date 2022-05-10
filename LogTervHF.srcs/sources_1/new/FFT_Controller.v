@@ -29,7 +29,7 @@ module FFT_Controller(
     input [23:0] aud_dout,
     
     
-    output fft_vld,
+    output frm_dout_vld
     
     );
     
@@ -56,5 +56,44 @@ smpl_ram circ_buff (
     .din_b(),
     .dout_b(cb_dout)
 );
+
+reg fft_rdy_reg;
+
+FFT_Core calc (
+    .clk(clk),
+    .rst(rst),
+    .frame_start(frame_start),
+    .cb_dout(cb_dout),
+    .cb_addr_out(cb_addr_out),
+    .fft_rdy(fft_rdy_reg),
+    .fft_dout_re(),
+    .fft_dout_im(),
+    .fft_addr_in_re(),
+    .fft_addr_in_im()
+);
+
+reg state_logic;
+reg frame_dout_rdy;
+
+always @ (posedge clk)
+if (rst)
+    state_logic <= 1'b0;
+else if (frame_start)
+    state_logic <= 1'b1;
+    
+always @ (posedge clk)
+if (state_logic & fft_rdy_reg)
+    state_logic <= 1'b0;
+
+always @ (posedge clk)
+if(!state_logic)
+begin
+frame_dout_rdy <= 1'b0;
+
+
+
+end
+
+assign frm_dout_vld = frame_dout_rdy;
 
 endmodule
