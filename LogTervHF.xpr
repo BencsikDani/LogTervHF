@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr">
+<Project Version="7" Minor="56" Path="C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="894f855411d844c497c26f0aa32452b2"/>
@@ -138,6 +138,16 @@
       <File Path="$PSRCDIR/sources_1/new/smpl_ram.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/FIR/dsp_25x18.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/dsp_25x18.v"/>
+          <Attr Name="ImportTime" Val="1554279506"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
