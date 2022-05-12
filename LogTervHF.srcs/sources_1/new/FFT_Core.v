@@ -5,6 +5,7 @@ module FFT_Core(
     input           rst,            // Reset
     
     input           frame_start,    // 1 órajel hosszú impulzus, amikor kezdõdik egy frame
+    output          fft_done,
     
     input   [23:0]  cb_dout,        // A cirkuláris buffer adat kimenete
     output  [9:0]   cb_addr_out,    // Címkimenet a cirkuláris buffer olvasásához
@@ -18,16 +19,40 @@ module FFT_Core(
 
 // Mûködés állapotát jelzõ változók:
 
-
 // Annak a jelzése, hogy éppen olvassuk be a mintákat a cirkuláris bufferbõl
 reg loading_samples;
+// Annak jelzése, hogy a cirkukláris bufferbõl sikeresen betöltöttük a mintákat.
+reg loading_done;
+// Az FFT futásának állapotát jelzõ regiszter
+reg fft_in_progress;
+// Annak a jelzése, hogy éppen új stage-be léptünk az FFT-n belül
+reg new_stage;
+// Számontartjuk, hogy melyik stage-et számítjuk éppen (1-10)
+reg [3:0] stage_cntr;
+// Az adott stage-ben hány group van (512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
+reg [9:0] groups;
+// Számláló az adott stage-ben a group-okon való végigiteráláshoz
+reg [9:0] g;
+// Az adott stage-ben hány elemet tartalmaz 1 db group (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024)
+reg [10:0] element_per_group;
+// Az adott stage-ben hány elem van egy group egyik felében (1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
+reg [9:0] half;
+// Számláló az adott group-on belül a "half" végigiterálásához
+reg [9:0] h;
+// Jelzés a Butterfly modulnak, hogy a bemenetei készen állnak, tehát megkezdheti a mûveleteket.
+reg begin_butterfly;
+// A Butterfly modul ezzel jelez, ha kész van.
+reg butterfly_done;
+// Annak a jelzése, hogy kész a teljes FFT
+reg fft_done_reg;
 
-// frame_start impulzusra bemásolom a cirkuláris buffer tartalmát az 1-es RAMba
+
+
+// frame_start impulzusra bemásoljuk a cirkuláris buffer tartalmát az 1-es RAMba
 // Ehhez szükséges címszámláló
-reg [9:0]cb_addr_cntr;
+reg [9:0] cb_addr_cntr;
 // A megfelelõ sorrendû mintabetöltéshez a címszámláló ellentétes bitsorrendû változata
 wire [9:0] cb_addr_reverse;
-
 // frame_start esetén elkezdjük iterálni a címeket
 // A számláló ne csorduljon túl
 always @ (posedge clk)
@@ -38,8 +63,8 @@ begin
 end
 else if (frame_start)
 begin
-    cb_addr_cntr <= 0;
     loading_samples <= 1;
+    cb_addr_cntr <= 0;
 end
 else if (cb_addr_cntr == 10'b1111111111)
     loading_samples <= 0;
@@ -50,42 +75,46 @@ assign cb_addr_out = cb_addr_cntr;
 assign cb_addr_reverse = cb_addr_cntr[0:9];
 
 
-// Annak jelzése, hogy a cirkukláris bufferbõl sikeresen betöltöttük a mintákat.
+
 // Ha már nem töltünk be mintákat és a cb_addr_cntr végig ért, akkor jelzünk.
 // Az jel csak egyetlen órajelperiódusig tart.
-reg loading_done;
 always @ (posedge clk)
-if (rst | loading_done)
+if (rst | frame_start | loading_done)
     loading_done <= 0;
 else if (loading_samples == 0 & cb_addr_cntr == 10'b1111111111)
     loading_done <= 1;
 
 
 
-// Az FFT futásának állapotát jelzõ regiszter
-reg fft_in_progress;
-// Annak a jelzése, hogy éppen új stage-be léptünk az FFT-n belül
-reg new_stage;
 // A loading_done impulzusra elkezdjük az FFT-t
 // Emellett kezeljük a new_stage változót is és meggyõzõdünk róla, hogy csak 1 órajelig tartson
 always @ (posedge clk)
-if (rst)
-begin
+if (rst | frame_start)
     fft_in_progress <= 0;
-    new_stage <= 0;
-end
 else if (loading_done)
-begin
     fft_in_progress <= 1;
-    new_stage <= 1;
-end
-else if (new_stage)
+else if (???? & (stage_cntr == 4'd10))
+    fft_in_progress <= 0;
+
+
+always @ (posedge clk)
+if (rst | frame_start)
+    fft_done_reg <= 0;
+else if (fft_in_progress == 0 & stage_cntr == 4'd10)
+    fft_done_reg <= 0;
+
+assign fft_done = fft_done_reg;
+
+
+
+
+always @ (posedge clk)
+if (rst | new_stage)
     new_stage <= 0;
-// TODO: Mikor szûnik meg az fft_in_progress?
+else if (loading_done)
+    new_stage <= 1;
+// A new_stage akkor is beállítódik, ha kész van egy butterfly utáni írás
 
-
-// Számontartjuk, hogy melyik stage-et számítjuk éppen (1-10)
-reg [3:0] stage_cntr;
 
 // Ha reset volt, vagy éppen nem FFT-zünk, akkor a stage_cntr értéke 0
 // Ha viszont megy az FFT és új stage-be érünk, akkor az értéke nõ egyel
@@ -93,47 +122,42 @@ always @ (posedge clk)
 if (rst | ~fft_in_progress)
     stage_cntr <= 0;
 else if (new_stage & fft_in_progress)
+begin
     stage_cntr <= stage_cntr + 1;
+    g <= 0;
+    h <= 0;
+end
 
 
 
-// Az adott stage-ben hány group van (512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
-reg [9:0] groups;
-// Az adott stage-ben hány elemet tartalmaz 1 db group (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024)
-reg [10:0] element_per_group;
-// Az adott stage-ben hány elem van egy group egyik felében (1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
-reg [9:0] half;
 
 // Stage-enként a segédváltozók inicializálása
 always @ (posedge clk)
-if (rst)
+if (rst | frame_start)
 begin
     groups <= 0;
+    g <= 0;
     element_per_group <= 0;
     half <= 0;
+    h <= 0;
 end
-else if (fft_in_progress)
+else if (fft_in_progress & new_stage)
 begin
     groups <= 10'd512 >> (stage_cntr-1);
     element_per_group <= 11'b1 << stage_cntr;
     half <= 10'b1 << (stage_cntr-1);
 end
 
+wire index_1 = g * element_per_group + h;
+wire index_2 = g * element_per_group + h + half;
+wire w_10_power_1 = h * (1'b1 << (4'd10 - stage_cntr));
+wire w_10_power_2 = (h + half) * (1'b1 << (4'd10 - stage_cntr));
 
 
 
 
 
 
-
-
-
-
-// Annak a jelzése, hogy kész az FFT
-reg fft_done_reg;
-always @ (posedge clk)
-if (rst)
-    fft_done_reg <= 0;
 
 
 
@@ -171,8 +195,8 @@ wire [9:0] ram_1_real_addr_b;
 wire [9:0] ram_1_imag_addr_b;
 wire [9:0] ram_2_real_addr_a;
 wire [9:0] ram_2_imag_addr_a;
-wire [9:0] ram_2_real_addr_b;
-wire [9:0] ram_2_imag_addr_b;
+//wire [9:0] ram_2_real_addr_b;
+//wire [9:0] ram_2_imag_addr_b;
 wire [9:0] ram_3_real_addr_a;
 wire [9:0] ram_3_imag_addr_a;
 //wire [9:0] ram_3_real_addr_b;
@@ -216,7 +240,7 @@ assign we_b_i = {(mem_dest == 2'b10), (mem_dest == 2'b10), 1'b0, 1'b0, 1'b0, 1'b
 wire [59:0] addr_a_i;
 wire [59:0] addr_b_i;
 assign addr_a_i = {cb_addr_reverse, cb_addr_reverse, ram_2_real_addr_a, ram_2_imag_addr_a, ram_3_real_addr_a, ram_3_imag_addr_a};
-assign addr_b_i =  {ram_1_real_addr_b, ram_1_imag_addr_b, ram_2_real_addr_b, ram_2_imag_addr_b, fft_real_addr, fft_imag_addr};
+assign addr_b_i =  {ram_1_real_addr_b, ram_1_imag_addr_b, 24'b0, 24'b0, fft_real_addr, fft_imag_addr};
 // Adatbemenetek a ROM-okhoz
 wire [143:0] din_a_i;
 wire [143:0] din_b_i;
@@ -277,8 +301,7 @@ coeff_rom coeff_rom_imag(
 
 // Buffer regiszterek a be- és kimeneti adatok összegyûjtéséhez
 
-reg begin_butterfly;
-reg butterfly_done;
+
 reg [23:0] x1_real_buff;
 reg [23:0] x1_imag_buff;
 reg [23:0] x2_real_buff;
@@ -371,6 +394,7 @@ begin
     endcase
 end
 
+// ToDo: Kell ide mux?? 
 reg w1_real_reg;
 always @ (rom_real_dout or mem_dest)
 begin
@@ -417,7 +441,7 @@ end
 // 11: 
 reg [1:0] read_cntr;
 always @ (posedge clk)
-if (rst)
+if (rst | frame_start)
 begin
     read_cntr <= 0;
     begin_butterfly <= 0;
@@ -483,7 +507,7 @@ assign ram_3_imag_din_a = (mem_dest == 2'b11) ? y2_imag_reg : 24'b0;
 // 11: 
 reg [1:0] write_cntr;
 always @ (posedge clk)
-if (rst)
+if (rst | frame_start)
     write_cntr <= 0;
 else if (butterfly_done)
     write_cntr <= write_cntr + 1;
@@ -505,13 +529,101 @@ end
 
 
 
+// A megfelelõ ütemekben a memóriák címeinek kiszámítása
 
+reg [9:0] ram_1_real_addr_b_reg;
+reg [9:0] ram_1_imag_addr_b_reg;
+reg [9:0] ram_2_real_addr_a_reg;
+reg [9:0] ram_2_imag_addr_a_reg;
+reg [9:0] ram_3_real_addr_a_reg;
+reg [9:0] ram_3_imag_addr_a_reg;
+reg [9:0] rom_real_addr_reg;
+reg [9:0] rom_imag_addr_reg;
+always @ (read_cntr or write_cntr)
+if (mem_dest == 2'b01)
+    if (read_cntr == 2'b01)
+    begin
+        ram_1_real_addr_b_reg <= index_1;
+        ram_1_imag_addr_b_reg <= index_1;
+        rom_real_addr_reg <= w_10_power_1;
+        rom_imag_addr_reg <= w_10_power_1;
+    end
+    else if (read_cntr == 2'b10)
+    begin
+        ram_1_real_addr_b_reg <= index_2;
+        ram_1_imag_addr_b_reg <= index_2;
+        rom_real_addr_reg <= w_10_power_2;
+        rom_imag_addr_reg <= w_10_power_2;
+    end
+    else if (write_cntr == 2'b01)
+    begin
+        ram_2_real_addr_a_reg <= index_1;
+        ram_2_imag_addr_a_reg <= index_1;
+    end
+    else if (write_cntr == 2'b10)
+    begin
+        ram_2_real_addr_a_reg <= index_2;
+        ram_2_imag_addr_a_reg <= index_2;
+    end
+else if (mem_dest == 2'b10)
+    if (read_cntr == 2'b01)
+    begin
+        ram_2_real_addr_a_reg <= index_1;
+        ram_2_imag_addr_a_reg <= index_1;
+        rom_real_addr_reg <= w_10_power_1;
+        rom_imag_addr_reg <= w_10_power_1;
+    end
+    else if (read_cntr == 2'b10)
+    begin
+        ram_2_real_addr_a_reg <= index_2;
+        ram_2_imag_addr_a_reg <= index_2;
+        rom_real_addr_reg <= w_10_power_2;
+        rom_imag_addr_reg <= w_10_power_2;
+    end
+    else if (write_cntr == 2'b01)
+    begin
+        ram_1_real_addr_b_reg <= index_1;
+        ram_1_imag_addr_b_reg <= index_1;
+    end
+    else if (write_cntr == 2'b10)
+    begin
+        ram_1_real_addr_b_reg <= index_2;
+        ram_1_imag_addr_b_reg <= index_2;
+    end
+else if (mem_dest == 2'b11)
+    if (read_cntr == 2'b01)
+    begin
+        ram_2_real_addr_a_reg <= index_1;
+        ram_2_imag_addr_a_reg <= index_1;
+        rom_real_addr_reg <= w_10_power_1;
+        rom_imag_addr_reg <= w_10_power_1;
+    end
+    else if (read_cntr == 2'b10)
+    begin
+        ram_2_real_addr_a_reg <= index_2;
+        ram_2_imag_addr_a_reg <= index_2;
+        rom_real_addr_reg <= w_10_power_2;
+        rom_imag_addr_reg <= w_10_power_2;
+    end
+    else if (write_cntr == 2'b01)
+    begin
+        ram_3_real_addr_a_reg <= index_1;
+        ram_3_imag_addr_a_reg <= index_1;
+    end
+    else if (write_cntr == 2'b10)
+    begin
+        ram_3_real_addr_a_reg <= index_2;
+        ram_3_imag_addr_a_reg <= index_2;
+    end
 
-
-
-
-
-
+assign ram_1_real_addr_b = ram_1_real_addr_b_reg;
+assign ram_1_imag_addr_b = ram_1_imag_addr_b_reg;
+assign ram_2_real_addr_a = ram_2_real_addr_a_reg;
+assign ram_2_imag_addr_a = ram_2_imag_addr_a_reg;
+assign ram_3_real_addr_a = ram_3_real_addr_a_reg;
+assign ram_3_imag_addr_a = ram_3_imag_addr_a_reg;
+assign rom_real_addr = rom_real_addr_reg;
+assign rom_imag_addr = rom_imag_addr_reg;
 
 
 endmodule
