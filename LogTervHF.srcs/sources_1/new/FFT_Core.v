@@ -501,10 +501,10 @@ end
 // A megfelelõ ütemekben a memóriák címeinek kiküldése
 
 // A címek kiszámítása:
-wire index_1 = g * element_per_group + h;
-wire index_2 = g * element_per_group + h + half;
-wire w_10_power_1 = h * (1'b1 << (4'd10 - stage_cntr));
-wire w_10_power_2 = (h + half) * (1'b1 << (4'd10 - stage_cntr));
+wire [20:0] index_1 = g * element_per_group + h;
+wire [20:0] index_2 = g * element_per_group + h + half;
+wire [20:0] w_10_power_1 = h * (1'b1 << (4'd10 - stage_cntr));
+wire [20:0] w_10_power_2 = (h + half) * (1'b1 << (4'd10 - stage_cntr));
 
 // Regiszterek létrehozása az adatvezetékekbe való íráshoz
 // Mivel ezeket nem élérzékeny always blokkban használom, így a valóságban nem jön létre hozzájuk fizikai regiszter.
@@ -522,77 +522,77 @@ always @ (mem_dest or read_cntr or write_cntr)
 if (mem_dest == 2'b01)
     if (read_cntr == 2'b01)
     begin
-        ram_1_real_addr_b_reg <= index_1;
-        ram_1_imag_addr_b_reg <= index_1;
-        rom_real_addr_reg <= w_10_power_1;
-        rom_imag_addr_reg <= w_10_power_1;
+        ram_1_real_addr_b_reg <= index_1[9:0];
+        ram_1_imag_addr_b_reg <= index_1[9:0];
+        rom_real_addr_reg <= w_10_power_1[9:0];
+        rom_imag_addr_reg <= w_10_power_1[9:0];
     end
     else if (read_cntr == 2'b10)
     begin
-        ram_1_real_addr_b_reg <= index_2;
-        ram_1_imag_addr_b_reg <= index_2;
-        rom_real_addr_reg <= w_10_power_2;
-        rom_imag_addr_reg <= w_10_power_2;
+        ram_1_real_addr_b_reg <= index_2[9:0];
+        ram_1_imag_addr_b_reg <= index_2[9:0];
+        rom_real_addr_reg <= w_10_power_2[9:0];
+        rom_imag_addr_reg <= w_10_power_2[9:0];
     end
     else if (write_cntr == 2'b01)
     begin
-        ram_2_real_addr_a_reg <= index_1;
-        ram_2_imag_addr_a_reg <= index_1;
+        ram_2_real_addr_a_reg <= index_1[9:0];
+        ram_2_imag_addr_a_reg <= index_1[9:0];
     end
     else if (write_cntr == 2'b10)
     begin
-        ram_2_real_addr_a_reg <= index_2;
-        ram_2_imag_addr_a_reg <= index_2;
+        ram_2_real_addr_a_reg <= index_2[9:0];
+        ram_2_imag_addr_a_reg <= index_2[9:0];
     end
 else if (mem_dest == 2'b10)
     if (read_cntr == 2'b01)
     begin
-        ram_2_real_addr_a_reg <= index_1;
-        ram_2_imag_addr_a_reg <= index_1;
-        rom_real_addr_reg <= w_10_power_1;
-        rom_imag_addr_reg <= w_10_power_1;
+        ram_2_real_addr_a_reg <= index_1[9:0];
+        ram_2_imag_addr_a_reg <= index_1[9:0];
+        rom_real_addr_reg <= w_10_power_1[9:0];
+        rom_imag_addr_reg <= w_10_power_1[9:0];
     end
     else if (read_cntr == 2'b10)
     begin
-        ram_2_real_addr_a_reg <= index_2;
-        ram_2_imag_addr_a_reg <= index_2;
-        rom_real_addr_reg <= w_10_power_2;
-        rom_imag_addr_reg <= w_10_power_2;
+        ram_2_real_addr_a_reg <= index_2[9:0];
+        ram_2_imag_addr_a_reg <= index_2[9:0];
+        rom_real_addr_reg <= w_10_power_2[9:0];
+        rom_imag_addr_reg <= w_10_power_2[9:0];
     end
     else if (write_cntr == 2'b01)
     begin
-        ram_1_real_addr_b_reg <= index_1;
-        ram_1_imag_addr_b_reg <= index_1;
+        ram_1_real_addr_b_reg <= index_1[9:0];
+        ram_1_imag_addr_b_reg <= index_1[9:0];
     end
     else if (write_cntr == 2'b10)
     begin
-        ram_1_real_addr_b_reg <= index_2;
-        ram_1_imag_addr_b_reg <= index_2;
+        ram_1_real_addr_b_reg <= index_2[9:0];
+        ram_1_imag_addr_b_reg <= index_2[9:0];
     end
 else if (mem_dest == 2'b11)
     if (read_cntr == 2'b01)
     begin
-        ram_2_real_addr_a_reg <= index_1;
-        ram_2_imag_addr_a_reg <= index_1;
-        rom_real_addr_reg <= w_10_power_1;
-        rom_imag_addr_reg <= w_10_power_1;
+        ram_2_real_addr_a_reg <= index_1[9:0];
+        ram_2_imag_addr_a_reg <= index_1[9:0];
+        rom_real_addr_reg <= w_10_power_1[9:0];
+        rom_imag_addr_reg <= w_10_power_1[9:0];
     end
     else if (read_cntr == 2'b10)
     begin
-        ram_2_real_addr_a_reg <= index_2;
-        ram_2_imag_addr_a_reg <= index_2;
-        rom_real_addr_reg <= w_10_power_2;
-        rom_imag_addr_reg <= w_10_power_2;
+        ram_2_real_addr_a_reg <= index_2[9:0];
+        ram_2_imag_addr_a_reg <= index_2[9:0];
+        rom_real_addr_reg <= w_10_power_2[9:0];
+        rom_imag_addr_reg <= w_10_power_2[9:0];
     end
     else if (write_cntr == 2'b01)
     begin
-        ram_3_real_addr_a_reg <= index_1;
-        ram_3_imag_addr_a_reg <= index_1;
+        ram_3_real_addr_a_reg <= index_1[9:0];
+        ram_3_imag_addr_a_reg <= index_1[9:0];
     end
     else if (write_cntr == 2'b10)
     begin
-        ram_3_real_addr_a_reg <= index_2;
-        ram_3_imag_addr_a_reg <= index_2;
+        ram_3_real_addr_a_reg <= index_2[9:0];
+        ram_3_imag_addr_a_reg <= index_2[9:0];
     end
 
 // A segédregiszterek konkrét vezetékekhez való társítása
