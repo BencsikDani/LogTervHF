@@ -68,8 +68,8 @@ FFT_Core calc (
     .fft_done(fft_rdy),
     .fft_dout_re(fft_dout_re),
     .fft_dout_im(fft_dout_im),
-    .fft_addr_in_re(),
-    .fft_addr_in_im()
+    .fft_addr_in_re(fft_addr_in),
+    .fft_addr_in_im(fft_addr_in)
 );
 
 
@@ -78,7 +78,9 @@ wire fft_rdy;
 
 wire fft_dout_re;
 wire fft_dout_im;
+wire fft_addr_in;
 wire dB;
+wire log2_done;
 
 fft_to_dB convert (
     .clk(clk),
@@ -86,11 +88,25 @@ fft_to_dB convert (
     .fft_rdy(fft_rdy),
     .dre(fft_dout_re),
     .dim(fft_dout_im),
-    .dout(dB)
+    .fft_addr_in(fft_addr_in),
+    .dout(dB),
+    .log2_done(log2_done)
 );
 
 reg state_logic;
 reg frame_dout_rdy;
+
+smpl_ram dB_values(
+    .clk_a(clk),
+    .we_a(log2_done),
+    .addr_a(fft_addr_in),
+    .din_a(dB),
+    
+    .clk_b(clk),
+    .we_b(frm_dout_vld),
+    .addr_b(frm_addr),
+    .dout_b(frm_dout)   
+);
 
 always @ (posedge clk)
 if (rst)
@@ -106,8 +122,6 @@ always @ (posedge clk)
 if(!state_logic)
 begin
 frame_dout_rdy <= 1'b0;
-
-
 
 end
 

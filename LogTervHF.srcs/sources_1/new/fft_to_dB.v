@@ -29,7 +29,8 @@ module fft_to_dB(
     input [23:0] dre,
     input [23:0] dim,
     output [9:0] fft_addr_in,
-    output [23:0] dout
+    output [23:0] dout,
+    output log2_done
     );
 
 reg [1:0] calc_dl;
@@ -101,5 +102,6 @@ if(log2_start)
 begin
     if(log2_done)
     smpl_cntr <= smpl_cntr + 1;
-end    
+end
+assign dout = dB;
 endmodule
