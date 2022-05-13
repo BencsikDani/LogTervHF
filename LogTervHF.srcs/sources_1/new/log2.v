@@ -31,23 +31,41 @@ module log2(
     output [9:0] mant_addr
     );
 reg [22:0] log_2;
-reg finished;
-
-always @ (posedge clk)
-if(log2_start)
-    
+reg finished_exp;   //finished finding exponent (Integer part)
+reg finished_man;   //finished finding mantissa (Fraction part)
+reg [5:0] digit_cntr;
+reg [48:0] digit_pos;
 
 always @ (posedge clk)
 if(log2_start)
 begin
-finished <= 1'b0;
+    finished_exp <= 1'b0;
+    finished_man <= 1'b0;
+    digit_cntr <= 6'b110000;
+    digit_pos <= 49'b1000000000000000000000000000000000000000000000000;
+end
+    
 
-for
-
-finished <= 1'b1;     
+always @ (posedge clk)
+if(~finished_exp)
+begin
+if (sum >= digit_pos)
+begin
+log2[22:17] <= digit_cntr;
+sum = sum - digit_pos;
+finished_exp <= 1'b1;
+end
+else digit_cntr <= digit_cntr - 1;     
 end
 
-assign log2_done = finished;    
+always @ (posedge clk)
+if(finished_exp)
+begin
+
+finished_man <= 1'b1;
+end
+
+assign log2_done = finished_man;    
 assign dB = {1'b0, log_2} + {log_2, 1'b0};
 
 endmodule

@@ -700,3 +700,386 @@ selectCodeEditor("FFT_Controller.v", 431, 412); // be
 // Elapsed time: 44 seconds
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 3); // m
 selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 2); // m
+// Elapsed time: 293 seconds
+selectCodeEditor("fft_to_dB.v", 1092, 410); // be
+// Elapsed time: 66 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 9); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 10); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 9); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 71 MB. Current time: 5/13/22, 11:34:43 AM CEST
+// Elapsed time: 1438 seconds
+selectCodeEditor("fft_to_dB.v", 80, 425); // be
+// Elapsed time: 10 seconds
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// Elapsed time: 69 seconds
+selectCodeEditor("fft_to_dB.v", 128, 471); // be
+// Elapsed time: 16 seconds
+selectCodeEditor("fft_to_dB.v", 208, 407); // be
+selectCodeEditor("fft_to_dB.v", 113, 453); // be
+selectCodeEditor("fft_to_dB.v", 318, 580); // be
+selectCodeEditor("fft_to_dB.v", 221, 407); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("fft_to_dB.v", 253, 582); // be
+selectCodeEditor("fft_to_dB.v", 151, 490); // be
+selectCodeEditor("fft_to_dB.v", 119, 470); // be
+selectCodeEditor("fft_to_dB.v", 240, 621); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 22 seconds
+selectCodeEditor("fft_to_dB.v", 203, 400); // be
+// Elapsed time: 19 seconds
+selectCodeEditor("fft_to_dB.v", 66, 640); // be
+selectCodeEditor("fft_to_dB.v", 412, 509); // be
+selectCodeEditor("fft_to_dB.v", 90, 650); // be
+selectCodeEditor("fft_to_dB.v", 25, 306); // be
+selectCodeEditor("fft_to_dB.v", 373, 535); // be
+// Elapsed time: 19 seconds
+selectCodeEditor("fft_to_dB.v", 56, 235); // be
+selectCodeEditor("fft_to_dB.v", 48, 640); // be
+selectCodeEditor("fft_to_dB.v", 427, 637); // be
+selectCodeEditor("fft_to_dB.v", 389, 273); // be
+selectCodeEditor("fft_to_dB.v", 277, 133); // be
+selectCodeEditor("fft_to_dB.v", 25, 221); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 323, 385); // be
+selectCodeEditor("fft_to_dB.v", 143, 226); // be
+selectCodeEditor("fft_to_dB.v", 362, 478); // be
+selectCodeEditor("fft_to_dB.v", 196, 217); // be
+selectCodeEditor("fft_to_dB.v", 1, 204); // be
+selectCodeEditor("fft_to_dB.v", 19, 644); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+selectCodeEditor("fft_to_dB.v", 239, 670); // be
+selectCodeEditor("fft_to_dB.v", 198, 694); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 509, 651); // be
+// Elapsed time: 22 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 1); // m
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 2); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 1); // m
+// Elapsed time: 21 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 2); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 1); // m
+// Elapsed time: 51 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 2); // m
+selectCodeEditor("fft_to_dB.v", 123, 590); // be
+selectCodeEditor("fft_to_dB.v", 142, 618); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 554 seconds
+selectCodeEditor("fft_to_dB.v", 8, 248); // be
+// Elapsed time: 28 seconds
+selectCodeEditor("fft_to_dB.v", 42, 267); // be
+selectCodeEditor("fft_to_dB.v", 247, 280); // be
+// Elapsed time: 11 seconds
+selectCodeEditor("fft_to_dB.v", 70, 575); // be
+selectCodeEditor("fft_to_dB.v", 34, 552); // be
+selectCodeEditor("fft_to_dB.v", 348, 664); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 13 seconds
+selectCodeEditor("fft_to_dB.v", 36, 534); // be
+selectCodeEditor("fft_to_dB.v", 326, 585); // be
+// Elapsed time: 17 seconds
+selectCodeEditor("fft_to_dB.v", 160, 512); // be
+selectCodeEditor("fft_to_dB.v", 287, 622); // be
+selectCodeEditor("fft_to_dB.v", 259, 474); // be
+selectCodeEditor("fft_to_dB.v", 168, 554); // be
+selectCodeEditor("fft_to_dB.v", 108, 539); // be
+// Elapsed time: 10 seconds
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("fft_to_dB.v", 414, 700); // be
+selectCodeEditor("fft_to_dB.v", 1, 580); // be
+// Elapsed time: 20 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 3); // m
+selectCodeEditor("log2.v", 3, 332); // be
+typeControlKey((HResource) null, "log2.v", 'v'); // be
+selectCodeEditor("log2.v", 297, 340); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("log2.v", 343, 416); // be
+selectCodeEditor("log2.v", 274, 602); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 30 seconds
+selectCodeEditor("log2.v", 494, 613); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("log2.v", 121, 285); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("log2.v", 32, 383); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 22 seconds
+selectCodeEditor("log2.v", 344, 522); // be
+// Elapsed time: 64 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 2); // m
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 564, 223); // be
+// Elapsed time: 77 seconds
+selectCodeEditor("fft_to_dB.v", 115, 579); // be
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 72 MB. Current time: 5/13/22, 12:04:43 PM CEST
+selectCodeEditor("fft_to_dB.v", 47, 583); // be
+// Elapsed time: 117 seconds
+selectCodeEditor("fft_to_dB.v", 54, 497); // be
+// Elapsed time: 13 seconds
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// Elapsed time: 26 seconds
+selectCodeEditor("fft_to_dB.v", 163, 585); // be
+selectCodeEditor("fft_to_dB.v", 207, 509); // be
+// Elapsed time: 26 seconds
+selectCodeEditor("fft_to_dB.v", 194, 277); // be
+selectCodeEditor("fft_to_dB.v", 253, 410); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 72 MB. Current time: 5/13/22, 12:34:43 PM CEST
+// Elapsed time: 2967 seconds
+selectCodeEditor("fft_to_dB.v", 135, 475); // be
+selectCodeEditor("fft_to_dB.v", 0, 435); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 11 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, top_level (top_level.v)]", 1, true, false, false, false, false, true); // D - Double Click - Node
+// WARNING: HEventQueue.dispatchEvent() is taking  1047 ms.
+dismissDialog("Opening Editor"); // bA
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "top_level.v", 5); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 2); // m
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2_rom.v", 5); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+// Elapsed time: 15 seconds
+selectCodeEditor("log2.v", 1, 385); // be
+// Elapsed time: 33 seconds
+selectCodeEditor("log2.v", 8, 365); // be
+// Elapsed time: 47 seconds
+selectCodeEditor("log2.v", 115, 494); // be
+selectCodeEditor("log2.v", 18, 456); // be
+selectCodeEditor("log2.v", 121, 537); // be
+typeControlKey((HResource) null, "log2.v", 'c'); // be
+selectCodeEditor("log2.v", 12, 470); // be
+typeControlKey((HResource) null, "log2.v", 'v'); // be
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 2); // m
+// Elapsed time: 19 seconds
+selectCodeEditor("FFT_Controller.v", 222, 284); // be
+selectCodeEditor("FFT_Controller.v", 309, 589); // be
+selectCodeEditor("FFT_Controller.v", 1, 475); // be
+// Elapsed time: 17 seconds
+selectCodeEditor("FFT_Controller.v", 261, 556); // be
+selectCodeEditor("FFT_Controller.v", 472, 609); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 72 MB. Current time: 5/13/22, 1:04:43 PM CEST
+// Elapsed time: 232 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("log2.v", 227, 487); // be
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+selectCodeEditor("fft_to_dB.v", 18, 429); // be
+selectCodeEditor("fft_to_dB.v", 186, 456); // be
+// Elapsed time: 71 seconds
+selectCodeEditor("fft_to_dB.v", 76, 306); // be
+// Elapsed time: 25 seconds
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("fft_to_dB.v", 416, 622); // be
+selectCodeEditor("fft_to_dB.v", 40, 557); // be
+// Elapsed time: 29 seconds
+selectCodeEditor("fft_to_dB.v", 32, 563); // be
+selectCodeEditor("fft_to_dB.v", 210, 624); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'c'); // be
+selectCodeEditor("fft_to_dB.v", 43, 381); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+selectCodeEditor("fft_to_dB.v", 117, 475); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'c'); // be
+selectCodeEditor("fft_to_dB.v", 72, 414); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 22 seconds
+selectCodeEditor("fft_to_dB.v", 432, 494); // be
+selectCodeEditor("fft_to_dB.v", 228, 430); // be
+// Elapsed time: 16 seconds
+selectCodeEditor("fft_to_dB.v", 237, 453); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 399, 575); // be
+selectCodeEditor("fft_to_dB.v", 3, 521); // be
+selectCodeEditor("fft_to_dB.v", 39, 410); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 202, 551); // be
+selectCodeEditor("fft_to_dB.v", 36, 513); // be
+selectCodeEditor("fft_to_dB.v", 264, 617); // be
+selectCodeEditor("fft_to_dB.v", 91, 533); // be
+selectCodeEditor("fft_to_dB.v", 100, 513); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("fft_to_dB.v", 99, 540); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'c'); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'c'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 23 seconds
+selectCodeEditor("fft_to_dB.v", 369, 635); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("fft_to_dB.v", 101, 345); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 503, 505); // be
+selectCodeEditor("fft_to_dB.v", 122, 458); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 453, 420); // be
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1); // D
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+selectCodeEditor("fft_to_dB.v", 21, 522); // be
+selectCodeEditor("fft_to_dB.v", 1, 516); // be
+selectCodeEditor("fft_to_dB.v", 287, 547); // be
+selectCodeEditor("fft_to_dB.v", 40, 528); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+selectCodeEditor("log2.v", 161, 574); // be
+selectCodeEditor("log2.v", 48, 531); // be
+selectCodeEditor("log2.v", 11, 396); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+// TclEventType: DG_GRAPH_STALE
+selectCodeEditor("fft_to_dB.v", 64, 566); // be
+// Elapsed time: 412 seconds
+selectCodeEditor("fft_to_dB.v", 29, 540); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+// Elapsed time: 16 seconds
+selectCodeEditor("fft_to_dB.v", 167, 598); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'c'); // be
+selectCodeEditor("fft_to_dB.v", 54, 647); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 399, 613); // be
+// Elapsed time: 52 seconds
+selectCodeEditor("fft_to_dB.v", 186, 246); // be
+// Elapsed time: 22 seconds
+selectCodeEditor("fft_to_dB.v", 152, 275); // be
+selectCodeEditor("fft_to_dB.v", 150, 261); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("fft_to_dB.v", 173, 453); // be
+selectCodeEditor("fft_to_dB.v", 221, 495); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 23 seconds
+selectCodeEditor("fft_to_dB.v", 293, 573); // be
+selectCodeEditor("fft_to_dB.v", 229, 511); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 358, 529); // be
+selectCodeEditor("fft_to_dB.v", 45, 552); // be
+// Elapsed time: 10 seconds
+selectCodeEditor("fft_to_dB.v", 99, 640); // be
+selectCodeEditor("fft_to_dB.v", 269, 687); // be
+selectCodeEditor("fft_to_dB.v", 77, 666); // be
+selectCodeEditor("fft_to_dB.v", 43, 660); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 30 seconds
+selectCodeEditor("fft_to_dB.v", 339, 577); // be
+// Elapsed time: 31 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+// Elapsed time: 11 seconds
+selectCodeEditor("fft_to_dB.v", 208, 619); // be
+// Elapsed time: 10 seconds
+selectCodeEditor("fft_to_dB.v", 44, 647); // be
+selectCodeEditor("fft_to_dB.v", 17, 465); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+selectCodeEditor("fft_to_dB.v", 7, 459); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 414, 498); // be
+// Elapsed time: 23 seconds
+selectCodeEditor("fft_to_dB.v", 217, 468); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("fft_to_dB.v", 5, 596); // be
+// Elapsed time: 42 seconds
+selectCodeEditor("fft_to_dB.v", 51, 623); // be
+selectCodeEditor("fft_to_dB.v", 48, 619); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// Elapsed time: 433 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 2); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+selectCodeEditor("fft_to_dB.v", 210, 281); // be
+selectCodeEditor("fft_to_dB.v", 205, 267); // be
+// Elapsed time: 10 seconds
+typeControlKey((HResource) null, "fft_to_dB.v", 'v'); // be
+// Elapsed time: 16 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "FFT_Controller.v", 2); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_to_dB.v", 3); // m
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 12 seconds
+selectCodeEditor("fft_to_dB.v", 332, 358); // be
+// Elapsed time: 13 seconds
+selectCodeEditor("fft_to_dB.v", 137, 643); // be
+selectCodeEditor("fft_to_dB.v", 144, 639); // be
+selectCodeEditor("fft_to_dB.v", 138, 692); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 11 seconds
+selectCodeEditor("fft_to_dB.v", 148, 662); // be
+// Elapsed time: 31 seconds
+selectCodeEditor("fft_to_dB.v", 249, 662); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 37, 527); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("fft_to_dB.v", 19, 535); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("fft_to_dB.v", 13, 575); // be
+// HMemoryUtils.trashcanNow. Engine heap size: 1,399 MB. GUI used memory: 72 MB. Current time: 5/13/22, 1:34:43 PM CEST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 35 seconds
+selectCodeEditor("fft_to_dB.v", 140, 617); // be
+// Elapsed time: 28 seconds
+selectCodeEditor("fft_to_dB.v", 219, 451); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 25 seconds
+selectCodeEditor("fft_to_dB.v", 405, 470); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_to_dB.v", 191, 477); // be
+selectCodeEditor("fft_to_dB.v", 357, 525); // be
+// Elapsed time: 78 seconds
+selectCodeEditor("fft_to_dB.v", 306, 429); // be
+typeControlKey((HResource) null, "fft_to_dB.v", 'c'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 22 seconds
+selectCodeEditor("fft_to_dB.v", 299, 643); // be
+// Elapsed time: 12 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "log2.v", 4); // m
+selectCodeEditor("log2.v", 176, 482); // be
+selectCodeEditor("log2.v", 92, 529); // be
+// Elapsed time: 593 seconds
+selectCodeEditor("log2.v", 1132, 281); // be
