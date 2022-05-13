@@ -28,9 +28,13 @@ module fft_to_dB(
     input fft_rdy,
     input [23:0] dre,
     input [23:0] dim,
+    output [9:0] fft_addr_in,
     output [23:0] dout
     );
 
+reg [1:0] calc_dl;
+reg [9:0] smpl_cntr;
+reg fft_rdy_reg;
 reg [47:0] powre;
 reg [47:0] powim;
 reg [48:0] sum;
@@ -40,13 +44,14 @@ wire [17:0] mant_data_out;
 reg log2_start;
 reg log2_done;
 
+assign fft_addr_in = smpl_cntr;
+
 log2_rom mantissa(
     .clk(clk),
     .addr(mant_addr),
     .dout(mant_data_out)
 );
-
-begin    
+   
 mul_24x24 re(
     .clk(clk),
     .a(dre),
@@ -74,6 +79,27 @@ log2 sumToDB (
     .dB(dB),
     .mant_addr(mant_addr)
 );
+
+always @ (posedge clk)
+if (fft_rdy | rst)
+begin
+    calc_dl <= 2'b00;
+    fft_rdy_reg <= 1'b1;
+    smpl_cntr <= 10'b0000000000;
+end
+else calc_dl <= calc_dl + 1;
+
+always @ (posedge clk)
+if (fft_rdy_reg & calc_dl == 2'b11 & smpl_cntr < 10'b1111111111)
+begin
+fft_rdy_reg <= 1'b0;        
+log2_start <= 1'b1;    
 end
 
+always @ (posedge clk)
+if(log2_start)
+begin
+    if(log2_done)
+    smpl_cntr <= smpl_cntr + 1;
+end    
 endmodule

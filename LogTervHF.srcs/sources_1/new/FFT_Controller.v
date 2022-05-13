@@ -65,7 +65,7 @@ FFT_Core calc (
     .frame_start(frame_start),
     .cb_dout(cb_dout),
     .cb_addr_out(cb_addr_out),
-    .fft_done(fft_rdy_reg),
+    .fft_done(fft_rdy),
     .fft_dout_re(fft_dout_re),
     .fft_dout_im(fft_dout_im),
     .fft_addr_in_re(),
@@ -74,7 +74,7 @@ FFT_Core calc (
 
 
 wire fft_rdy;
-assign fft_rdy = fft_rdy_reg;
+
 
 wire fft_dout_re;
 wire fft_dout_im;
@@ -99,7 +99,7 @@ else if (frame_start)
     state_logic <= 1'b1;
     
 always @ (posedge clk)
-if (state_logic & fft_rdy_reg)
+if (state_logic & fft_rdy)
     state_logic <= 1'b0;
 
 always @ (posedge clk)

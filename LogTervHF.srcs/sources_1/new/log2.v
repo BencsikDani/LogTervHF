@@ -31,20 +31,20 @@ module log2(
     output [9:0] mant_addr
     );
 reg [22:0] log_2;
-reg started;
 reg finished;
 
+always @ (posedge clk)
+if(log2_start)
+    
+
+always @ (posedge clk)
+if(log2_start)
 begin
+finished <= 1'b0;
 
+for
 
-//always @ (posedge clk)
-
-
-//begin
-
-//for(i = 6'b000000; i<6'b110001; i = i + 1)
-//    if (sum[i]) 
-//        log_2 <= log_2 + i;     
+finished <= 1'b1;     
 end
 
 assign log2_done = finished;    

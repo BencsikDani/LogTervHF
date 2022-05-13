@@ -12,3 +12,7 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
+close [ open C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v w ]
+add_files C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v
+update_compile_order -fileset sources_1
