@@ -2,10 +2,10 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sat May  7 12:14:49 2022
-# Process ID: 24308
+# Start of session at: Mon May  9 21:58:07 2022
+# Process ID: 21364
 # Current directory: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3744 C:\Users\Marcell\Desktop\BME\MSc\LogTerv\LogTervHF\LogTervHF.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23164 C:\Users\Marcell\Desktop\BME\MSc\LogTerv\LogTervHF\LogTervHF.xpr
 # Log file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/vivado.log
 # Journal file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF\vivado.jou
 # Running On: Cibbersson, OS: Windows, CPU Frequency: 3693 MHz, CPU Physical cores: 12, Host memory: 17102 MB
@@ -58,15 +58,23 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.2 avai
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at E:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld_es:part0:1.0 available at E:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/es/1.0/board.xml as part xczu59dr-ffvf1760-2-i-es1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:1.0 available at E:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/1.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [Project 1-313] Project file moved from 'C:/Users/Dani/XilinxProjects/LogTervHF' since last save.
-INFO: [filemgmt 56-2] Default IP Output Path : Could not find the directory 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.gen/sources_1', nor could it be found using path 'C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.gen/sources_1'.
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.gen/sources_1'.
 Scanning sources...
 Finished scanning sources
-INFO: [Project 1-1877] Auto incremental dir location 'C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/utils_1/imports/synth_1' of run 'synth_1' is not writable, setting it to default location 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/utils_1/imports/synth_1'.
-INFO: [Project 1-1877] Auto incremental dir location 'C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/utils_1/imports/impl_1' of run 'impl_1' is not writable, setting it to default location 'C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/utils_1/imports/impl_1'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2338] Canceling the changes to the IP catalog. Reverting the catalog back to its previous state.
+INFO: [IP_Flow 19-2340] The IP catalog has been returned to its previous state.
+INFO: [Common 17-344] 'open_project' was cancelled
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2338] Canceling the changes to the IP catalog. Reverting the catalog back to its previous state.
+INFO: [IP_Flow 19-2340] The IP catalog has been returned to its previous state.
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Xilinx/Vivado/2021.2/data/ip'.
-update_compile_order -fileset sources_1
-add_files -fileset constrs_1 -norecurse {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/pinout.xdc C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/timing.xdc}
-import_files -fileset constrs_1 {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/pinout.xdc C:/Users/Marcell/Desktop/BME/MSc/LogTerv/3.gyak/logterv_gyak3.srcs/constrs_1/new/timing.xdc}
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon May  9 21:58:21 2022...
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  exit
+INFO: [Common 17-206] Exiting Vivado at Mon May  9 23:17:05 2022...

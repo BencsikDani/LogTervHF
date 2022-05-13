@@ -2,13 +2,14 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Mon May  9 21:58:07 2022
-# Process ID: 21364
-# Current directory: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23164 C:\Users\Marcell\Desktop\BME\MSc\LogTerv\LogTervHF\LogTervHF.xpr
-# Log file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/vivado.log
-# Journal file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF\vivado.jou
-# Running On: Cibbersson, OS: Windows, CPU Frequency: 3693 MHz, CPU Physical cores: 12, Host memory: 17102 MB
+# Start of session at: Fri May 13 12:14:35 2022
+# Process ID: 33520
+# Current directory: C:/Users/Dani/XilinxProjects/LogTervHF
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26536 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
+# Log file: C:/Users/Dani/XilinxProjects/LogTervHF/vivado.log
+# Journal file: C:/Users/Dani/XilinxProjects/LogTervHF\vivado.jou
+# Running On: DANINITRO-PC, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 17057 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr
+open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
