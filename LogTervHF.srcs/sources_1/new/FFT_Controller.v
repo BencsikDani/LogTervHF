@@ -28,9 +28,9 @@ module FFT_Controller(
     input aud_dout_vld,
     input [23:0] aud_dout,
     
-    
-    output frm_dout_vld
-    
+    input [9:0] frm_addr,
+    output frm_dout_vld,
+    output [23:0] frm_dout
     );
     
 reg [9:0] smpl_addr_cntr;
@@ -65,11 +65,28 @@ FFT_Core calc (
     .frame_start(frame_start),
     .cb_dout(cb_dout),
     .cb_addr_out(cb_addr_out),
-    .fft_rdy(fft_rdy_reg),
-    .fft_dout_re(),
-    .fft_dout_im(),
+    .fft_done(fft_rdy_reg),
+    .fft_dout_re(fft_dout_re),
+    .fft_dout_im(fft_dout_im),
     .fft_addr_in_re(),
     .fft_addr_in_im()
+);
+
+
+wire fft_rdy;
+assign fft_rdy = fft_rdy_reg;
+
+wire fft_dout_re;
+wire fft_dout_im;
+wire dB;
+
+fft_to_dB convert (
+    .clk(clk),
+    .rst(rst),
+    .fft_rdy(fft_rdy),
+    .dre(fft_dout_re),
+    .dim(fft_dout_im),
+    .dout(dB)
 );
 
 reg state_logic;
