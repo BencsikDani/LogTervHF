@@ -80,7 +80,10 @@ begin
 if (digit_cntr > 6'b001001)
     mant_addr_reg <= sum[(digit_cntr-6'b000001):(digit_cntr-6'b001010)];
 else
-    mant_addr_reg <= {sum[(digit_cntr-6'b000001):0], {(6'b001010 - digit_cntr)sum[digit_cntr]}}}
+begin
+    sum = sum << (6'b001010 - digit_cntr);
+    mant_addr_reg <= sum[9:0];
+end
 finished_man <= 1'b1;
 end
 
@@ -88,7 +91,7 @@ always @ (posedge clk)
 if(finished_man)
     log2_done_reg <= 1'b1;
 
-assign log2_done = log2_done_reg;    
 assign dB = {1'b0, log_2} + {log_2, 1'b0};
+assign log2_done = log2_done_reg;
 
 endmodule
