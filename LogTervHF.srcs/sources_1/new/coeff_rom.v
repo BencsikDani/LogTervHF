@@ -20,14 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module coeff_rom(
+module coeff_rom #(
+   parameter FILE = ""
+)(
     input           clk,
     input   [9:0]   addr,
     output  [17:0]  dout
     );
 
 (* ram_style = "block" *) reg [17:0] memory[1023:0];
-initial $readmemh("coeff_half.txt", memory);
+initial $readmemh(FILE, memory);
 
 reg [17:0] dout_reg;
 always @ (posedge clk)

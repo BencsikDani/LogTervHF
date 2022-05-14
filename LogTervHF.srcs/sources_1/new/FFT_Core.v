@@ -29,6 +29,8 @@ reg fft_in_progress;
 reg new_stage;
 // Számontartjuk, hogy melyik stage-et számítjuk éppen (1-10)
 reg [3:0] stage_cntr;
+// Számláló ahhoz, hogy új stage-be váltáskor 10+12 órajelig várjunk a segédváltozók kiszámítására.
+reg [4:0] calc_sidevar_cntr;
 // Az adott stage-ben hány group van (512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
 reg [9:0] groups;
 // Számláló az adott stage-ben a group-okon való végigiteráláshoz
@@ -114,7 +116,7 @@ assign fft_done = fft_done_reg;
 // Ha kész a cirkuláris bufferbõl való betöltés, vagy pedig elérkeztünk egy stage végfére (ami nem a 10.), akkor új stage számításának kezdetét jelezzük.
 // Ez a jelzés csak 1 órajel hosszú.
 always @ (posedge clk)
-if (rst | new_stage)
+if (rst | new_stage) 
     new_stage <= 0;
 else if (loading_done | (g == groups-1 & h == half-1 & stage_cntr != 4'd10))
     new_stage <= 1;
@@ -128,6 +130,21 @@ if (rst | ~fft_in_progress)
     stage_cntr <= 0;
 else if (fft_in_progress & new_stage)
     stage_cntr <= stage_cntr + 1;
+
+
+
+// A segédváltozók kiszámítására várakozó állapot számlálójának kezelése:
+// Reset vagy új frame esetén nullázódik.
+// Ha új stage-be értünk FFT közben, akkor elkezd számolni és megy egészen addig, amíg el nem éri a 22-es értéket. Itt viszont megáll.
+always @ (posedge clk)
+if (rst | frame_start)
+    calc_sidevar_cntr <= 0;
+else if (fft_in_progress & new_stage)
+    calc_sidevar_cntr <= 1;
+else if (calc_sidevar_cntr == 5'd22)
+    calc_sidevar_cntr <= 5'd22;
+else if (calc_sidevar_cntr != 0)
+    calc_sidevar_cntr = calc_sidevar_cntr + 1;
 
 
 
@@ -145,6 +162,7 @@ begin
     element_per_group <= 11'b1 << stage_cntr;
     half <= 10'b1 << (stage_cntr-1);
 end
+// A végleges értékek elnyeréséhez akár 10 órajel is szükséges lehet
 
 
 
@@ -288,12 +306,18 @@ wire [17:0] rom_real_dout;
 wire [17:0] rom_imag_dout;
 
 // Állandó együtthatók ROM-jainak példányosítása és bekötése
-coeff_rom coeff_rom_real(
+coeff_rom #(
+    .FILE("coeff_real.txt")
+)
+coeff_rom_real(
     .clk(clk),
     .addr(rom_real_addr),
     .dout(rom_real_dout)
     );
-coeff_rom coeff_rom_imag(
+coeff_rom #(
+    .FILE("coeff_imag.txt")
+)
+coeff_rom_imag(
     .clk(clk),
     .addr(rom_imag_addr),
     .dout(rom_imag_dout)
@@ -349,16 +373,16 @@ butterfly btf(
 // 01: x1 és w1 olvasása
 // 10: x2 és w2 olvasása
 // 11: érvénytelen
-// Ha FFT közben vagyunk, akkor new_stage-re elkezdi a számlálást és ha má elkezdte, akkor folytatja is.
+// Ha a segédváltozók rendelkezésre állnak, elkezdi a számlálást és ha má elkezdte, akkor folytatja is.
 // 2'b10 érték után újra nullázza magát.
 reg [1:0] read_cntr;
 always @ (posedge clk)
 if (rst | frame_start | read_cntr == 2'b10)
     read_cntr <= 0;
-else if (fft_in_progress & new_stage)
-    read_cntr <= read_cntr + 1;
 else if (read_cntr != 0)
     read_cntr <= read_cntr + 1;
+else if (calc_sidevar_cntr == 5'd22)
+    read_cntr <= 1;
 
 
 
@@ -498,13 +522,67 @@ end
 
 
 
-// A megfelelõ ütemekben a memóriák címeinek kiküldése
+// A megfelelõ ütemekben a memóriák címeinek kiküldése:
 
-// A címek kiszámítása:
-wire [20:0] index_1 = g * element_per_group + h;
-wire [20:0] index_2 = g * element_per_group + h + half;
-wire [20:0] w_10_power_1 = h * (1'b1 << (4'd10 - stage_cntr));
-wire [20:0] w_10_power_2 = (h + half) * (1'b1 << (4'd10 - stage_cntr));
+// Címek deklarálása:
+// (A címek sosem lesznek 1023-nál nagyobb értékek, tehát elférnek 10 biten)
+wire [9:0] index_1;
+wire [9:0] index_2;
+wire [9:0] w_10_power_1;
+wire [9:0] w_10_power_2;
+
+// A címek kiszámítása DSP blokkok segítségével:
+
+wire [47:0] dsp1_out;
+dsp_25x18 #(
+   .A_REG(1),
+   .B_REG(1)
+)
+DSP1 (
+   .clk(clk),
+   .a( {15'b0, g} ),
+   .b( {7'b0, element_per_group} ),
+   .pci( {38'b0, h} ), 
+   .p(dsp1_out)                      
+);
+assign index_1 = dsp1_out[9:0];         // index_1 = g * element_per_group + h
+// 3 órajel alatt számítódnak ki
+assign index_2 = index_1 + half;        // index_2 = g * element_per_group + h + half
+// 3 órajel alatt számítódnak ki
+
+
+wire [47:0] dsp2_out;
+dsp_25x18 #(
+   .A_REG(1),
+   .B_REG(1)
+)
+DSP2 (
+   .clk(clk),
+   .a( {15'b0, h} ),
+   .b( 18'b1 << (4'd10 - stage_cntr) ),
+   .pci( 48'b0 ), 
+   .p(dsp2_out)                      
+);
+assign w_10_power_1 = dsp2_out[9:0];    // w_10_power_1 = h * (2 ** (max_stage - stage_cntr)) = h * (1'b1 << (4'd10 - stage_cntr))
+// 3-12 órajel alatt számítódnak ki (attól függ, mennyit kell shiftelni
+
+
+wire [47:0] dsp3_out;
+dsp_25x18 #(
+   .A_REG(1),
+   .B_REG(1)
+)
+DSP3 (
+   .clk(clk),
+   .a( {15'b0, h + half} ),
+   .b( 18'b1 << (4'd10 - stage_cntr) ),
+   .pci( 48'b0 ), 
+   .p(dsp3_out)                      
+);
+assign w_10_power_2 = dsp3_out[9:0];    // w_10_power_2 = (h + half) * (2 ** (max_stage - stage)) = (h + half) * (1'b1 << (4'd10 - stage_cntr))
+// 3-12 órajel alatt számítódnak ki (attól függ, mennyit kell shiftelni
+
+
 
 // Regiszterek létrehozása az adatvezetékekbe való íráshoz
 // Mivel ezeket nem élérzékeny always blokkban használom, így a valóságban nem jön létre hozzájuk fizikai regiszter.
