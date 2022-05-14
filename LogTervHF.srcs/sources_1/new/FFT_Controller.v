@@ -57,7 +57,7 @@ smpl_ram circ_buff (
     .dout_b(cb_dout)
 );
 
-reg fft_rdy_reg;
+//reg fft_rdy_reg;
 
 FFT_Core calc (
     .clk(clk),
@@ -72,15 +72,13 @@ FFT_Core calc (
     .fft_addr_in_im(fft_addr_in)
 );
 
-
-wire fft_rdy;
-
-
-wire fft_dout_re;
-wire fft_dout_im;
-wire fft_addr_in;
-wire dB;
-wire log2_done;
+wire fft_rdy; //signal for FFT finished, 1 clk period long
+wire [23:0] fft_dout_re; //data of real parts of calcualted frequency components
+wire [23:0] fft_dout_im; //data of imaginary parts of calcualted frequency components
+wire [9:0] fft_addr_in; //address of real and imaginary parts of calcualted frequency components
+wire [23:0] dB; // data of calculated dB value
+wire log2_done; // the dB value of one element is calculated, can be written in RAM
+reg dB_vld_reg; // dB values calculated, ready for HDMI
 
 fft_to_dB convert (
     .clk(clk),
@@ -90,11 +88,11 @@ fft_to_dB convert (
     .dim(fft_dout_im),
     .fft_addr_in(fft_addr_in),
     .dout(dB),
-    .log2_done(log2_done)
+    .log2_vld(log2_done),
+    .dB_vld(dB_vld_reg)
 );
 
-reg state_logic;
-reg frame_dout_rdy;
+reg frame_dout_rdy; //signal for HDMI if data can be read from output
 
 smpl_ram dB_values(
     .clk_a(clk),
@@ -108,22 +106,27 @@ smpl_ram dB_values(
     .dout_b(frm_dout)   
 );
 
+//if a frame starts, data of the samples are copied for FFT
+//for the time of FFT calculation, on the output the previous dB values are avaiable
+//when the dB calculation starts, the dB output for HDMI is not avaiable
+//after the dB calculation is done, the new values become avaiable for HDMI, and the circle starts again
+//State logic:
 always @ (posedge clk)
 if (rst)
-    state_logic <= 1'b0;
-else if (frame_start)
-    state_logic <= 1'b1;
-    
-always @ (posedge clk)
-if (state_logic & fft_rdy)
-    state_logic <= 1'b0;
-
-always @ (posedge clk)
-if(!state_logic)
 begin
-frame_dout_rdy <= 1'b0;
-
+    frame_dout_rdy <= 1'b0;
+    dB_vld_reg <= 1'b0;
 end
+
+always @ (posedge clk)
+if (fft_rdy)
+    dB_vld_reg <= 1'b0;
+
+always @ (posedge clk)
+if (dB_vld_reg)
+    frame_dout_rdy = 1'b1;
+else
+    frame_dout_rdy = 1'b0;     
 
 assign frm_dout_vld = frame_dout_rdy;
 
