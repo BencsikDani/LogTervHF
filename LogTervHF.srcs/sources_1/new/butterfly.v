@@ -33,11 +33,11 @@ module butterfly(
 // y2_imag = x1_imag + x2_imag*w2_real + x2_real*w2_imag; 
 
 // Jelölések: "valós érték (tárolt változat)"
-// DSP1 :   s.3.20 (2s.3.20) * s.1.16 + s.3.20 (9s.3.36) =   s.5.36 (7s.5.36) + s.3.20 (9s.3.36) = s.6.36 (7s.6.36 -> 6s.6.36)
-// DSP2 : - s.3.20 (2s.3.20) * s.1.16 + s.6.36 (6s.6.36) = - s.5.36 (7s.5.36) + s.6.36 (6s.6.36) = s.7.36 (6s.7.36 -> 5s.7.36)
-// y (12+36 bit) --> y (4+20 bit)
-// y[47:40], y[39:36], y[35:16], y[15:0]
-//    8   +   4      +    20   +   16
+// DSP1 :   s.10.13 (2s.10.13) * s.1.16 + s.10.13 (9s.10.29) =  s.12.29 (7s.12.29) + s.10.13 (9s.10.29) = s.13.29 (6s.13.29)
+// DSP2 : - s.10.13 (2s.10.13) * s.1.16 + s.13.29 (6s.13.29) = - s.12.29 (7s.12.29) + s.13.29 (6s.13.29) = s.14.29 (5s.14.29)
+// y (19+29 bit) --> y (11+13 bit)
+// y[47], y[46:39], y[38:29], y[28:16], y[15:0]
+//    1   +   8   +  10   +    13   +   16
 
 // Regiszterek száma az egyes DSP-knél
 // parameter [63:0] REGNUM = {"1", "2", "1", "2", "1", "2", "1", "2"};
@@ -93,14 +93,10 @@ for (i = 1; i < 9; i=i+1)
     end
 endgenerate
 
-assign y1_real = out1[39:16];
-assign y1_imag = out2[39:16];
-assign y2_real = out3[39:16];
-assign y2_imag = out4[39:16];
-//assign y1_real = {out1[47], out1[34:12]};
-//assign y1_imag = {out2[47], out2[34:12]};
-//assign y2_real = {out3[47], out3[34:12]};
-//assign y2_imag = {out4[47], out4[34:12]};
+assign y1_real = {out1[47], out1[38:16]};
+assign y1_imag = {out2[47], out2[38:16]};
+assign y2_real = {out3[47], out3[38:16]};
+assign y2_imag = {out4[47], out4[38:16]};
 
 // Várunk minimum 4 órajelet, mert addigra lesz kész a két végeredmény
 reg [2:0] progress_cntr;
