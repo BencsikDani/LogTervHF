@@ -20,17 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module coeff_rom #(
+module test_rom #(
    parameter FILE = ""
 )(
     input               clk,
     input       [9:0]   addr,
-    output  reg [17:0]  dout
+    output  reg [23:0]  dout
     );
 
-(* ram_style = "block" *) reg [17:0] memory[0:1023];
-initial $readmemb(FILE, memory);
-
+(* ram_style = "block" *) reg [23:0] memory [0:1023];
+initial
+begin
+    $readmemb(FILE, memory);
+end
 
 always @ (posedge clk)
     dout <= memory[addr];

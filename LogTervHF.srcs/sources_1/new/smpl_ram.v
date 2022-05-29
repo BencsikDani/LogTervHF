@@ -3,28 +3,6 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 09.05.2022 21:32:32
-// Design Name: 
-// Module Name: smpl_ram
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
 // Create Date: 08.05.2022 22:45:56
 // Design Name: 
 // Module Name: circ_buf
@@ -59,7 +37,7 @@ module smpl_ram #(
    output [DATA_W-1:0] dout_b
 );
 
-(* ram_style = "block" *) reg [DATA_W-1:0] ram_array[(2**ADDR_W)-1:0];
+(* ram_style = "block" *) reg [DATA_W-1:0] ram_array[0:(2**ADDR_W)-1];
 integer i;
 initial
    for (i=0; i<(2**ADDR_W); i=i+1) ram_array[i] = 0;
@@ -67,8 +45,11 @@ initial
 reg [DATA_W-1:0] dout_reg_a;
 always @ (posedge clk_a)
 begin
-   if (we_a) ram_array[addr_a] <= din_a;
    dout_reg_a <= ram_array[addr_a];
+   if (we_a)
+   begin
+      ram_array[addr_a] <= din_a;
+   end
 end
 assign dout_a = dout_reg_a;
 
@@ -76,8 +57,11 @@ assign dout_a = dout_reg_a;
 reg [DATA_W-1:0] dout_reg_b;
 always @ (posedge clk_b)
 begin
-   if (we_b) ram_array[addr_b] <= din_b;
    dout_reg_b <= ram_array[addr_b];
+   if (we_b)
+   begin
+      ram_array[addr_b] <= din_b;
+   end
 end
 assign dout_b = dout_reg_b;
 
