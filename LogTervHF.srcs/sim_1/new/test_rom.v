@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: BME
+// Company: 
 // Engineer: 
 // 
-// Create Date: 08.05.2022 21:11:25
+// Create Date: 29.05.2022 16:31:09
 // Design Name: 
-// Module Name: coeff_rom
+// Module Name: test_rom
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,19 +20,21 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module coeff_rom(
-    input           clk,
-    input   [9:0]  addr,
-    output  [17:0]  dout
+module test_rom #(
+   parameter FILE = ""
+)(
+    input               clk,
+    input       [9:0]   addr,
+    output  reg [23:0]  dout
     );
 
-(* ram_style = "block" *) reg [17:0] memory[1023:0];
-initial $readmemh("coeff_half.txt", memory);
+(* ram_style = "block" *) reg [23:0] memory [0:1023];
+initial
+begin
+    $readmemb(FILE, memory);
+end
 
-reg [17:0] dout_reg;
 always @ (posedge clk)
-    dout_reg <= memory[addr];
-
-assign dout = dout_reg;
+    dout <= memory[addr];
 
 endmodule
