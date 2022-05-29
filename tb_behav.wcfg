@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="3,399,683.084 ns"></ZoomStartTime>
-      <ZoomEndTime time="3,400,264.585 ns"></ZoomEndTime>
-      <Cursor1Time time="3,399,780.000 ns"></Cursor1Time>
+      <ZoomStartTime time="2,485.124832 us"></ZoomStartTime>
+      <ZoomEndTime time="2,625.805915 us"></ZoomEndTime>
+      <Cursor1Time time="2,510.560000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="213"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <NameColumnWidth column_width="208"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="29" />
+   <WVObjectSize size="23" />
    <wvobject fp_name="/tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -28,112 +28,102 @@
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/test_input_rom/memory" type="array">
-      <obj_property name="ElementShortName">memory[0:1023][23:0]</obj_property>
-      <obj_property name="ObjectShortName">memory[0:1023][23:0]</obj_property>
+   <wvobject fp_name="/tb/uut/aud_dout_vld[0]" type="logic">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[0]</obj_property>
+      <obj_property name="ObjectShortName">[0]</obj_property>
+      <obj_property name="label">aud_dout_vld[0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/test_input_rom/addr" type="array">
-      <obj_property name="ElementShortName">addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+   <wvobject fp_name="/tb/aud_dout" type="array">
+      <obj_property name="ElementShortName">aud_dout[23:0]</obj_property>
+      <obj_property name="ObjectShortName">aud_dout[23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/test_input_rom/dout" type="array">
-      <obj_property name="ElementShortName">dout[23:0]</obj_property>
-      <obj_property name="ObjectShortName">dout[23:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/circ_buff/we_a" type="logic">
+      <obj_property name="ElementShortName">we_a</obj_property>
+      <obj_property name="ObjectShortName">we_a</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/rom_addr" type="array">
-      <obj_property name="ElementShortName">rom_addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_addr[9:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/circ_buff/addr_a" type="array">
+      <obj_property name="ElementShortName">addr_a[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_a[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/rom_data" type="array">
-      <obj_property name="ElementShortName">rom_data[23:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_data[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb/fft_real_addr" type="array">
-      <obj_property name="ElementShortName">fft_real_addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">fft_real_addr[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb/fft_imag_addr" type="array">
-      <obj_property name="ElementShortName">fft_imag_addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">fft_imag_addr[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb/fft_real_out" type="array">
-      <obj_property name="ElementShortName">fft_real_out[23:0]</obj_property>
-      <obj_property name="ObjectShortName">fft_real_out[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb/fft_imag_out" type="array">
-      <obj_property name="ElementShortName">fft_imag_out[23:0]</obj_property>
-      <obj_property name="ObjectShortName">fft_imag_out[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb/frame_start_reg" type="logic">
-      <obj_property name="ElementShortName">frame_start_reg</obj_property>
-      <obj_property name="ObjectShortName">frame_start_reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb/frame_start_cntr" type="array">
-      <obj_property name="ElementShortName">frame_start_cntr[20:0]</obj_property>
-      <obj_property name="ObjectShortName">frame_start_cntr[20:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/circ_buff/din_a" type="array">
+      <obj_property name="ElementShortName">din_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">din_a[23:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/tb/frame_start" type="logic">
       <obj_property name="ElementShortName">frame_start</obj_property>
       <obj_property name="ObjectShortName">frame_start</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/aud_vld_cntr" type="array">
-      <obj_property name="ElementShortName">aud_vld_cntr[10:0]</obj_property>
-      <obj_property name="ObjectShortName">aud_vld_cntr[10:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/fft_rdy" type="logic">
+      <obj_property name="ElementShortName">fft_rdy</obj_property>
+      <obj_property name="ObjectShortName">fft_rdy</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/aud_dout_vld_reg" type="logic">
-      <obj_property name="ElementShortName">aud_dout_vld_reg</obj_property>
-      <obj_property name="ObjectShortName">aud_dout_vld_reg</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/fft_done" type="logic">
+      <obj_property name="ElementShortName">fft_done</obj_property>
+      <obj_property name="ObjectShortName">fft_done</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/smpl_addr_cntr" type="array">
-      <obj_property name="ElementShortName">smpl_addr_cntr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">smpl_addr_cntr[9:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/circ_buff/ram_array" type="array">
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/smpl_data" type="array">
-      <obj_property name="ElementShortName">smpl_data[23:0]</obj_property>
-      <obj_property name="ObjectShortName">smpl_data[23:0]</obj_property>
+   <wvobject fp_name="/tb/codec_sdout" type="logic">
+      <obj_property name="ElementShortName">codec_sdout</obj_property>
+      <obj_property name="ObjectShortName">codec_sdout</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/frm_dout_vld_check_reg" type="logic">
-      <obj_property name="ElementShortName">frm_dout_vld_check_reg</obj_property>
-      <obj_property name="ObjectShortName">frm_dout_vld_check_reg</obj_property>
+   <wvobject fp_name="/tb/sim_data" type="array">
+      <obj_property name="ElementShortName">sim_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">sim_data[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/frm_dout_vld_check" type="logic">
-      <obj_property name="ElementShortName">frm_dout_vld_check</obj_property>
-      <obj_property name="ObjectShortName">frm_dout_vld_check</obj_property>
+   <wvobject fp_name="/tb/sim_cntr" type="array">
+      <obj_property name="ElementShortName">sim_cntr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">sim_cntr[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/frm_data_check_reg" type="array">
-      <obj_property name="ElementShortName">frm_data_check_reg[23:0]</obj_property>
-      <obj_property name="ObjectShortName">frm_data_check_reg[23:0]</obj_property>
+   <wvobject fp_name="/tb/uut/codec_lrclk" type="logic">
+      <obj_property name="ElementShortName">codec_lrclk</obj_property>
+      <obj_property name="ObjectShortName">codec_lrclk</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/frm_data_check" type="array">
-      <obj_property name="ElementShortName">frm_data_check[23:0]</obj_property>
-      <obj_property name="ObjectShortName">frm_data_check[23:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[0].smpl_ram_inst /clk_a" type="logic">
+      <obj_property name="ElementShortName">clk_a</obj_property>
+      <obj_property name="ObjectShortName">clk_a</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/convert/mantissa/addr" type="array">
-      <obj_property name="ElementShortName">addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[0].smpl_ram_inst /we_a" type="logic">
+      <obj_property name="ElementShortName">we_a</obj_property>
+      <obj_property name="ObjectShortName">we_a</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/convert/mantissa/dout" type="array">
-      <obj_property name="ElementShortName">dout[17:0]</obj_property>
-      <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[5].smpl_ram_inst /ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">ram1re[0:1023][23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/calc/coeff_rom_real/addr" type="array">
-      <obj_property name="ElementShortName">addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[4].smpl_ram_inst /ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">ram1im[0:1023][23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/calc/coeff_rom_real/dout" type="array">
-      <obj_property name="ElementShortName">dout[17:0]</obj_property>
-      <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[2].smpl_ram_inst /ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">ram2re[0:1023][23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/convert/sumToDB/dB" type="array">
-      <obj_property name="ElementShortName">dB[23:0]</obj_property>
-      <obj_property name="ObjectShortName">dB[23:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[1].smpl_ram_inst /ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">ram2im[0:1023][23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/convert/re/m" type="array">
-      <obj_property name="ElementShortName">m[47:0]</obj_property>
-      <obj_property name="ObjectShortName">m[47:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[1].smpl_ram_inst /ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">ram3re[0:1023][23:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb/core/convert/im/m" type="array">
-      <obj_property name="ElementShortName">m[47:0]</obj_property>
-      <obj_property name="ObjectShortName">m[47:0]</obj_property>
+   <wvobject fp_name="/tb/Controller/calc/\inst[0].smpl_ram_inst /ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">ram3im[0:1023][23:0]</obj_property>
    </wvobject>
 </wave_config>

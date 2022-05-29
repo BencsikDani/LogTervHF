@@ -4,7 +4,27 @@ Running: E:/Xilinx/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-2861] module 'coeff_rom' does not have a parameter named FILE [C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:350]
-WARNING: [VRFC 10-2861] module 'coeff_rom' does not have a parameter named FILE [C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:358]
+WARNING: [VRFC 10-2861] module 'coeff_rom' does not have a parameter named FILE [C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:330]
+WARNING: [VRFC 10-2861] module 'coeff_rom' does not have a parameter named FILE [C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:338]
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.codec_if
+Compiling module xil_defaultlib.smpl_ram
+Compiling module xil_defaultlib.coeff_rom
+Compiling module xil_defaultlib.dsp_25x18(A_REG=2'b10,B_REG=2'b1...
+Compiling module xil_defaultlib.dsp_25x18(A_REG=2'b01,B_REG=2'b0...
+Compiling module xil_defaultlib.butterfly_default
+Compiling module xil_defaultlib.dsp_25x18(A_REG=1,B_REG=1)
+Compiling module xil_defaultlib.FFT_Core_default
+Compiling module xil_defaultlib.log2_rom
+Compiling module xil_defaultlib.dsp_25x18
+Compiling module xil_defaultlib.mul_24x24
+Compiling module xil_defaultlib.log_2
+Compiling module xil_defaultlib.fft_to_dB
+Compiling module xil_defaultlib.FFT_Controller
+Compiling module xil_defaultlib.test_rom(FILE="test_input.txt")
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav

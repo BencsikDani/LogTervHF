@@ -34,15 +34,14 @@ module fft_to_dB(
     output dB_vld
     );
 
-reg [2:0] calc_dl;
-reg [9:0] smpl_cntr;
-reg fft_rdy_reg;
-reg [47:0] powre_reg;
-wire[47:0] powre;
-reg [47:0] powim_reg;
-wire[47:0] powim; 
-reg [48:0] sum;
-reg [23:0] dB_reg;
+reg [2:0] calc_dl;      // Delay for DSPs and adding
+reg [9:0] smpl_cntr;    // Counter for samples
+reg [47:0] powre_reg;   // Register for self-multiplied real value
+wire[47:0] powre;       // Wire for self-multiplied real value
+reg [47:0] powim_reg;   // Register for self-multiplied imaginary value
+wire[47:0] powim;       // Wire for self-multiplied imaginary value
+reg [48:0] sum;         // = powre + powim
+reg [23:0] dB_reg;      
 wire[23:0] dB;
 wire [9:0] mant_addr; 
 wire[17:0] mant_data_out;
@@ -95,24 +94,21 @@ always @ (posedge clk)
 if (rst)
 begin
     calc_dl <= 3'b000;
-    fft_rdy_reg <= 1'b0;
-    smpl_cntr <= 10'b0000000000;
-end
-else if(fft_rdy)
-begin
-    calc_dl <= 3'b000;
-    fft_rdy_reg <= 1'b1;
+//    fft_rdy_reg <= 1'b0;
     smpl_cntr <= 10'b0000000000;
 end
 
+always @ (posedge fft_rdy)
+smpl_cntr <= 10'b0000000000;
+
 always @ (posedge clk)
-if(~fft_rdy)
+if(fft_rdy)
     calc_dl <= calc_dl + 1;
 
 always @ (posedge clk)
-if (fft_rdy_reg & calc_dl == 3'b111 & smpl_cntr < 10'b1111111111)
+if (fft_rdy & calc_dl == 3'b111 & smpl_cntr < 10'b1111111111)
 begin
-fft_rdy_reg <= 1'b0;        
+//fft_rdy_reg <= 1'b0;        
 log2_start <= 1'b1;    
 end
 

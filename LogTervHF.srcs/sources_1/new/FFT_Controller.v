@@ -116,12 +116,18 @@ fft_to_dB convert (
 //when the dB calculation starts, the dB output for HDMI is not avaiable
 //after the dB calculation is done, the new values become avaiable for HDMI, and the circle starts again
 //State logic:
+
+
 always @ (posedge clk)
 if (rst)
 begin
     frame_dout_rdy <= 1'b0;
     dB_vld_reg <= 1'b0;
 end
+
+always @ (posedge clk)
+if(log2_done)
+    dB_vld_reg <= 1;
 
 always @ (posedge clk)
 if (fft_rdy)

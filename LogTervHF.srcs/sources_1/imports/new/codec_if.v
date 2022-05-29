@@ -44,7 +44,7 @@ assign codec_mdiv2   = 1'b1;
 
 
 // Rendszerórajel osztására hivatott számláló (50 MHz)
-reg [21:0] div_cntr;
+reg [22:0] div_cntr;
 always @ (posedge clk)
 if (rst==1)
   div_cntr <= 0;
@@ -52,22 +52,22 @@ else
   div_cntr <= div_cntr + 1;
 
 // Órajelek generálása
-assign codec_lrclk  = div_cntr[10];     // div_cntr / 1024 = 48.828125 kHz
-assign codec_sclk   = div_cntr[4];      // div_cntr / 16 = 3.125 MHz
-assign codec_mclk   = div_cntr[0];      // div_cntr / 1 = 50 MHz
+assign codec_lrclk  = div_cntr[11];     // div_cntr / 1024 = 48.828125 kHz
+assign codec_sclk   = div_cntr[5];      // div_cntr / 16 = 3.125 MHz
+assign codec_mclk   = div_cntr[1];      // div_cntr / 1 = 50 MHz
 
 
 
 wire sclk_fall;     // SCLK lefutó élének jelzése   
 wire sclk_rise;     // SCLK felfutó élének jelzése   
-assign sclk_fall    = (div_cntr[4:0]==5'b11111);
-assign sclk_rise    = (div_cntr[4:0]==5'b01111);
+assign sclk_fall    = (div_cntr[5:0]==6'b111111);
+assign sclk_rise    = (div_cntr[5:0]==6'b011111);
 
 
 
 // SCLK-kat számláló bitszámláló
 wire [ 4:0] bit_cntr;
-assign bit_cntr = div_cntr[9:5];
+assign bit_cntr = div_cntr[10:6];
 
 
 
@@ -90,7 +90,7 @@ reg init_done_ff;
 always @ (posedge clk)
 if (rst==1)
    init_done_ff <= 1'b0;
-else if (div_cntr[21:11]==1200)
+else if (div_cntr[22:12]==12)
    init_done_ff <= 1'b1;
 
 

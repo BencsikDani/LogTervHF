@@ -1,11 +1,17 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
+"../../../../LogTervHF.srcs/sources_1/new/FFT_Controller.v" \
 "../../../../LogTervHF.srcs/sources_1/new/FFT_Core.v" \
 "../../../../LogTervHF.srcs/sources_1/new/butterfly.v" \
+"../../../../LogTervHF.srcs/sources_1/imports/new/codec_if.v" \
 "../../../../LogTervHF.srcs/sources_1/new/coeff_rom.v" \
-"../../../../LogTervHF.srcs/sources_1/imports/FIR/dsp_25x18.v" \
+"../../../../LogTervHF.srcs/sources_1/new/dsp_25x18.v" \
+"../../../../LogTervHF.srcs/sources_1/new/fft_to_dB.v" \
+"../../../../LogTervHF.srcs/sources_1/new/log2.v" \
+"../../../../LogTervHF.srcs/sources_1/new/log2_rom.v" \
+"../../../../LogTervHF.srcs/sources_1/new/mul_24x24.v" \
 "../../../../LogTervHF.srcs/sources_1/new/smpl_ram.v" \
-"../../../../LogTervHF.srcs/sources_1/new/test_rom.v" \
+"../../../../LogTervHF.srcs/sim_1/new/test_rom.v" \
 "../../../../LogTervHF.srcs/sim_1/new/tb.v" \
 
 # compile glbl module
