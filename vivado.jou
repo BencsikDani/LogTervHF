@@ -2,10 +2,10 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri May 13 12:14:35 2022
-# Process ID: 33520
+# Start of session at: Sun May 29 19:31:43 2022
+# Process ID: 30796
 # Current directory: C:/Users/Dani/XilinxProjects/LogTervHF
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26536 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent45304 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
 # Log file: C:/Users/Dani/XilinxProjects/LogTervHF/vivado.log
 # Journal file: C:/Users/Dani/XilinxProjects/LogTervHF\vivado.jou
 # Running On: DANINITRO-PC, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 17057 MB
@@ -13,3 +13,21 @@
 start_gui
 open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
 update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg
+source tb.tcl
+run 2600 us
+restart
+run 660 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg
+source tb.tcl
+restart
+run 660 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+restart
+run 2600 us
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+close_sim

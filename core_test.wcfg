@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="30.650000001 ms"></ZoomEndTime>
+      <Cursor1Time time="2.523833334 ms"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="193"></NameColumnWidth>
+      <ValueColumnWidth column_width="65"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="54" />
+   <wvobject fp_name="/tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frame_start" type="logic">
+      <obj_property name="ElementShortName">frame_start</obj_property>
+      <obj_property name="ObjectShortName">frame_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/loading_samples" type="logic">
+      <obj_property name="ElementShortName">loading_samples</obj_property>
+      <obj_property name="ObjectShortName">loading_samples</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/loading_done" type="logic">
+      <obj_property name="ElementShortName">loading_done</obj_property>
+      <obj_property name="ObjectShortName">loading_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/fft_in_progress" type="logic">
+      <obj_property name="ElementShortName">fft_in_progress</obj_property>
+      <obj_property name="ObjectShortName">fft_in_progress</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/new_stage" type="logic">
+      <obj_property name="ElementShortName">new_stage</obj_property>
+      <obj_property name="ObjectShortName">new_stage</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/stage_cntr" type="array">
+      <obj_property name="ElementShortName">stage_cntr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">stage_cntr[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/calc_sidevar_cntr" type="array">
+      <obj_property name="ElementShortName">calc_sidevar_cntr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">calc_sidevar_cntr[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/sidevars_done" type="logic">
+      <obj_property name="ElementShortName">sidevars_done</obj_property>
+      <obj_property name="ObjectShortName">sidevars_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/calc_index_cntr" type="array">
+      <obj_property name="ElementShortName">calc_index_cntr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">calc_index_cntr[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/read_cntr" type="array">
+      <obj_property name="ElementShortName">read_cntr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">read_cntr[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/read_cntr_posedge" type="array">
+      <obj_property name="ElementShortName">read_cntr_posedge[1:0]</obj_property>
+      <obj_property name="ObjectShortName">read_cntr_posedge[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/groups" type="array">
+      <obj_property name="ElementShortName">groups[9:0]</obj_property>
+      <obj_property name="ObjectShortName">groups[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/g" type="array">
+      <obj_property name="ElementShortName">g[9:0]</obj_property>
+      <obj_property name="ObjectShortName">g[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/element_per_group" type="array">
+      <obj_property name="ElementShortName">element_per_group[10:0]</obj_property>
+      <obj_property name="ObjectShortName">element_per_group[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/half" type="array">
+      <obj_property name="ElementShortName">half[9:0]</obj_property>
+      <obj_property name="ObjectShortName">half[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/h" type="array">
+      <obj_property name="ElementShortName">h[9:0]</obj_property>
+      <obj_property name="ObjectShortName">h[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/begin_butterfly" type="logic">
+      <obj_property name="ElementShortName">begin_butterfly</obj_property>
+      <obj_property name="ObjectShortName">begin_butterfly</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/butterfly_done" type="logic">
+      <obj_property name="ElementShortName">butterfly_done</obj_property>
+      <obj_property name="ObjectShortName">butterfly_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/write_cntr" type="array">
+      <obj_property name="ElementShortName">write_cntr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">write_cntr[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/write_cntr_posedge" type="array">
+      <obj_property name="ElementShortName">write_cntr_posedge[1:0]</obj_property>
+      <obj_property name="ObjectShortName">write_cntr_posedge[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/writing_done" type="logic">
+      <obj_property name="ElementShortName">writing_done</obj_property>
+      <obj_property name="ObjectShortName">writing_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/fft_done" type="logic">
+      <obj_property name="ElementShortName">fft_done</obj_property>
+      <obj_property name="ObjectShortName">fft_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_1_real_addr_b_reg" type="array">
+      <obj_property name="ElementShortName">ram_1_real_addr_b_reg[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_1_real_addr_b_reg[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_1_imag_addr_b_reg" type="array">
+      <obj_property name="ElementShortName">ram_1_imag_addr_b_reg[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_1_imag_addr_b_reg[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/rom_real_addr" type="array">
+      <obj_property name="ElementShortName">rom_real_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_real_addr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/rom_imag_addr" type="array">
+      <obj_property name="ElementShortName">rom_imag_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_imag_addr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_2_real_addr_a" type="array">
+      <obj_property name="ElementShortName">ram_2_real_addr_a[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_2_real_addr_a[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_2_imag_addr_a" type="array">
+      <obj_property name="ElementShortName">ram_2_imag_addr_a[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_2_imag_addr_a[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_3_real_addr_a" type="array">
+      <obj_property name="ElementShortName">ram_3_real_addr_a[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_3_real_addr_a[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_3_imag_addr_a_reg" type="array">
+      <obj_property name="ElementShortName">ram_3_imag_addr_a_reg[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_3_imag_addr_a_reg[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_1_real_din_b" type="array">
+      <obj_property name="ElementShortName">ram_1_real_din_b[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_1_real_din_b[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_1_imag_din_b" type="array">
+      <obj_property name="ElementShortName">ram_1_imag_din_b[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_1_imag_din_b[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_1_real_dout_b" type="array">
+      <obj_property name="ElementShortName">ram_1_real_dout_b[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_1_real_dout_b[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_1_imag_dout_b" type="array">
+      <obj_property name="ElementShortName">ram_1_imag_dout_b[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_1_imag_dout_b[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/x1_real_reg" type="array">
+      <obj_property name="ElementShortName">x1_real_reg[23:0]</obj_property>
+      <obj_property name="ObjectShortName">x1_real_reg[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/x1_real_buff" type="array">
+      <obj_property name="ElementShortName">x1_real_buff[23:0]</obj_property>
+      <obj_property name="ObjectShortName">x1_real_buff[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/x2_real_reg" type="array">
+      <obj_property name="ElementShortName">x2_real_reg[23:0]</obj_property>
+      <obj_property name="ObjectShortName">x2_real_reg[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/x2_real_buff" type="array">
+      <obj_property name="ElementShortName">x2_real_buff[23:0]</obj_property>
+      <obj_property name="ObjectShortName">x2_real_buff[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_2_real_din_a" type="array">
+      <obj_property name="ElementShortName">ram_2_real_din_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_2_real_din_a[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_2_imag_din_a" type="array">
+      <obj_property name="ElementShortName">ram_2_imag_din_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_2_imag_din_a[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_2_real_dout_a" type="array">
+      <obj_property name="ElementShortName">ram_2_real_dout_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_2_real_dout_a[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_2_imag_dout_a" type="array">
+      <obj_property name="ElementShortName">ram_2_imag_dout_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_2_imag_dout_a[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/y1_real" type="array">
+      <obj_property name="ElementShortName">y1_real[23:0]</obj_property>
+      <obj_property name="ObjectShortName">y1_real[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/y1_real_buff" type="array">
+      <obj_property name="ElementShortName">y1_real_buff[23:0]</obj_property>
+      <obj_property name="ObjectShortName">y1_real_buff[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/y2_real" type="array">
+      <obj_property name="ElementShortName">y2_real[23:0]</obj_property>
+      <obj_property name="ObjectShortName">y2_real[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/y2_real_buff" type="array">
+      <obj_property name="ElementShortName">y2_real_buff[23:0]</obj_property>
+      <obj_property name="ObjectShortName">y2_real_buff[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_3_real_din_a" type="array">
+      <obj_property name="ElementShortName">ram_3_real_din_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_3_real_din_a[23:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/ram_3_imag_din_a" type="array">
+      <obj_property name="ElementShortName">ram_3_imag_din_a[23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_3_imag_din_a[23:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/btf/a_array" type="array">
+      <obj_property name="ElementShortName">a_array[199:0]</obj_property>
+      <obj_property name="ObjectShortName">a_array[199:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/btf/b_array" type="array">
+      <obj_property name="ElementShortName">b_array[143:0]</obj_property>
+      <obj_property name="ObjectShortName">b_array[143:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/btf/pci_array" type="array">
+      <obj_property name="ElementShortName">pci_array[383:0]</obj_property>
+      <obj_property name="ObjectShortName">pci_array[383:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/btf/p_array" type="array">
+      <obj_property name="ElementShortName">p_array[383:0]</obj_property>
+      <obj_property name="ObjectShortName">p_array[383:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>
