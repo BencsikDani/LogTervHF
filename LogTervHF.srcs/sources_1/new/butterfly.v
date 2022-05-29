@@ -32,11 +32,12 @@ module butterfly(
 // y2_real = x1_real + x2_real*w2_real - x2_imag*w2_imag;
 // y2_imag = x1_imag + x2_imag*w2_real + x2_real*w2_imag; 
 
-// DSP1 : s.3.20 * s.1.16 + 12s.36  = s.5.36 + 12s.36 = 6s.6.36
-// DSP2 : s.3.20 * s.1.16 + 6s.6.36 = s.5.36 + 6s.6.36 = 5s.7.36
+// Jelölések: "valós érték (tárolt változat)"
+// DSP1 :   s.3.20 (2s.3.20) * s.1.16 + s.3.20 (9s.3.36) =   s.5.36 (7s.5.36) + s.3.20 (9s.3.36) = s.6.36 (7s.6.36 -> 6s.6.36)
+// DSP2 : - s.3.20 (2s.3.20) * s.1.16 + s.6.36 (6s.6.36) = - s.5.36 (7s.5.36) + s.6.36 (6s.6.36) = s.7.36 (6s.7.36 -> 5s.7.36)
 // y (12+36 bit) --> y (4+20 bit)
-// y[47], y[46:36], y[35:16], y[15:0]
-//    1  +   11   +    20   +   16
+// y[47:40], y[39:36], y[35:16], y[15:0]
+//    8   +   4      +    20   +   16
 
 // Regiszterek száma az egyes DSP-knél
 // parameter [63:0] REGNUM = {"1", "2", "1", "2", "1", "2", "1", "2"};
@@ -56,7 +57,7 @@ wire signed [47:0] out4;
 
 assign a_array =    {{x2_real[23], x2_real},              ((~{x2_imag[23], x2_imag})+25'b1), {x2_imag[23], x2_imag},              {x2_real[23], x2_real}, {x2_real[23], x2_real},              (~{x2_imag[23], x2_imag})+25'b1, {x2_imag[23], x2_imag},              {x2_real[23], x2_real}};
 assign b_array =    {w1_real,                             w1_imag,                           w1_real,                             w1_imag,                 w2_real,                             w2_imag,                        w2_real,                             w2_imag};
-assign pci_array =  {{{11{x1_real[23]}}, x1_real, 13'b0}, p_wire[191:144],                   {{11{x1_imag[23]}}, x1_imag, 13'b0}, p_wire[143:96],          {{11{x1_real[23]}}, x1_real, 13'b0}, p_wire[95:48],                  {{11{x1_imag[23]}}, x1_imag, 13'b0}, p_wire[47:0]};
+assign pci_array =  {{{8{x1_real[23]}}, x1_real, 16'b0}, p_wire[191:144],                   {{8{x1_imag[23]}}, x1_imag, 16'b0}, p_wire[143:96],          {{8{x1_real[23]}}, x1_real, 16'b0}, p_wire[95:48],                  {{8{x1_imag[23]}}, x1_imag, 16'b0}, p_wire[47:0]};
 assign p_wire[191:144] = p_array[383:336];
 assign out1            = p_array[335:288];
 assign p_wire[143:96]  = p_array[287:240];
@@ -92,10 +93,14 @@ for (i = 1; i < 9; i=i+1)
     end
 endgenerate
 
-assign y1_real = {out1[47], out1[34:12]};
-assign y1_imag = {out2[47], out2[34:12]};
-assign y2_real = {out3[47], out3[34:12]};
-assign y2_imag = {out4[47], out4[34:12]};
+assign y1_real = out1[39:16];
+assign y1_imag = out2[39:16];
+assign y2_real = out3[39:16];
+assign y2_imag = out4[39:16];
+//assign y1_real = {out1[47], out1[34:12]};
+//assign y1_imag = {out2[47], out2[34:12]};
+//assign y2_real = {out3[47], out3[34:12]};
+//assign y2_imag = {out4[47], out4[34:12]};
 
 // Várunk minimum 4 órajelet, mert addigra lesz kész a két végeredmény
 reg [2:0] progress_cntr;

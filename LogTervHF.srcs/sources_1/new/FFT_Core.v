@@ -279,7 +279,7 @@ assign addr_b_i =  {ram_1_real_addr_b, ram_1_imag_addr_b, 10'b0, 10'b0, fft_real
 // Adatbemenetek a ROM-okhoz
 wire [143:0] din_a_i;
 wire [143:0] din_b_i;
-assign din_a_i = { {4{cb_dout[23]}}, cb_dout[23:4], 24'b0, ram_2_real_din_a, ram_2_imag_din_a, ram_3_real_din_a, ram_3_imag_din_a};
+assign din_a_i = { {3{1'b0}}, cb_dout[23:3], 24'b0, ram_2_real_din_a, ram_2_imag_din_a, ram_3_real_din_a, ram_3_imag_din_a};
 assign din_b_i = {ram_1_real_din_b, ram_1_imag_din_b, 24'b0, 24'b0, 24'b0, 24'b0};
 // Adatkimenetek a RAM-okhoz
 wire [143:0] dout_a_i;
