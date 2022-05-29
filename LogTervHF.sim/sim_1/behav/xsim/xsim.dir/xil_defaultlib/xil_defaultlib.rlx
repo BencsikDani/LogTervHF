@@ -1,0 +1,19 @@
+0.7
+2020.2
+Oct 19 2021
+03:16:22
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.sim/sim_1/behav/xsim/glbl.v,1634335545,verilog,,,,glbl,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sim_1/new/tb.v,1653850221,verilog,,,,tb,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sim_1/new/test_rom.v,1653834700,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sim_1/new/tb.v,,test_rom,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/imports/new/codec_if.v,1652121646,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v,,codec_if,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/imports/new/top_level.v,1653843621,verilog,,,,top_level,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Controller.v,1653843791,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v,,FFT_Controller,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v,1653830712,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/butterfly.v,,FFT_Core,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/butterfly.v,1653830339,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v,,butterfly,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v,1653848736,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v,,coeff_rom,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v,1652171707,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v,,dsp_25x18,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v,1653845635,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/log2.v,,fft_to_dB,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/log2.v,1653843275,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v,,log_2,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v,1653838886,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v,,log2_rom,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v,1652175366,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v,,mul_24x24,,,,,,,,
+C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v,1652124902,verilog,,C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.srcs/sim_1/new/test_rom.v,,smpl_ram,,,,,,,,

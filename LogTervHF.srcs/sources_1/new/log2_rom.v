@@ -26,15 +26,13 @@ module log2_rom(
     output  [17:0]  dout
     );
 
-(* ram_style = "block" *) reg [17:0] memory[2047:0];
-initial $readmemh("INSERT.txt", memory);
+(* ram_style = "block" *) reg [17:0] memory[1023:0];
+initial $readmemb("log_const_mem.txt", memory);
 
 reg [17:0] dout_reg;
 always @ (posedge clk)
     dout_reg <= memory[addr];
 
 assign dout = dout_reg;
-
-//dbg_array??
 
 endmodule

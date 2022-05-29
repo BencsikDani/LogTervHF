@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module log2(
+module log_2(
     input clk,
     input rst,
     input log2_start,
@@ -37,8 +37,10 @@ reg log2_done_reg;
 reg [5:0] digit_cntr;
 reg [48:0] digit_pos;
 reg [9:0] mant_addr_reg;
+reg [48:0] sum_reg;
+reg [48:0] sum_shift;
 
-assign mant_dout[16:0] = log2[16:0];
+assign mant_dout[16:0] = log_2[16:0];
 assign mant_addr = (finished_man) ? mant_addr_reg : 10'b0000000000;
 
 always @ (posedge clk)
@@ -49,28 +51,32 @@ begin
     log2_done_reg <= 1'b0;
     digit_cntr <= 6'b110000;
     digit_pos <= 49'b1000000000000000000000000000000000000000000000000;
+    sum_shift <= 49'b0111111111100000000000000000000000000000000000000;
+    
+    sum_reg <= sum;
 end
     
 
 always @ (posedge clk)
 if(~finished_exp)
 begin
-if(sum == 49'b0)
+if(sum_reg == 49'b0)
 begin
-log2 <= 23'b0;
+log_2 <= 23'b0;
 finished_exp <= 1'b1;
 finished_man <= 1'b1;
 end    
-else if (sum >= digit_pos)
+else if (sum_reg >= digit_pos)
 begin
-log2[22:17] <= digit_cntr;
-sum = sum - digit_pos;
+log_2[22:17] <= digit_cntr;
+//sum = sum - digit_pos;
 finished_exp <= 1'b1;
 end
 else 
 begin
 digit_cntr <= digit_cntr - 1;
-digit_pos = digit_pos >> 1;     
+digit_pos <= digit_pos >> 1;
+sum_shift <= sum_shift >> 1;     
 end
 end
 
@@ -78,11 +84,11 @@ always @ (posedge clk)
 if(finished_exp & ~finished_man)
 begin
 if (digit_cntr > 6'b001001)
-    mant_addr_reg <= sum[(digit_cntr-6'b000001):(digit_cntr-6'b001010)];
+    mant_addr_reg <= sum_reg & sum_shift;
 else
 begin
-    sum = sum << (6'b001010 - digit_cntr);
-    mant_addr_reg <= sum[9:0];
+    sum_reg = sum_reg <<< (6'b001010 - digit_cntr);
+    mant_addr_reg <= sum_reg[9:0];
 end
 finished_man <= 1'b1;
 end

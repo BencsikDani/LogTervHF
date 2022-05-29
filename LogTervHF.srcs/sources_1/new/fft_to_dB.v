@@ -37,24 +37,32 @@ module fft_to_dB(
 reg [2:0] calc_dl;
 reg [9:0] smpl_cntr;
 reg fft_rdy_reg;
-reg [47:0] powre;
-reg [47:0] powim;
+reg [47:0] powre_reg;
+wire[47:0] powre;
+reg [47:0] powim_reg;
+wire[47:0] powim; 
 reg [48:0] sum;
-reg [23:0] dB;
+reg [23:0] dB_reg;
+wire[23:0] dB;
 wire [9:0] mant_addr; 
-wire [17:0] mant_data_out;
+wire[17:0] mant_data_out;
 reg log2_start;
-reg log2_done;
+reg log2_done_reg;
+wire log2_done;
 reg dB_calculated;
 
+assign powre = powre_reg;
+assign powim = powim_reg;
+assign dB = dB_reg;
 assign fft_addr_in = smpl_cntr;
+assign log2_done = log2_done_reg;
 
 log2_rom mantissa(
     .clk(clk),
     .addr(mant_addr),
     .dout(mant_data_out)
 );
-   
+
 mul_24x24 re(
     .clk(clk),
     .a(dre),
@@ -72,7 +80,7 @@ mul_24x24 im(
 always @ (posedge clk)
 sum <= powre + powim;
 
-log2 sumToDB (
+log_2 sumToDB (
     .clk(clk),
     .rst(rst),
     .log2_start(log2_start),
@@ -113,18 +121,19 @@ if(log2_start)
 begin
     log2_start = 1'b0;
     if(log2_done)
-    begin
-    if(smpl_cntr == 10'b1111111111)
-    begin
-    log2_done <= 1'b0;
-    log2_start <= 1'b0;
-    end
-    else begin
-    smpl_cntr <= smpl_cntr + 1;
-    log2_done <= 1'b0;
-    log2_start <= 1'b1;
-    end
-    end    
+        begin
+        if(smpl_cntr == 10'b1111111111)
+            begin
+            log2_start <= 1'b0;
+            log2_done_reg <= 1'b0;
+            end
+        else
+            begin
+            log2_done_reg <= 1'b0;
+            smpl_cntr <= smpl_cntr + 1;
+            log2_start <= 1'b1;
+            end
+        end    
 end
 
 always @ (posedge clk)

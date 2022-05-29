@@ -95,5 +95,22 @@ codec_if uut
    .aud_din0      (aud_din0),
    .aud_din1      (aud_din1)
 );
+
+wire [9:0]dB_addr;
+wire dB_dout_vld;
+wire [23:0] dB_dout;
+
+FFT_Controller sample_to_dB (
+    .clk          (clk),
+    .rst          (rst),
+    .frame_start  (frame_start_reg),
+    
+    .aud_dout_vld  (aud_dout_vld[0]),
+    .aud_dout      (aud_dout),
+    
+    .frm_addr      (dB_addr),
+    .frm_dout_vld  (dB_dout_vld),
+    .frm_dout      (dB_dout)
+);
     
 endmodule

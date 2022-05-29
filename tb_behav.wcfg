@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="3,399,683.084 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,400,264.585 ns"></ZoomEndTime>
+      <Cursor1Time time="3,399,780.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="213"></NameColumnWidth>
+      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="29" />
+   <wvobject fp_name="/tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/test_input_rom/memory" type="array">
+      <obj_property name="ElementShortName">memory[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">memory[0:1023][23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/test_input_rom/addr" type="array">
+      <obj_property name="ElementShortName">addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/test_input_rom/dout" type="array">
+      <obj_property name="ElementShortName">dout[23:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/rom_addr" type="array">
+      <obj_property name="ElementShortName">rom_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/rom_data" type="array">
+      <obj_property name="ElementShortName">rom_data[23:0]</obj_property>
+      <obj_property name="ObjectShortName">rom_data[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/fft_real_addr" type="array">
+      <obj_property name="ElementShortName">fft_real_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_real_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/fft_imag_addr" type="array">
+      <obj_property name="ElementShortName">fft_imag_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_imag_addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/fft_real_out" type="array">
+      <obj_property name="ElementShortName">fft_real_out[23:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_real_out[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/fft_imag_out" type="array">
+      <obj_property name="ElementShortName">fft_imag_out[23:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_imag_out[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frame_start_reg" type="logic">
+      <obj_property name="ElementShortName">frame_start_reg</obj_property>
+      <obj_property name="ObjectShortName">frame_start_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frame_start_cntr" type="array">
+      <obj_property name="ElementShortName">frame_start_cntr[20:0]</obj_property>
+      <obj_property name="ObjectShortName">frame_start_cntr[20:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frame_start" type="logic">
+      <obj_property name="ElementShortName">frame_start</obj_property>
+      <obj_property name="ObjectShortName">frame_start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/aud_vld_cntr" type="array">
+      <obj_property name="ElementShortName">aud_vld_cntr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">aud_vld_cntr[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/aud_dout_vld_reg" type="logic">
+      <obj_property name="ElementShortName">aud_dout_vld_reg</obj_property>
+      <obj_property name="ObjectShortName">aud_dout_vld_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/smpl_addr_cntr" type="array">
+      <obj_property name="ElementShortName">smpl_addr_cntr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">smpl_addr_cntr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/smpl_data" type="array">
+      <obj_property name="ElementShortName">smpl_data[23:0]</obj_property>
+      <obj_property name="ObjectShortName">smpl_data[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frm_dout_vld_check_reg" type="logic">
+      <obj_property name="ElementShortName">frm_dout_vld_check_reg</obj_property>
+      <obj_property name="ObjectShortName">frm_dout_vld_check_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frm_dout_vld_check" type="logic">
+      <obj_property name="ElementShortName">frm_dout_vld_check</obj_property>
+      <obj_property name="ObjectShortName">frm_dout_vld_check</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frm_data_check_reg" type="array">
+      <obj_property name="ElementShortName">frm_data_check_reg[23:0]</obj_property>
+      <obj_property name="ObjectShortName">frm_data_check_reg[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/frm_data_check" type="array">
+      <obj_property name="ElementShortName">frm_data_check[23:0]</obj_property>
+      <obj_property name="ObjectShortName">frm_data_check[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/convert/mantissa/addr" type="array">
+      <obj_property name="ElementShortName">addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/convert/mantissa/dout" type="array">
+      <obj_property name="ElementShortName">dout[17:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/calc/coeff_rom_real/addr" type="array">
+      <obj_property name="ElementShortName">addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/calc/coeff_rom_real/dout" type="array">
+      <obj_property name="ElementShortName">dout[17:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/convert/sumToDB/dB" type="array">
+      <obj_property name="ElementShortName">dB[23:0]</obj_property>
+      <obj_property name="ObjectShortName">dB[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/convert/re/m" type="array">
+      <obj_property name="ElementShortName">m[47:0]</obj_property>
+      <obj_property name="ObjectShortName">m[47:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb/core/convert/im/m" type="array">
+      <obj_property name="ElementShortName">m[47:0]</obj_property>
+      <obj_property name="ObjectShortName">m[47:0]</obj_property>
+   </wvobject>
+</wave_config>
