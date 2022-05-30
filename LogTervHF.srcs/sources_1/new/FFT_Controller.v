@@ -126,10 +126,6 @@ begin
 end
 
 always @ (posedge clk)
-if(log2_done)
-    dB_vld_reg <= 1;
-
-always @ (posedge clk)
 if (fft_rdy)
     dB_vld_reg <= 1'b0;
 
