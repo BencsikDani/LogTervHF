@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 //Converting FFT values to dB
-//20log2(sqrt(re^2+im^2)) = (10/log2(10))log2(re^2+im^2) ~ 3log2(re^2+im^2)
+//20log10(sqrt(re^2+im^2)) = (10/log2(10))log2(re^2+im^2) ~ 3log2(re^2+im^2)
 
 module fft_to_dB(
     input clk,
@@ -34,21 +34,21 @@ module fft_to_dB(
     output dB_vld
     );
 
-reg [2:0] calc_dl;      // Delay for DSPs and adding
-reg [9:0] smpl_cntr;    // Counter for samples
-reg [47:0] powre_reg;   // Register for self-multiplied real value
-wire[47:0] powre;       // Wire for self-multiplied real value
-reg [47:0] powim_reg;   // Register for self-multiplied imaginary value
-wire[47:0] powim;       // Wire for self-multiplied imaginary value
-reg [48:0] sum;         // = powre + powim
-reg [23:0] dB_reg;      
-wire[23:0] dB;
-wire [9:0] mant_addr; 
+reg [2:0] calc_dl;      // Késleltetés a szorzások és összeadás elvégzésének bevárására
+reg [9:0] smpl_cntr;    // Minták számlálója
+reg [47:0] powre_reg;   // Valós rész négyzetének regisztere
+wire[47:0] powre;       // Vezeték valós rész négyzetének
+reg [47:0] powim_reg;   // Képzetes rész négyzetének regisztere
+wire[47:0] powim;       // Vezeték képzetes rész négyzetének
+reg [48:0] sum;         // Valós és képzetes rész négyzetösszege
+reg [23:0] dB_reg;      // Regiszter és vezeték a kistámított dB értékek memóriába írásához
+wire[23:0] dB;          
+wire [9:0] mant_addr;   // Cím és adatvezetékek a log2 törtrészeket tartalmazó memóriához.
 wire[17:0] mant_data_out;
-reg log2_start;
-reg log2_done_reg;
+reg log2_start;         // A log2 számítás kezdetét jelzõ regiszter
+reg log2_done_reg;      // A log2 számítás végét jelzõ regiszter és vezeték
 wire log2_done;
-reg dB_calculated;
+reg dB_calculated;      // Flag a dB számítások befejeztérõl
 
 assign powre = powre_reg;
 assign powim = powim_reg;
@@ -56,19 +56,38 @@ assign dB = dB_reg;
 assign fft_addr_in = smpl_cntr;
 assign log2_done = log2_done_reg;
 
+// A log2 törtrészek tárólójának példányosíta
 log2_rom mantissa(
     .clk(clk),
     .addr(mant_addr),
     .dout(mant_data_out)
 );
 
+// rst logika
+always @ (posedge clk)
+if (rst)
+begin
+    calc_dl <= 3'b000;
+    smpl_cntr <= 10'b0000000000;
+end
+
+// fft_rdy jel logika
+always @ (posedge fft_rdy)
+smpl_cntr <= 10'b0000000000;
+
+always @ (posedge clk)
+if(fft_rdy)
+    calc_dl <= calc_dl + 1;
+
+// valós rész négyzetre emelése
 mul_24x24 re(
     .clk(clk),
     .a(dre),
     .b(dre),
     .m(powre)
 );
-    
+
+//képzetes rész négyzetre emelésee    
 mul_24x24 im(
     .clk(clk),
     .a(dim),
@@ -76,9 +95,11 @@ mul_24x24 im(
     .m(powim)
 );
 
+// négyzetek összeadása
 always @ (posedge clk)
 sum <= powre + powim;
 
+// decibelérték kiszámításának meghívása
 log_2 sumToDB (
     .clk(clk),
     .rst(rst),
@@ -90,57 +111,39 @@ log_2 sumToDB (
     .mant_addr(mant_addr)
 );
 
-always @ (posedge clk)
-if (rst)
-begin
-    calc_dl <= 3'b000;
-//    fft_rdy_reg <= 1'b0;
-    smpl_cntr <= 10'b0000000000;
-end
-
+// Log2 számítás kezdetét jelzõ flag
 always @ (posedge fft_rdy)
-smpl_cntr <= 10'b0000000000;
+log2_start <= 1;
 
-always @ (posedge clk)
-if(fft_rdy)
-    calc_dl <= calc_dl + 1;
-
-always @ (posedge clk)
-if (fft_rdy & calc_dl == 3'b111 & smpl_cntr < 10'b1111111111)
-begin
-//fft_rdy_reg <= 1'b0;        
-log2_start <= 1'b1;    
-end
 
 always @ (posedge clk)
 if(log2_start)
-begin
     log2_start = 1'b0;
-    if(log2_done)
-        begin
-        if(smpl_cntr == 10'b1111111111)
-            begin
-            log2_start <= 1'b0;
-            log2_done_reg <= 1'b0;
-            end
-        else
-            begin
-            log2_done_reg <= 1'b0;
-            smpl_cntr <= smpl_cntr + 1;
-            log2_start <= 1'b1;
-            end
-        end    
-end
 
+always @ (posedge clk)
+if (fft_rdy & smpl_cntr < 10'b1111111111)
+begin
+if(smpl_cntr != 10'b0 & log2_done_reg)
+log2_start <= 1'b1;
+end   
+
+always @ (posedge clk)
+if(smpl_cntr == 10'b1111111111)
+    log2_start <= 1'b0;
+else if(log2_done_reg)
+    smpl_cntr <= smpl_cntr + 1;
+
+
+
+// Állapotlogika a dB értékek kiszámításához
 always @ (posedge clk)
 if(smpl_cntr < 10'b1111111111)
     dB_calculated <= 1'b0;
 else if (smpl_cntr == 10'b1111111111 & log2_done)
     dB_calculated <= 1'b1;
 
-
 assign log2_vld = log2_done;
-assign dout = dB;
+assign dout = dB_reg;
 assign dB_vld = dB_calculated;
 
 endmodule

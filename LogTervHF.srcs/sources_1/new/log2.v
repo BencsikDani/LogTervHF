@@ -30,33 +30,38 @@ module log_2(
     output [23:0] dB,
     output [9:0] mant_addr
     );
+    
 reg [22:0] log_2;
-reg finished_exp;   //finished finding exponent (Integer part)
-reg finished_man;   //finished finding mantissa (Fraction part)
-reg log2_done_reg;
-reg [5:0] digit_cntr;
-reg [48:0] digit_pos;
+reg process;        // A kezdõ jel érkezésétõl a számolás befejezéséig aktív jel
+reg finished_exp;   // Az egészrész kiszámításának befejezését jelzõ regiszter
+reg finished_man;   // A törtrész kiszámítását jelzõ regiszter
+reg log2_done_reg;  // A teljes számolás befejezlését jelzõ regiszter
+reg [5:0] digit_cntr;   //Egészrészt számító számláló
+reg [48:0] digit_pos;   //Helyiértékkeresõ shiftregiszter
 reg [9:0] mant_addr_reg;
 reg [48:0] sum_reg;
 reg [48:0] sum_shift;
+reg [23:0] dB_value_reg;
 
-assign mant_dout[16:0] = log_2[16:0];
-assign mant_addr = (finished_man) ? mant_addr_reg : 10'b0000000000;
 
+assign mant_addr = (finished_man) ?  10'b0000000000 :   mant_addr_reg;
+
+// Kezdõértékek beállítása és reset jelre adott válasz
 always @ (posedge clk)
-if(log2_start)
-begin
+if((log2_start & ~process) | rst)
+begin 
     finished_exp <= 1'b0;
     finished_man <= 1'b0;
     log2_done_reg <= 1'b0;
     digit_cntr <= 6'b110000;
     digit_pos <= 49'b1000000000000000000000000000000000000000000000000;
-    sum_shift <= 49'b0111111111100000000000000000000000000000000000000;
-    
+    sum_shift <= 49'b0111111111100000000000000000000000000000000000000;    
     sum_reg <= sum;
+    if(log2_start)
+        process <= 1;    
 end
     
-
+// Az egészrészt megtaláló blokk
 always @ (posedge clk)
 if(~finished_exp)
 begin
@@ -69,7 +74,6 @@ end
 else if (sum_reg >= digit_pos)
 begin
 log_2[22:17] <= digit_cntr;
-//sum = sum - digit_pos;
 finished_exp <= 1'b1;
 end
 else 
@@ -80,6 +84,7 @@ sum_shift <= sum_shift >> 1;
 end
 end
 
+//Az egészrész után a törtészt megtaláló blokk
 always @ (posedge clk)
 if(finished_exp & ~finished_man)
 begin
@@ -93,11 +98,19 @@ end
 finished_man <= 1'b1;
 end
 
+assign mant_dout[16:0] = log_2[16:0];
+
+//A kiszámított log2 után a 3-mal szorzás is elvégzésre kerül,
+//Ezután a számítás befejeztét jelzõ bit is egyre vált
 always @ (posedge clk)
 if(finished_man)
+begin
     log2_done_reg <= 1'b1;
+    process <= 0;
+    dB_value_reg <= {1'b0, log_2} + {log_2, 1'b0};
+end
 
-assign dB = {1'b0, log_2} + {log_2, 1'b0};
+assign dB = (log2_done_reg) ? dB_value_reg : 24'b0;
 assign log2_done = log2_done_reg;
 
 endmodule
