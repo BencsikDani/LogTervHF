@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../LogTervHF.srcs/sources_1/new/FFT_Core.v" \
+"../../../../LogTervHF.srcs/sources_1/new/butterfly.v" \
+"../../../../LogTervHF.srcs/sources_1/new/coeff_rom.v" \
+"../../../../LogTervHF.srcs/sources_1/new/dsp_25x18.v" \
+"../../../../LogTervHF.srcs/sources_1/new/smpl_ram.v" \
+"../../../../LogTervHF.srcs/sim_1/new/test_rom.v" \
+"../../../../LogTervHF.srcs/sim_1/new/tb_FFT_Core.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

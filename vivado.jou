@@ -2,113 +2,66 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Sun May 29 21:39:26 2022
-# Process ID: 2520
-# Current directory: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26188 C:\Users\Marcell\Desktop\BME\MSc\LogTerv\LogTervHF\LogTervHF.xpr
-# Log file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/vivado.log
-# Journal file: C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF\vivado.jou
-# Running On: Cibbersson, OS: Windows, CPU Frequency: 3693 MHz, CPU Physical cores: 12, Host memory: 17102 MB
+# Start of session at: Mon May 30 00:19:11 2022
+# Process ID: 30300
+# Current directory: C:/Users/Dani/XilinxProjects/LogTervHF
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16756 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
+# Log file: C:/Users/Dani/XilinxProjects/LogTervHF/vivado.log
+# Journal file: C:/Users/Dani/XilinxProjects/LogTervHF\vivado.jou
+# Running On: DANINITRO-PC, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 17057 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/LogTervHF.xpr
+open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
 update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_FFT_Core.v w ]
+add_files -fileset sim_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_FFT_Core.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_FFT_Core [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
 launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+source tb_FFT_Core.tcl
+run 2600 us
+relaunch_sim
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+relaunch_sim
+run 2600 us
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+run 2600 us
+relaunch_sim
 restart
-run 4 ms
-close_sim
-launch_simulation
-launch_simulation
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
+run 2600 us
+relaunch_sim
+run 2600 us
 restart
-run 4 ms
+run 360 us
 restart
-run 4 ms
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
 restart
-run 4 ms
+run 100 us
 restart
-run 4 ms
+step
+run 10 us
+run 10 us
 restart
-run 4 ms
-restart
-run 4 ms
-restart
-run 13 ms
-restart
-run 20 ms
-restart
-run all
-restart
-run 20 ms
-save_wave_config {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg}
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-restart
-run 20 ms
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-restart
-run 20 ms
-run all
-restart
-run all
-save_wave_config {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg}
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run all
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-restart
-run 200 ms
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run all
-save_wave_config {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg}
-close_sim
-launch_simulation
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run 200 ms
-restart
-run 200 ms
-save_wave_config {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg}
-close_sim
-launch_simulation
-open_wave_config C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg
-source tb.tcl
-restart
-run 200 ms
-restart
-run 200 ms
-restart
-run 200 ms
-save_wave_config {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg}
-save_wave_config {C:/Users/Marcell/Desktop/BME/MSc/LogTerv/LogTervHF/tb_behav.wcfg}
-restart
-run 200 ms
-run all
+run 11050 ns
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+run 2600 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}

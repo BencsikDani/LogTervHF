@@ -40,7 +40,6 @@ module butterfly(
 //    1   +   8   +  10   +    13   +   16
 
 // Regiszterek száma az egyes DSP-knél
-// parameter [63:0] REGNUM = {"1", "2", "1", "2", "1", "2", "1", "2"};
 parameter [15:0] REGNUM = {2'd1, 2'd2, 2'd1, 2'd2, 2'd1, 2'd2, 2'd1, 2'd2};
 // DSP I/O az iterált példányosításhoz
 wire signed [199:0] a_array;        // 8 * 25 bit = 200 bit
@@ -49,12 +48,13 @@ wire signed [383:0] pci_array;      // 8 * 48 biz = 384 bit
 wire signed [383:0] p_array;        // 8 * 48 biz = 384 bit
 // Huzalozás a DSP-k összekötéséhez
 wire signed [191:0] p_wire;     // 4 * 48 bit = 192 bit
-
+// Kimeneti huzalok
 wire signed [47:0] out1;
 wire signed [47:0] out2;
 wire signed [47:0] out3;
 wire signed [47:0] out4;
 
+// Tömbök létrehozása a DSP-k bekötéséhez
 assign a_array =    {{x2_real[23], x2_real},              ((~{x2_imag[23], x2_imag})+25'b1), {x2_imag[23], x2_imag},              {x2_real[23], x2_real}, {x2_real[23], x2_real},              (~{x2_imag[23], x2_imag})+25'b1, {x2_imag[23], x2_imag},              {x2_real[23], x2_real}};
 assign b_array =    {w1_real,                             w1_imag,                           w1_real,                             w1_imag,                 w2_real,                             w2_imag,                        w2_real,                             w2_imag};
 assign pci_array =  {{{8{x1_real[23]}}, x1_real, 16'b0}, p_wire[191:144],                   {{8{x1_imag[23]}}, x1_imag, 16'b0}, p_wire[143:96],          {{8{x1_real[23]}}, x1_real, 16'b0}, p_wire[95:48],                  {{8{x1_imag[23]}}, x1_imag, 16'b0}, p_wire[47:0]};
@@ -69,11 +69,8 @@ assign out4            = p_array[47:0];
 
 // Teljes butterfly késleltetés: 4 órajel
 
-// Indexek az egyes tömbökhöz:
-// parameter [63:0] i_by_25 = {8'd199, 8'd174, 8'd149, 8'd124, 8'd99, 8'd74, 8'd49, 8'd24};
-// parameter [63:0] i_by_18 = {8'd143, 8'd125, 8'd107, 8'd89, 8'd71, 8'd53, 8'd35, 8'd17};
-// parameter [63:0] i_by_48 = {9'd383, 9'd335, 9'd287, 9'd239, 9'd191, 9'd143, 9'd95, 9'd47};
 
+// 8 db DSP példányosítása és bekötése
 genvar i;
 generate
 for (i = 1; i < 9; i=i+1)
@@ -93,10 +90,13 @@ for (i = 1; i < 9; i=i+1)
     end
 endgenerate
 
+// Kimenetek kikötése
 assign y1_real = {out1[47], out1[38:16]};
 assign y1_imag = {out2[47], out2[38:16]};
 assign y2_real = {out3[47], out3[38:16]};
 assign y2_imag = {out4[47], out4[38:16]};
+
+
 
 // Várunk minimum 4 órajelet, mert addigra lesz kész a két végeredmény
 reg [2:0] progress_cntr;
@@ -106,6 +106,9 @@ if (rst | progress_cntr == 3'd5)
 else if (begin_butterfly | progress_cntr != 0)
     progress_cntr = progress_cntr + 1;
 
+
+// Hogyha progress_cntr elérte a várakozáshoz szükséges értéket,
+// Akkor a DSP-k kimeneteén biztosan a megfelelõ adat található, így jelzünk.
 reg butterfly_done_reg;
 always @ (posedge clk)
 if (rst | begin_butterfly | butterfly_done_reg)

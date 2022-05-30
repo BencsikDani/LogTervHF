@@ -31,17 +31,17 @@ reg new_stage;
 reg [3:0] stage_cntr;
 // Számláló ahhoz, hogy új stage-be váltáskor 10+12 órajelig várjunk a segédváltozók kiszámítására.
 reg [4:0] calc_sidevar_cntr;
-// Az adott stage-ben hány group van (512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
+// Az adott stage-ben hány group van.
 reg [9:0] groups;
 // Számláló az adott stage-ben a group-okon való végigiteráláshoz
 reg [9:0] g;
-// Az adott stage-ben hány elemet tartalmaz 1 db group (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024)
+// Az adott stage-ben hány elemet tartalmaz 1 db group.
 reg [10:0] element_per_group;
-// Az adott stage-ben hány elem van egy group egyik felében (1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
+// Az adott stage-ben hány elem van egy group egyik felében.
 reg [9:0] half;
 // Számláló az adott group-on belül a "half" végigiterálásához
 reg [9:0] h;
-// TODO
+// Annak a jelzése, hogy egy olvasási ciklus (read_cntr állandó értéke) befejezõdött
 reg read_cycle_done;
 // Jelzés a Butterfly modulnak, hogy a bemenetei készen állnak, tehát megkezdheti a mûveleteket.
 reg begin_butterfly;
@@ -60,7 +60,7 @@ reg [9:0] cb_addr_cntr;
 // A megfelelõ sorrendû mintabetöltéshez a címszámláló ellentétes bitsorrendû változata
 wire [9:0] cb_addr_reverse;
 
-// TODO
+// A megfelelõ idõzítéshez szükség van a cím késleltetésére.
 reg [9:0] cb_addr_cntr_delay;
 always @ (posedge clk)
 cb_addr_cntr_delay <= cb_addr_cntr;
@@ -83,6 +83,8 @@ else if (cb_addr_cntr == 10'b1111111111)
 else if (loading_samples)
     cb_addr_cntr = cb_addr_cntr + 1;
 
+// A külsõ cirkuláris buffer a sorrendhelyes címeket kapja meg, viszont a belsõ 1-es RAM fordított bitsorrendben.
+// Így lesz helyes a Butterfly mûveletek végén az FFT együtthatók sorrendje.
 assign cb_addr_out = cb_addr_cntr;
 assign cb_addr_reverse = {cb_addr_cntr_delay[0], cb_addr_cntr_delay[1], cb_addr_cntr_delay[2], cb_addr_cntr_delay[3], cb_addr_cntr_delay[4], cb_addr_cntr_delay[5], cb_addr_cntr_delay[6], cb_addr_cntr_delay[7], cb_addr_cntr_delay[8], cb_addr_cntr_delay[9]};
 
@@ -111,7 +113,7 @@ else if (g == groups-1 & h == half-1 & stage_cntr == 4'd10)
 
 
 
-// Hogyha már nem FFT-zünk, de a 10. stage végén járunk, akkor készen vagyunk.
+// Hogyha már nem FFT-zünk, ÉS a 10. stage végén járunk, akkor készen vagyunk.
 always @ (posedge clk)
 if (rst | frame_start)
     fft_done_reg <= 0;
@@ -133,6 +135,7 @@ else if (stage_cntr != 4'd10 & g == groups-1 & h == half-1 & writing_done)
     new_stage <= 1;
 
 
+
 // Ha reset volt, vagy éppen nem FFT-zünk, akkor a stage_cntr értéke 0
 // Ha viszont megy az FFT és új stage-be érünk, akkor az értéke nõ egyel
 always @ (posedge clk)
@@ -143,7 +146,7 @@ else if (fft_in_progress & new_stage)
 
 
 
-// A segédváltozók kiszámítására várakozó állapot számlálójának kezelése:
+// A segédváltozók (groups, elements_per_group, half) kiszámítására várakozó állapot számlálójának kezelése:
 // Reset vagy új frame esetén nullázódik.
 // Ha új stage-be értünk FFT közben, akkor elkezd számolni és megy egészen addig, amíg el nem éri a 22-es értéket. Itt viszont megáll.
 always @ (posedge clk)
@@ -169,9 +172,14 @@ end
 else if (fft_in_progress & new_stage)
 begin
     // Azért van szükség arra, hogy a stage_cntr-höz adjunk 1-et,
-    // mert nekünk már az új értéke kéne, de õ is csak ebben az órajelben fog nõni
-    groups <= 10'd512 >> (stage_cntr+1-1);
+    // mert nekünk már az új értéke kéne, de õ is csak ebben az órajelben fog nõni.
+    // Ennek hatására még a régi értékét látnánk.
+    
+    // groups = N / (2^stage) = (512, 256, 128, 64, 32, 16, 8, 4, 2, 1)
+    groups <= 10'd512 >> ( (stage_cntr+1) -1);
+    // element_per_group = N / groups = (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024)
     element_per_group <= 11'b1 << stage_cntr+1;
+    // half = element_per_group / 2 =  (1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
     half <= 10'b1 << (stage_cntr+1-1);
 end
 // A végleges értékek elnyeréséhez akár 10 órajel is szükséges lehet
@@ -179,17 +187,17 @@ end
 
 
 // A csoportokon és a csoportok elemeinek felén iteráló számlálók kezelése:
-// Ha Reset van, ha új frame kezdõdik, vagy ha új stage kezdõdik, akkor nullázzuk õket
-// writing_done-ra folyamatosan nõ a "h" értéke, de ennél egy erõsebb feltétel, hogy ha elérte a maximumát, akkor nullázódik és a "g" nõ 1-gyel
-// Hogyha a "h" és a "g" is elérték a maximumukat, akkor a 2 dolog történhet:
-// - stage_cntr még nem jár a 10-nél:   new_stage beállítódik, tehát a nullázás ekkor már meg van oldva,
-// - stage_cntr már 10-nél jár:         fft_in_progress 0-ba állítódik és ezzel az FFT befejezõdik.
+// Ez tulajdonképpen 2 egymásba ágyazott "szekvenciális nyelvekben megszokott" for ciklusnak felel meg.
 always @ (posedge clk)
+// Ha Reset van, ha új frame (vagy új stage) kezdõdik, akkor nullázzuk õket
 if (rst | frame_start | (fft_in_progress & new_stage))
 begin
     g <= 0;
     h <= 0;
 end
+// writing_done-ra folyamatosan nõ a "h" értéke, DE ennél egy erõsebb feltétel a "g" léptetése:
+// Ha az 1. stage-ben vagyunk, akkor tulajodnképpen a "h" iterátor értéke állandó 0, tehát olyan, mintha a "g"-vel iterálnánk.
+// Ha viszont nem az 1. stage-ben vagyunk, akkor "g" értéke csak akkor nõ, ha "h" elérte a maximumát.
 else if ( writing_done & (stage_cntr == 4'd1 | (stage_cntr != 4'd1 & h == half-1)) )
 begin
     h <= 0;
@@ -197,11 +205,16 @@ begin
 end
 else if (half != 1 & writing_done)
     h <= h + 1;
+// Hogyha a "h" és a "g" is elérték a maximumukat, akkor a 2 dolog történhet:
+// - stage_cntr még nem jár a 10-nél:   new_stage beállítódik, tehát a nullázás ekkor már meg van oldva,
+// - stage_cntr már 10-nél jár:         fft_in_progress 0-ba állítódik és ezzel az FFT befejezõdik.
+// (Ezek a kód megfelelõ részénél meg vannak oldva.)
 
 // Megjegyzés: a konkrét címek kiszámolása ezen változók alapján a kód alján található, ahol a címvezetékeket bekötjük.
 
 
-// Annak az irányát jelzi, hogy éppen melyik memóriákat használjuk bemenetnek és melyikeket kimenetnek.
+
+// mem_dest: Annak az irányát jelzi, hogy éppen melyik memóriákat használjuk bemenetnek és melyikeket kimenetnek.
 // 00: Nincs írás
 // 01: 1 --> 2
 // 10: 1 <-- 2
@@ -221,44 +234,27 @@ else if (stage_cntr == 4'd10)
 
 // Vezetékek deklarálása a RAM-ok huzalozásához:
 
-//wire [9:0] ram_1_real_addr_a;
-//wire [9:0] ram_1_imag_addr_a;
 wire [9:0] ram_1_real_addr_b;
 wire [9:0] ram_1_imag_addr_b;
 wire [9:0] ram_2_real_addr_a;
 wire [9:0] ram_2_imag_addr_a;
-//wire [9:0] ram_2_real_addr_b;
-//wire [9:0] ram_2_imag_addr_b;
+
 wire [9:0] ram_3_real_addr_a;
 wire [9:0] ram_3_imag_addr_a;
-//wire [9:0] ram_3_real_addr_b;
-//wire [9:0] ram_3_imag_addr_b;
 
-//wire [23:0] ram_1_real_din_a;
-//wire [23:0] ram_1_imag_din_a;
 wire [23:0] ram_1_real_din_b;
 wire [23:0] ram_1_imag_din_b;
 wire [23:0] ram_2_real_din_a;
 wire [23:0] ram_2_imag_din_a;
-//wire [23:0] ram_2_real_din_b;
-//wire [23:0] ram_2_imag_din_b;
+
 wire [23:0] ram_3_real_din_a;
 wire [23:0] ram_3_imag_din_a;
-//wire [23:0] ram_3_real_din_b;
-//wire [23:0] ram_3_imag_din_b;
 
-//wire [23:0] ram_1_real_dout_a;
-//wire [23:0] ram_1_imag_dout_a;
 wire [23:0] ram_1_real_dout_b;
 wire [23:0] ram_1_imag_dout_b;
 wire [23:0] ram_2_real_dout_a;
 wire [23:0] ram_2_imag_dout_a;
-//wire [23:0] ram_2_real_dout_b;
-//wire [23:0] ram_2_imag_dout_b;
-//wire [23:0] ram_3_real_dout_a;
-//wire [23:0] ram_3_imag_dout_a;
-//wire [23:0] ram_3_real_dout_b;
-//wire [23:0] ram_3_imag_dout_b;
+
 
 
 // RAM-ok példányosítása és bekötése
@@ -354,10 +350,6 @@ reg [17:0] w1_real_buff;
 reg [17:0] w1_imag_buff;
 reg [17:0] w2_real_buff;
 reg [17:0] w2_imag_buff;
-reg [23:0] y1_real_buff;
-reg [23:0] y1_imag_buff;
-reg [23:0] y2_real_buff;
-reg [23:0] y2_imag_buff;
 wire [23:0] y1_real;
 wire [23:0] y1_imag;
 wire [23:0] y2_real;
@@ -390,7 +382,11 @@ butterfly btf(
     .y2_imag(y2_imag)
     );
 
-// TODO
+
+
+// Mivel minden stage elején meg kell várni míg a 3 segédváltozó (groups, elements_per_group és half)
+// kiértékelõdnek, ezért szükség van egy flagre, ami jelez, ha ezek a változók biztosan rendelkezése állnak.
+// Ez 22 órajel után biztosan elmondható.
 reg sidevars_done;
 always @ (posedge clk)
 if (rst | frame_start | sidevars_done == 1)
@@ -398,27 +394,40 @@ if (rst | frame_start | sidevars_done == 1)
 else if (calc_sidevar_cntr == 5'd21)
     sidevars_done <= 1;
 
-// TODO
+
+
+// Miután az elõzõekben említett segédváltozók minden stage elején kiértékelõdek,
+// Minden egyes butterfly elõtt ezek alapján újra kiértékelõdnek az iteráló változók ("h" és "g") alapján
+// azok a változók, amik megmondják, hogy adott butterfly mûvelethez hanyas indexû adatokat, illetve együtthatókat vegyünk.
+// (Ezek sorra: "index_1", "index_2", "w_N_power_1", "w_N_power_2".)
+// Természetesen ezeket az értékeket minden butterfly mûvelet elõtt meg kell várni.
+// Erre szolgál a calc_index_cntr.
 reg [3:0] calc_index_cntr;
 always @ (posedge clk)
+// Nullázzuk, ha reset, új frame, vagy új stage van.
+// Szintén nullázzuk, ha a végig ért, vagy ha végig értünk az összes olvasási cikluson (read_cntr == 2'b11).
 if (rst | frame_start | calc_index_cntr == 4'd12 | read_cntr == 2'b11 | new_stage)
     calc_index_cntr <= 0;
+// Elkezdi a számlálást, ha vannak érvényes segédváltozók és valamelyik igaz a következõk közül:
+// - Éppen most számoltuk ki a segédváltozókat, tehát a stage elsõ butterfly-ára készülünk,
+// - Egy elõzõ butterfly mûvelet után a végeredményeket sikeresen kiírtuk a célmemóriába,
+// - Vége egy olvasási ciklusnak, tehát újra indexeket kell számolni.
 else if (calc_sidevar_cntr == 5'd22 & (sidevars_done | writing_done | read_cycle_done))
     calc_index_cntr <= 1;
+// Egyébként, ha elindítottuk, akkor már megy tovább, egészen a végéig.
 else if (calc_index_cntr != 0 & calc_index_cntr != 4'd12)
     calc_index_cntr = calc_index_cntr + 1;
 
 
-reg read_cntr_2_daly;
+
 // Számláló, ami számon tartja a butterfly mûvelet forrásmemóriájából történõ olvasási folyamatot.
 // 00: nincs olvasás
 // 01: x1 és w1 olvasása
 // 10: x2 és w2 olvasása
 // 11: olvasás vége
-// Ha a segédváltozók rendelkezésre állnak, elkezdi a számlálást és ha má elkezdte, akkor folytatja is.
-// 2'b10 érték után újra nullázza magát.
-// TODO
 reg [1:0] read_cntr;
+// Segédváltozó ahhoz, hogy a read_cntr-t plusz egy órajelig a 2-es értéken tudjuk tartani:
+reg read_cntr_2_daly;
 always @ (posedge clk)
 if (rst | frame_start | read_cntr == 2'b11)
     read_cntr <= 0;
@@ -429,16 +438,16 @@ begin
     read_cntr <= 2'b11;
     read_cntr_2_daly <= 0;
 end
-//else if (calc_index_cntr[3] & calc_index_cntr[2])
-//    read_cntr <= read_cntr + 1;
 
-// Ha calc_index_cntr 12-re vált, akkor read_cntr++
+// Ha calc_index_cntr 12-re (4'b1100-ra) vált, tehát az indexek megvannak és lehet olvasni,
+// akkor read_cntr egyel nõ.
 always @ (posedge calc_index_cntr[2])
 if (calc_index_cntr[3])
     read_cntr <= read_cntr + 1;
 
 
-// Maga a butterfly mûvelet akkor kezdõdhet, ha minden bemeneti adat fixen rendelkezésre áll, tehát a read_cntr már felvette a 2'b10 értéket.
+
+// Maga a butterfly mûvelet akkor kezdõdhet, ha minden bemeneti adat fixen rendelkezésre áll, tehát a read_cntr már felvette a 2'b11 értéket.
 always @ (posedge clk)
 if (rst | frame_start | begin_butterfly)    
     begin_butterfly <= 0;
@@ -495,11 +504,17 @@ end
 
 // Megjegyzés: Mivel a ROM-ok huzalozása állandó, így itt nincs szükség multiplexerekre
 
-// TODO
+
+
+// Mivel a read_cntr nem egy hagyományos számláló (mert nem minden órajelre számol),
+// viszont a szükség van arra az információra, hogy bármelyik írási ciklus pontosan
+// Mikor kezdõdik, ezért erre létrehoztam egy változót. Ez egy impulzussal jelti,
+// ha történt felfutó él a read_cntr-ben.
 reg [1:0] read_cntr_posedge;
 always @ (posedge read_cntr[0] or posedge read_cntr[1])
 read_cntr_posedge[0] <= 1;
 
+// Ezen kívül ennek az impulzusnak az egy órajellel késleltetett változatát is szolgáltatja.
 always @ (posedge clk)
 if (read_cntr_posedge[0])
 begin
@@ -509,8 +524,11 @@ end
 else if (read_cntr_posedge[1])
     read_cntr_posedge[1] <= 0;
 
-// Bufferek írása a megfelelõ ütemben a multiplexerekrõl, vagy a ROM-ok esetén közvetlenül a kimenetükrõl.
-// TODO
+
+
+// Bemeneti memóriák tartalmának beolvasása a bufferekbe a megfelelõ ütemben a multiplexereken keresztül
+// (vagy a ROM-ok esetén közvetlenül a kimenetükrõl).
+// Az olvasás pontos kezdete a read_cntr felfutó éleire történik.
 always @ (posedge clk)
 if (read_cycle_done)
     read_cycle_done <= 0;
@@ -532,12 +550,36 @@ begin
 end
 
 
-// TODO
+
+// Számláló, ami számon tartja a butterfly mûvelet célmemóriájába történõ írási folyamatot.
+// 00: nincs írás
+// 01: y1 írása
+// 10: y2 írása
+// 11: írás kész
+// butterfly_done-ra elkezdi a számlálást és ha már elkezdte, folyatatja is.
+// 2'b11 érték után újra nullázza magát.
+reg [1:0] write_cntr;
+always @ (posedge clk)
+if (rst | frame_start | write_cntr == 2'b11)
+    write_cntr <= 0;
+else if (butterfly_done)
+    write_cntr <= 1;
+else if (write_cntr != 0)
+    write_cntr <= write_cntr + 1;
+
+// Ha kész van minden írás egy butterfly után, akkor jelzünk.
+assign writing_done = (write_cntr == 2'b11);
+
+
+
+// A write_cntr már hagyományosan számol, viszont szintén szükség van az élváltásaira.
+// A következõ változó egy impulzussal jelti, ha történt felfutó él a write_cntr-ben.
 reg [1:0] write_cntr_posedge;
 always @ (posedge write_cntr[0])
 if (write_cntr[1] == 0)
     write_cntr_posedge[0] <= 1;
 
+// Ezen kívül ennek az impulzusnak az egy órajellel késleltetett változatát is szolgáltatja.
 always @ (posedge clk)
 if (write_cntr_posedge[0])
 begin
@@ -548,24 +590,6 @@ else if (write_cntr_posedge[1])
     write_cntr_posedge[1] <= 0;
 
 
-// Számláló, ami számon tartja a butterfly mûvelet célmemóriájába történõ írási folyamatot.
-// write_cntr =
-// 00: nincs írás
-// 01: y1 írása
-// 10: y2 írása
-// 11: írás kész
-// butterfly_done-ra elkezdi a számlálást és ha már elkezdte, folyatatja is.
-// 2'b10 érték után újra nullázza magát.
-reg [1:0] write_cntr;
-always @ (posedge clk)
-if (rst | frame_start | write_cntr == 2'b11)
-    write_cntr <= 0;
-else if (butterfly_done)
-    write_cntr <= 1;
-else if (write_cntr != 0)
-    write_cntr <= write_cntr + 1;
-
-assign writing_done = (write_cntr == 2'b11);
 
 // A kimeneti bufferek komplex huzalozásának megvalósítása demultiplexerekkel
 
@@ -579,25 +603,10 @@ assign ram_3_imag_din_a = (mem_dest == 2'b11) ? ( (write_cntr_posedge[0]) ? (y1_
 
 
 
-// Bufferek olvasása a megfelelõ ütemben és tartalmuk küldése a demultiplexerek felé
-always @ (posedge clk)
-if (write_cntr == 2'd0 & butterfly_done)
-begin
-    y1_real_buff <= y1_real;
-    y1_imag_buff <= y1_imag;
-end
-else if (write_cntr == 2'd1)
-begin
-    y2_real_buff <= y2_real;
-    y2_imag_buff <= y2_imag;
-end
-
-
-
 // A megfelelõ ütemekben a memóriák címeinek kiküldése:
 
-// Címek deklarálása:
-// (A címek sosem lesznek 1023-nál nagyobb értékek, tehát elférnek 10 biten)
+// Címek/indexek deklarálása:
+// (Ezek sosem lesznek 1023-nál nagyobb értékek, tehát elférnek 10 biten)
 wire [9:0] index_1;
 wire [9:0] index_2;
 wire [9:0] w_10_power_1;
@@ -635,8 +644,8 @@ DSP2 (
    .pci( 48'b0 ), 
    .p(dsp2_out)                      
 );
-assign w_10_power_1 = dsp2_out[9:0];    // w_10_power_1 = h * (2 ** (max_stage - stage_cntr)) = h * (1'b1 << (4'd10 - stage_cntr))
-// 3-12 órajel alatt számítódnak ki (attól függ, mennyit kell shiftelni
+assign w_10_power_1 = dsp2_out[9:0];    // w_10_power_1 = h * (2 ^ (max_stage - stage_cntr)) = h * (1'b1 << (4'd10 - stage_cntr))
+// 3-12 órajel alatt számítódnak ki (attól függ, mennyit kell shiftelni).
 
 
 wire [47:0] dsp3_out;
