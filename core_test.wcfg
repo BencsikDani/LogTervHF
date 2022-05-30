@@ -11,22 +11,26 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2,600,410.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="2,601,118.001 ns"></ZoomEndTime>
-      <Cursor1Time time="2,601,000.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000000 ms"></ZoomStartTime>
+      <ZoomEndTime time="7.850000001 ms"></ZoomEndTime>
+      <Cursor1Time time="0.838333334 ms"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="193"></NameColumnWidth>
-      <ValueColumnWidth column_width="61"></ValueColumnWidth>
+      <NameColumnWidth column_width="188"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="52" />
+   <WVObjectSize size="28" />
    <wvobject fp_name="/tb_FFT_Core/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/frame_start" type="logic">
       <obj_property name="ElementShortName">frame_start</obj_property>
@@ -52,54 +56,84 @@
       <obj_property name="ElementShortName">stage_cntr[3:0]</obj_property>
       <obj_property name="ObjectShortName">stage_cntr[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/calc_sidevar_cntr" type="array">
       <obj_property name="ElementShortName">calc_sidevar_cntr[4:0]</obj_property>
       <obj_property name="ObjectShortName">calc_sidevar_cntr[4:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/sidevars_done" type="logic">
       <obj_property name="ElementShortName">sidevars_done</obj_property>
       <obj_property name="ObjectShortName">sidevars_done</obj_property>
    </wvobject>
+   <wvobject fp_name="group140" type="group">
+      <obj_property name="label">Sidevars</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/groups" type="array">
+         <obj_property name="ElementShortName">groups[9:0]</obj_property>
+         <obj_property name="ObjectShortName">groups[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/element_per_group" type="array">
+         <obj_property name="ElementShortName">element_per_group[10:0]</obj_property>
+         <obj_property name="ObjectShortName">element_per_group[10:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/half" type="array">
+         <obj_property name="ElementShortName">half[9:0]</obj_property>
+         <obj_property name="ObjectShortName">half[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/calc_index_cntr" type="array">
       <obj_property name="ElementShortName">calc_index_cntr[3:0]</obj_property>
       <obj_property name="ObjectShortName">calc_index_cntr[3:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#808080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="group141" type="group">
+      <obj_property name="label">Iterators</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/g" type="array">
+         <obj_property name="ElementShortName">g[9:0]</obj_property>
+         <obj_property name="ObjectShortName">g[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/h" type="array">
+         <obj_property name="ElementShortName">h[9:0]</obj_property>
+         <obj_property name="ObjectShortName">h[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#808000</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/read_cntr" type="array">
       <obj_property name="ElementShortName">read_cntr[1:0]</obj_property>
       <obj_property name="ObjectShortName">read_cntr[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/read_cntr_posedge" type="array">
       <obj_property name="ElementShortName">read_cntr_posedge[1:0]</obj_property>
       <obj_property name="ObjectShortName">read_cntr_posedge[1:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/groups" type="array">
-      <obj_property name="ElementShortName">groups[9:0]</obj_property>
-      <obj_property name="ObjectShortName">groups[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/g" type="array">
-      <obj_property name="ElementShortName">g[9:0]</obj_property>
-      <obj_property name="ObjectShortName">g[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/element_per_group" type="array">
-      <obj_property name="ElementShortName">element_per_group[10:0]</obj_property>
-      <obj_property name="ObjectShortName">element_per_group[10:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/half" type="array">
-      <obj_property name="ElementShortName">half[9:0]</obj_property>
-      <obj_property name="ObjectShortName">half[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/h" type="array">
-      <obj_property name="ElementShortName">h[9:0]</obj_property>
-      <obj_property name="ObjectShortName">h[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/begin_butterfly" type="logic">
       <obj_property name="ElementShortName">begin_butterfly</obj_property>
@@ -112,11 +146,14 @@
    <wvobject fp_name="/tb_FFT_Core/core/write_cntr" type="array">
       <obj_property name="ElementShortName">write_cntr[1:0]</obj_property>
       <obj_property name="ObjectShortName">write_cntr[1:0]</obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/write_cntr_posedge" type="array">
       <obj_property name="ElementShortName">write_cntr_posedge[1:0]</obj_property>
       <obj_property name="ObjectShortName">write_cntr_posedge[1:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="CustomSignalColor">#A52A2A</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_FFT_Core/core/writing_done" type="logic">
       <obj_property name="ElementShortName">writing_done</obj_property>
@@ -126,130 +163,184 @@
       <obj_property name="ElementShortName">fft_done</obj_property>
       <obj_property name="ObjectShortName">fft_done</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_1_real_addr_b_reg" type="array">
-      <obj_property name="ElementShortName">ram_1_real_addr_b_reg[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_1_real_addr_b_reg[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="group83" type="group">
+      <obj_property name="label">Memory addresses</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_1_real_addr_b_reg" type="array">
+         <obj_property name="ElementShortName">ram_1_real_addr_b_reg[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_1_real_addr_b_reg[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_1_imag_addr_b_reg" type="array">
+         <obj_property name="ElementShortName">ram_1_imag_addr_b_reg[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_1_imag_addr_b_reg[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/rom_real_addr" type="array">
+         <obj_property name="ElementShortName">rom_real_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">rom_real_addr[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/rom_imag_addr" type="array">
+         <obj_property name="ElementShortName">rom_imag_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">rom_imag_addr[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_2_real_addr_a" type="array">
+         <obj_property name="ElementShortName">ram_2_real_addr_a[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_2_real_addr_a[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_2_imag_addr_a" type="array">
+         <obj_property name="ElementShortName">ram_2_imag_addr_a[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_2_imag_addr_a[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_3_real_addr_a" type="array">
+         <obj_property name="ElementShortName">ram_3_real_addr_a[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_3_real_addr_a[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_3_imag_addr_a_reg" type="array">
+         <obj_property name="ElementShortName">ram_3_imag_addr_a_reg[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_3_imag_addr_a_reg[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_1_imag_addr_b_reg" type="array">
-      <obj_property name="ElementShortName">ram_1_imag_addr_b_reg[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_1_imag_addr_b_reg[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="group84" type="group">
+      <obj_property name="label">RAM1 Data</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_1_real_din_b" type="array">
+         <obj_property name="ElementShortName">ram_1_real_din_b[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_1_real_din_b[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_1_imag_din_b" type="array">
+         <obj_property name="ElementShortName">ram_1_imag_din_b[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_1_imag_din_b[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_1_real_dout_b" type="array">
+         <obj_property name="ElementShortName">ram_1_real_dout_b[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_1_real_dout_b[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_1_imag_dout_b" type="array">
+         <obj_property name="ElementShortName">ram_1_imag_dout_b[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_1_imag_dout_b[23:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/rom_real_addr" type="array">
-      <obj_property name="ElementShortName">rom_real_addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_real_addr[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="group86" type="group">
+      <obj_property name="label">RAM2 Data</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_2_real_din_a" type="array">
+         <obj_property name="ElementShortName">ram_2_real_din_a[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_2_real_din_a[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_2_imag_din_a" type="array">
+         <obj_property name="ElementShortName">ram_2_imag_din_a[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_2_imag_din_a[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_2_real_dout_a" type="array">
+         <obj_property name="ElementShortName">ram_2_real_dout_a[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_2_real_dout_a[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_2_imag_dout_a" type="array">
+         <obj_property name="ElementShortName">ram_2_imag_dout_a[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_2_imag_dout_a[23:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/rom_imag_addr" type="array">
-      <obj_property name="ElementShortName">rom_imag_addr[9:0]</obj_property>
-      <obj_property name="ObjectShortName">rom_imag_addr[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="group111" type="group">
+      <obj_property name="label">RAM3 Data</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_3_real_din_a" type="array">
+         <obj_property name="ElementShortName">ram_3_real_din_a[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_3_real_din_a[23:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/ram_3_imag_din_a" type="array">
+         <obj_property name="ElementShortName">ram_3_imag_din_a[23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_3_imag_din_a[23:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/\inst[1].smpl_ram_inst /ram_array" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="label">ram_3_real_array[0:1023][23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/\inst[0].smpl_ram_inst /ram_array" type="array">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="label">ram_3_imag_array[0:1023][23:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_2_real_addr_a" type="array">
-      <obj_property name="ElementShortName">ram_2_real_addr_a[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_2_real_addr_a[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="group85" type="group">
+      <obj_property name="label">Butterfly input buffers</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/x1_real_reg" type="array">
+         <obj_property name="ElementShortName">x1_real_reg[23:0]</obj_property>
+         <obj_property name="ObjectShortName">x1_real_reg[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/x1_real_buff" type="array">
+         <obj_property name="ElementShortName">x1_real_buff[23:0]</obj_property>
+         <obj_property name="ObjectShortName">x1_real_buff[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/x2_real_reg" type="array">
+         <obj_property name="ElementShortName">x2_real_reg[23:0]</obj_property>
+         <obj_property name="ObjectShortName">x2_real_reg[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/x2_real_buff" type="array">
+         <obj_property name="ElementShortName">x2_real_buff[23:0]</obj_property>
+         <obj_property name="ObjectShortName">x2_real_buff[23:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_2_imag_addr_a" type="array">
-      <obj_property name="ElementShortName">ram_2_imag_addr_a[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_2_imag_addr_a[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="group112" type="group">
+      <obj_property name="label">Butterfly DSP arrays</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/btf/a_array" type="array">
+         <obj_property name="ElementShortName">a_array[199:0]</obj_property>
+         <obj_property name="ObjectShortName">a_array[199:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/btf/b_array" type="array">
+         <obj_property name="ElementShortName">b_array[143:0]</obj_property>
+         <obj_property name="ObjectShortName">b_array[143:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/btf/pci_array" type="array">
+         <obj_property name="ElementShortName">pci_array[383:0]</obj_property>
+         <obj_property name="ObjectShortName">pci_array[383:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/btf/p_array" type="array">
+         <obj_property name="ElementShortName">p_array[383:0]</obj_property>
+         <obj_property name="ObjectShortName">p_array[383:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_3_real_addr_a" type="array">
-      <obj_property name="ElementShortName">ram_3_real_addr_a[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_3_real_addr_a[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_3_imag_addr_a_reg" type="array">
-      <obj_property name="ElementShortName">ram_3_imag_addr_a_reg[9:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_3_imag_addr_a_reg[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_1_real_din_b" type="array">
-      <obj_property name="ElementShortName">ram_1_real_din_b[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_1_real_din_b[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_1_imag_din_b" type="array">
-      <obj_property name="ElementShortName">ram_1_imag_din_b[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_1_imag_din_b[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_1_real_dout_b" type="array">
-      <obj_property name="ElementShortName">ram_1_real_dout_b[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_1_real_dout_b[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_1_imag_dout_b" type="array">
-      <obj_property name="ElementShortName">ram_1_imag_dout_b[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_1_imag_dout_b[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/x1_real_reg" type="array">
-      <obj_property name="ElementShortName">x1_real_reg[23:0]</obj_property>
-      <obj_property name="ObjectShortName">x1_real_reg[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/x1_real_buff" type="array">
-      <obj_property name="ElementShortName">x1_real_buff[23:0]</obj_property>
-      <obj_property name="ObjectShortName">x1_real_buff[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/x2_real_reg" type="array">
-      <obj_property name="ElementShortName">x2_real_reg[23:0]</obj_property>
-      <obj_property name="ObjectShortName">x2_real_reg[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/x2_real_buff" type="array">
-      <obj_property name="ElementShortName">x2_real_buff[23:0]</obj_property>
-      <obj_property name="ObjectShortName">x2_real_buff[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_2_real_din_a" type="array">
-      <obj_property name="ElementShortName">ram_2_real_din_a[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_2_real_din_a[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_2_imag_din_a" type="array">
-      <obj_property name="ElementShortName">ram_2_imag_din_a[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_2_imag_din_a[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_2_real_dout_a" type="array">
-      <obj_property name="ElementShortName">ram_2_real_dout_a[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_2_real_dout_a[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_2_imag_dout_a" type="array">
-      <obj_property name="ElementShortName">ram_2_imag_dout_a[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_2_imag_dout_a[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/y1_real" type="array">
-      <obj_property name="ElementShortName">y1_real[23:0]</obj_property>
-      <obj_property name="ObjectShortName">y1_real[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/y2_real" type="array">
-      <obj_property name="ElementShortName">y2_real[23:0]</obj_property>
-      <obj_property name="ObjectShortName">y2_real[23:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_3_real_din_a" type="array">
-      <obj_property name="ElementShortName">ram_3_real_din_a[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_3_real_din_a[23:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/ram_3_imag_din_a" type="array">
-      <obj_property name="ElementShortName">ram_3_imag_din_a[23:0]</obj_property>
-      <obj_property name="ObjectShortName">ram_3_imag_din_a[23:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/btf/a_array" type="array">
-      <obj_property name="ElementShortName">a_array[199:0]</obj_property>
-      <obj_property name="ObjectShortName">a_array[199:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/btf/b_array" type="array">
-      <obj_property name="ElementShortName">b_array[143:0]</obj_property>
-      <obj_property name="ObjectShortName">b_array[143:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/btf/pci_array" type="array">
-      <obj_property name="ElementShortName">pci_array[383:0]</obj_property>
-      <obj_property name="ObjectShortName">pci_array[383:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/tb_FFT_Core/core/btf/p_array" type="array">
-      <obj_property name="ElementShortName">p_array[383:0]</obj_property>
-      <obj_property name="ObjectShortName">p_array[383:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+   <wvobject fp_name="group139" type="group">
+      <obj_property name="label">Butterfly output wires</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/tb_FFT_Core/core/y1_real" type="array">
+         <obj_property name="ElementShortName">y1_real[23:0]</obj_property>
+         <obj_property name="ObjectShortName">y1_real[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/y1_imag" type="array">
+         <obj_property name="ElementShortName">y1_imag[23:0]</obj_property>
+         <obj_property name="ObjectShortName">y1_imag[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/y2_real" type="array">
+         <obj_property name="ElementShortName">y2_real[23:0]</obj_property>
+         <obj_property name="ObjectShortName">y2_real[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/y2_imag" type="array">
+         <obj_property name="ElementShortName">y2_imag[23:0]</obj_property>
+         <obj_property name="ObjectShortName">y2_imag[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_FFT_Core/core/\inst[1].smpl_ram_inst /ram_array" type="array">
+         <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>
