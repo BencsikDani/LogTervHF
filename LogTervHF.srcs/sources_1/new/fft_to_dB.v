@@ -95,7 +95,10 @@ wire [9:0] dB_values_rom_addr = sum[22:13];
 wire [23:0] dB_values_rom_dout;
 
 // A dB értékek tárolva vannak elõre az összes lehetséges bemenethez
-log2_rom dB_values(
+dB_value_rom #(
+    .FILE("dB_values.txt")
+)
+dB_values(
     .clk(clk),
     .addr(dB_values_rom_addr),
     .dout(dB_values_rom_dout)
