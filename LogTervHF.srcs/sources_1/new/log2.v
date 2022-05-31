@@ -25,7 +25,7 @@ module log_2(
     input rst,
     input log2_start,
     input [48:0] sum,
-    input [17:0] mant_dout,
+    input [17:0] mant_dout, // Nem output?
     output log2_done,
     output [23:0] dB,
     output [9:0] mant_addr

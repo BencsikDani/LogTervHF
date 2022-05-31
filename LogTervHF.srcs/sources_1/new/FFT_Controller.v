@@ -41,10 +41,22 @@ wire [23:0] fft_dout_re; //data of real parts of calcualted frequency components
 wire [23:0] fft_dout_im; //data of imaginary parts of calcualted frequency components
 wire [9:0] fft_addr_in; //address of real and imaginary parts of calcualted frequency components
 wire [23:0] dB; // data of calculated dB value
+wire [9:0] dB_addr;
 wire log2_done; // the dB value of one element is calculated, can be written in RAM
 wire dB_vld; // Wire to dB_vld_reg
-reg dB_vld_reg; // dB values calculated, ready for HDMI
+wire all_dB_vld;
 reg frame_dout_rdy; //signal for HDMI if data can be read from output
+
+
+// Impulzussal való jelzése annak, hogy kész az FFT eredménye
+reg fft_rdy_posedge;
+always @ (posedge fft_rdy)
+fft_rdy_posedge <= 1;
+
+always @ (posedge clk)
+if (fft_rdy_posedge)
+    fft_rdy_posedge <= 0;
+
 
 always @ (posedge clk)
 if (rst)
@@ -68,11 +80,11 @@ smpl_ram circ_buff (
 
 //reg fft_rdy_reg;
 
-FFT_Core calc (
+FFT_Core core(
     .clk(clk),
     .rst(rst),
     
-    .frame_start(frame_start),
+    .frame_start(6),
     .fft_done(fft_rdy),
     
     .cb_dout(cb_dout),
@@ -85,56 +97,53 @@ FFT_Core calc (
 
 );
 
-smpl_ram dB_values(
+fft_to_dB convert(
+	.clk(clk),
+	.rst(rst),
+	.fft_rdy(fft_rdy),
+
+	.fft_result_addr(fft_addr_in),
+	.fft_result_re(fft_dout_re),
+	.fft_result_im(fft_dout_im),
+
+	.dB_result_addr(dB_addr),
+	.dB_result_dout(dB),
+	.dB_result_done(dB_vld),
+	.all_dB_calculated(all_dB_vld)
+);
+
+
+
+
+smpl_ram dB_results(
     .clk_a(clk),
-    .we_a(log2_done),
-    .addr_a(fft_addr_in),
+    .we_a(dB_vld),
+    .addr_a(dB_addr),
     .din_a(dB),
     
     .clk_b(clk),
-    .we_b(frm_dout_vld),
+    .we_b(),
     .addr_b(frm_addr),
     .dout_b(frm_dout)   
 );
 
-assign dB_vld = dB_vld_reg;
 
-fft_to_dB convert (
-    .clk(clk),
-    .rst(rst),
-    .fft_rdy(fft_rdy),
-    .dre(fft_dout_re),
-    .dim(fft_dout_im),
-    .fft_addr_in(fft_addr_in),
-    .dout(dB),
-    .log2_vld(log2_done),
-    .dB_vld(dB_vld)
-);
 
-//if a frame starts, data of the samples are copied for FFT
-//for the time of FFT calculation, on the output the previous dB values are avaiable
-//when the dB calculation starts, the dB output for HDMI is not avaiable
-//after the dB calculation is done, the new values become avaiable for HDMI, and the circle starts again
-//State logic:
+// frame_start hatására megkezdõdik az FFT a minták alapján.
+// Amíg az FFT tart, addig még az elõzõ dB értékek vannak a kimeneten. 
+// Ha az FFT kész és kezdõdik a dB értékek kiszámítása, akkor a HDMI nem olvashat a dB kimenetekrõl.
+// Ha a dB értékek is kiszámolódtek, akkor az új értékeket olvashatja is már a HDMI.
+//
+// Ezek után megy tovább a körforgás
 
 
 always @ (posedge clk)
-if (rst)
-begin
-    frame_dout_rdy <= 1'b0;
-    dB_vld_reg <= 1'b0;
-end
-
-always @ (posedge clk)
-if (fft_rdy)
-    dB_vld_reg <= 1'b0;
-
-always @ (posedge clk)
-if (dB_vld_reg)
+if (rst | fft_rdy_posedge)
+    frame_dout_rdy = 1'b0;
+else if (all_dB_vld)
     frame_dout_rdy = 1'b1;
-else
-    frame_dout_rdy = 1'b0;     
 
 assign frm_dout_vld = frame_dout_rdy;
+
 
 endmodule
