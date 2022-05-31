@@ -23,7 +23,7 @@ reg [2:0] calc_dl;      // Késleltetés a szorzások és összeadás elvégzésének bev
 reg [9:0] fft_cntr;     // FFT együtthatók számlálója
 wire[47:0] re_sq;       // Vezeték valós rész négyzetének
 wire[47:0] im_sq;       // Vezeték képzetes rész négyzetének
-reg [24:0] sum;         // Valós és képzetes rész négyzetösszege
+reg [48:0] sum;         // Valós és képzetes rész négyzetösszege
 
 reg dB_result_done_reg;     // 1 frekvencia dB érték számításának végét jelzõ regiszter
 reg all_dB_calculated_reg;  // Jelzi, ha kész a dB számítás az összes frekvencián
@@ -84,14 +84,25 @@ mul_24x24 im_square(
 
 // Négyzetek összeadása
 always @ (posedge clk)
-sum <= re_sq[36:13] + im_sq[36:13];     // 11.13 + 11.13 = 12.13
+sum <= re_sq + im_sq;     // 22.26 + 22.26 = 23.26
 // Megjegyzés: a négyzetre emelt számok összeadásával együtt
 // 5 órajel kell egy teljes "sum" részeredmény kiszámlásához
 
 
 
 // A dB érték kiszámítása
-wire [9:0] dB_values_rom_addr = sum[22:13];
+
+// Erre Lookup Table megoldást alkalmazunk.
+// Mivel a HDMI kimenetünk (bármelyik irányú) felbontása nem fogja meghaladni az 1024 pixelt,
+// Ezért ennyi féle dB érték fog tudni maximálisan látszódni a kimeneten.
+// Ebbõl adódóan tehát elég ennyi értéket eltárolnunk.
+
+// A ROM-unk tehát 10 bites címmel fog rendelkezni.
+// A kérdés az, hogy a kiszámolt 49 bites négyzetösszegbõl melyik az a hasznosan felhasználandó 10 bit.
+// Ez azért fontos, mert ezzel összhangban kell lennie az elõre eltárolt dB értékeknek.
+// sum egész része      sum tört része
+//    sum[48:26]           sum[25:0]
+wire [9:0] dB_values_rom_addr = sum[35:26];
 wire [23:0] dB_values_rom_dout;
 
 // A dB értékek tárolva vannak elõre az összes lehetséges bemenethez
