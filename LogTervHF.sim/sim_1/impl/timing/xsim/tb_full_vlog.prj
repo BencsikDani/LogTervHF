@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  -i "../../../../../LogTervHF.runs/files" \
+"tb_full_time_impl.v" \
+"../../../../../LogTervHF.srcs/sim_1/new/tb_full.v" \
+
+# Do not sort compile order
+nosort

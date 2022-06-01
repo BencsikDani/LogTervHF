@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 19 2021
+03:16:22
+C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.sim/sim_1/synth/timing/xsim/tb_full_time_synth.v,1654113307,verilog,,C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_full.v,,FFT_Controller;FFT_Core;butterfly;codec_if;coeff_rom;coeff_rom__parameterized0;dB_value_rom;dsp_25x18;dsp_25x18_11;dsp_25x18_13;dsp_25x18_9;dsp_25x18__parameterized0;dsp_25x18__parameterized0_10;dsp_25x18__parameterized0_12;dsp_25x18__parameterized0_14;dsp_25x18__parameterized1;dsp_25x18__parameterized1_16;dsp_25x18__parameterized1_17;dsp_25x18__parameterized1_2;dsp_25x18__parameterized1_3;dsp_25x18__parameterized2;dsp_25x18__parameterized2_18;fft_to_dB;glbl;hdmi_top;hdmi_tx;mul_24x24;mul_24x24_15;oserdes_10to1;oserdes_10to1_2;oserdes_10to1_3;smpl_ram;smpl_ram_0;smpl_ram_1;smpl_ram__parameterized0;smpl_ram__parameterized0_4;smpl_ram__parameterized0_5;smpl_ram__parameterized0_6;smpl_ram__parameterized0_7;smpl_ram__parameterized0_8;spec_anal_top_level;tmds_encoder;tmds_encoder_0;tmds_encoder_1;tmds_transmitter,,,../../../../../LogTervHF.runs/files,,,,,
+C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_FFT_Core.v,1653870133,verilog,,,,tb_FFT_Core,,,,,,,,
+C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_full.v,1654044764,verilog,,,,tb_full,,,../../../../../LogTervHF.runs/files,,,,,
+C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/test_rom.v,1653870133,verilog,,C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_FFT_Core.v,,test_rom,,,,,,,,

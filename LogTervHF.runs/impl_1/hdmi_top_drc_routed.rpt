@@ -1,0 +1,78 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Thu Jun  2 01:26:43 2022
+| Host         : DANINITRO-PC running 64-bit major release  (build 9200)
+| Command      : report_drc -file hdmi_top_drc_routed.rpt -pb hdmi_top_drc_routed.pb -rpx hdmi_top_drc_routed.rpx
+| Design       : hdmi_top
+| Device       : xc7k70tfbg676-1
+| Speed File   : -1
+| Design State : Fully Routed
+------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 8
++----------+----------+---------------------------------+------------+
+| Rule     | Severity | Description                     | Violations |
++----------+----------+---------------------------------+------------+
+| AVAL-70  | Warning  | OSERDES_DataRateTqTriWidth      | 6          |
+| PDRC-153 | Warning  | Gated clock check               | 1          |
+| RPBF-3   | Warning  | IO port buffering is incomplete | 1          |
++----------+----------+---------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+AVAL-70#1 Warning
+OSERDES_DataRateTqTriWidth  
+Unexpected programming for hdmi_tx_0/tmds_transmitter/oserdes0/master_oserdes with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Related violations: <none>
+
+AVAL-70#2 Warning
+OSERDES_DataRateTqTriWidth  
+Unexpected programming for hdmi_tx_0/tmds_transmitter/oserdes0/slave_oserdes with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Related violations: <none>
+
+AVAL-70#3 Warning
+OSERDES_DataRateTqTriWidth  
+Unexpected programming for hdmi_tx_0/tmds_transmitter/oserdes1/master_oserdes with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Related violations: <none>
+
+AVAL-70#4 Warning
+OSERDES_DataRateTqTriWidth  
+Unexpected programming for hdmi_tx_0/tmds_transmitter/oserdes1/slave_oserdes with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Related violations: <none>
+
+AVAL-70#5 Warning
+OSERDES_DataRateTqTriWidth  
+Unexpected programming for hdmi_tx_0/tmds_transmitter/oserdes2/master_oserdes with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Related violations: <none>
+
+AVAL-70#6 Warning
+OSERDES_DataRateTqTriWidth  
+Unexpected programming for hdmi_tx_0/tmds_transmitter/oserdes2/slave_oserdes with TRISTATE_WIDTH. DATA_RATE_TQ set DDR expects TRISTATE_WIDTH to be set 4
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9]_i_2_n_0 is a gated clock net sourced by a combinational pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9]_i_2/O, cell spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port bt[3] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+

@@ -31,22 +31,24 @@ reg all_dB_calculated_reg;  // Jelzi, ha kész a dB számítás az összes frekvenciá
 
 
 // Impulzussal való jelzése annak, hogy kész az FFT eredménye
-reg fft_rdy_posedge;
-always @ (posedge fft_rdy)
-fft_rdy_posedge <= 1;
+reg fft_rdy_delay;
+wire fft_rdy_posedge;
 
 always @ (posedge clk)
-if (fft_rdy_posedge)
-    fft_rdy_posedge <= 0;
+fft_rdy_delay <= fft_rdy;
+
+assign fft_rdy_posedge = fft_rdy & ~fft_rdy_delay;
+
 
 
 
 // A dB értékek kiszámításához szükséges idõt számontartó számláló
 // Ha megjött az elsõ kiszámolandó érték, vagy ha egy elõzõ már ki lett számolva (ami nem az utolsó volt), akkor kezdi elõlrõl a számoilást.
+// Ha végig ért, akkor ott megáll.
 always @ (posedge clk)
-if (rst | fft_rdy_posedge | (dB_result_done_reg & fft_cntr != 10'd1023))
+if (rst | fft_rdy_posedge | (dB_result_done_reg & (fft_cntr != 10'd1023)))
     calc_dl <= 3'b0;
-else if (fft_rdy)
+else if (fft_rdy & (calc_dl != 3'd7))
     calc_dl <= calc_dl + 1;
 
 
@@ -54,10 +56,11 @@ else if (fft_rdy)
 // Az FFT együtthatókat számláló számláló
 // Ha reset van, vagy ha kész az FFT, akkor nullázódik
 // Ha egy együtthatónak kiszámoltuk a dB értékét (ami nem az utolsó), akkor ugrik tovább
+// Ha végig ért, akkor ott megáll.
 always @ (posedge clk)
 if (rst | fft_rdy_posedge)
     fft_cntr <= 10'b0;
-else if (dB_result_done_reg & fft_cntr != 10'd1023)
+else if (dB_result_done_reg & (fft_cntr != 10'd1023))
     fft_cntr <= fft_cntr + 1;
 
 assign fft_result_addr = fft_cntr;
@@ -102,7 +105,9 @@ sum <= re_sq + im_sq;     // 22.26 + 22.26 = 23.26
 // Ez azért fontos, mert ezzel összhangban kell lennie az elõre eltárolt dB értékeknek.
 // sum egész része      sum tört része
 //    sum[48:26]           sum[25:0]
-wire [9:0] dB_values_rom_addr = sum[35:26];
+// T.f.h. a legnagyobb érték, amit kij9het, elfér 10 bit egész részen.
+wire [9:0] dB_values_rom_addr;
+assign dB_values_rom_addr = sum[48:39];
 wire [23:0] dB_values_rom_dout;
 
 // A dB értékek tárolva vannak elõre az összes lehetséges bemenethez
@@ -123,8 +128,8 @@ assign dB_result_dout = dB_values_rom_dout;
 always @ (posedge clk)
 if (rst | dB_result_done_reg)
     dB_result_done_reg <= 0;
-else if (calc_dl <= 3'd6)
-    dB_result_done_reg <= 0;
+else if (fft_rdy & calc_dl == 3'd6)
+    dB_result_done_reg <= 1;
 
 assign dB_result_done = dB_result_done_reg;
 

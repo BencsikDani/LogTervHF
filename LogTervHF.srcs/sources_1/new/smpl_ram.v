@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module smpl_ram #(
+(* keep_hierarchy = "yes" *) module smpl_ram #(
    parameter DATA_W = 24,
    parameter ADDR_W = 10
 )(

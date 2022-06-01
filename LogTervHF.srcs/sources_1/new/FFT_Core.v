@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module FFT_Core(
+(* keep_hierarchy = "yes" *) module FFT_Core(
     input           clk,            // Rendszerórajel (100 MHz)
     input           rst,            // Reset
     
@@ -13,8 +13,15 @@ module FFT_Core(
     input   [9:0]   fft_real_addr,  // Címbemenet az FFT végeredményének valós részeit tartalmazó memóriához
     input   [9:0]   fft_imag_addr,  // Címbemenet az FFT végeredményének képzetes részeit tartalmazó memóriához
     output  [23:0]  fft_real_out,   // Az FFT valós részteit tartalmazó memóriának adatkimenete
-    output  [23:0]  fft_imag_out    // Az FFT képzetes részteit tartalmazó memóriának adatkimenete
-
+    output  [23:0]  fft_imag_out,    // Az FFT képzetes részteit tartalmazó memóriának adatkimenete
+    
+    // Debug
+    output [23:0]  ram_2_real_dout_a,
+    
+    output         loading_samples,
+    output         fft_in_progress,
+    output  [3:0]  stage_cntr,
+    output         new_stage
     );
 
 // Mûködés állapotát jelzõ változók:
@@ -41,12 +48,16 @@ reg [10:0] element_per_group;
 reg [9:0] half;
 // Számláló az adott group-on belül a "half" végigiterálásához
 reg [9:0] h;
+//
+reg [1:0] read_cntr;
 // Annak a jelzése, hogy egy olvasási ciklus (read_cntr állandó értéke) befejezõdött
 reg read_cycle_done;
 // Jelzés a Butterfly modulnak, hogy a bemenetei készen állnak, tehát megkezdheti a mûveleteket.
 reg begin_butterfly;
 // A Butterfly modul ezzel jelez, ha kész van.
 wire butterfly_done;
+//
+reg [1:0] write_cntr;
 // Annak a jelzése, hogy a kiszámolt adatok bekerültek a célmemóriába
 wire writing_done;
 // Annak a jelzése, hogy kész a teljes FFT
@@ -65,23 +76,18 @@ reg [9:0] cb_addr_cntr_delay;
 always @ (posedge clk)
 cb_addr_cntr_delay <= cb_addr_cntr;
 
+
+
 // frame_start esetén elkezdjük iterálni a címeket
-// A számláló ne csorduljon túl
+// A számláló csak addig fut, amíg loading_samples van.
+// Ha végig ért, akkor tûnik csak el a loading_samples, tehát
+// minimálisan késve nullázódik, majd a loading_done-ra. 
 always @ (posedge clk)
-if (rst)
-begin
+if (rst | frame_start | loading_done)
     cb_addr_cntr <= 0;
-    loading_samples <= 0;
-end
-else if (frame_start)
-begin
-    loading_samples <= 1;
-    cb_addr_cntr <= 0;
-end
-else if (cb_addr_cntr == 10'b1111111111)
-    loading_samples <= 0;
 else if (loading_samples)
     cb_addr_cntr = cb_addr_cntr + 1;
+
 
 // A külsõ cirkuláris buffer a sorrendhelyes címeket kapja meg, viszont a belsõ 1-es RAM fordított bitsorrendben.
 // Így lesz helyes a Butterfly mûveletek végén az FFT együtthatók sorrendje.
@@ -89,16 +95,26 @@ assign cb_addr_out = cb_addr_cntr;
 assign cb_addr_reverse = {cb_addr_cntr_delay[0], cb_addr_cntr_delay[1], cb_addr_cntr_delay[2], cb_addr_cntr_delay[3], cb_addr_cntr_delay[4], cb_addr_cntr_delay[5], cb_addr_cntr_delay[6], cb_addr_cntr_delay[7], cb_addr_cntr_delay[8], cb_addr_cntr_delay[9]};
 
 
-// Ha már nem töltünk be mintákat és a cb_addr_cntr végig ért, akkor jelzünk.
+
+// Az adatok betöltése a frame_start-ra kezdõdik.
+// Ha viszont a számláló a végéhez ért tehát, akkor már nem töltünk be adatot.
+always @ (posedge clk)
+if (rst | cb_addr_cntr == 10'b1111111111)
+    loading_samples <= 0;
+else if (frame_start)
+    loading_samples <= 1;
+
+
+
+// Ha már nem töltünk be mintákat, de a számláló éppen csak most ért a végéhez,
+// akkor most kell jeleznünk a loading_done-t.
 // Az jel csak egyetlen órajelperiódusig tart.
 always @ (posedge clk)
 if (rst | frame_start | loading_done)
     loading_done <= 0;
-else if (loading_samples == 0 & cb_addr_cntr == 10'b1111111111)
-begin
+else if (loading_samples == 1 & cb_addr_cntr == 10'b1111111111)
     loading_done <= 1;
-    cb_addr_cntr = 0;
-end
+    
 
 
 // A loading_done impulzusra elkezdjük az FFT-t
@@ -406,7 +422,7 @@ reg [3:0] calc_index_cntr;
 always @ (posedge clk)
 // Nullázzuk, ha reset, új frame, vagy új stage van.
 // Szintén nullázzuk, ha a végig ért, vagy ha végig értünk az összes olvasási cikluson (read_cntr == 2'b11).
-if (rst | frame_start | calc_index_cntr == 4'd12 | read_cntr == 2'b11 | new_stage)
+if (rst | frame_start | calc_index_cntr == 4'd13 | read_cntr == 2'b11 | new_stage)
     calc_index_cntr <= 0;
 // Elkezdi a számlálást, ha vannak érvényes segédváltozók és valamelyik igaz a következõk közül:
 // - Éppen most számoltuk ki a segédváltozókat, tehát a stage elsõ butterfly-ára készülünk,
@@ -415,7 +431,7 @@ if (rst | frame_start | calc_index_cntr == 4'd12 | read_cntr == 2'b11 | new_stag
 else if (calc_sidevar_cntr == 5'd22 & (sidevars_done | writing_done | read_cycle_done))
     calc_index_cntr <= 1;
 // Egyébként, ha elindítottuk, akkor már megy tovább, egészen a végéig.
-else if (calc_index_cntr != 0 & calc_index_cntr != 4'd12)
+else if (calc_index_cntr != 0 & calc_index_cntr != 4'd13)
     calc_index_cntr = calc_index_cntr + 1;
 
 
@@ -425,7 +441,7 @@ else if (calc_index_cntr != 0 & calc_index_cntr != 4'd12)
 // 01: x1 és w1 olvasása
 // 10: x2 és w2 olvasása
 // 11: olvasás vége
-reg [1:0] read_cntr;
+
 // Segédváltozó ahhoz, hogy a read_cntr-t plusz egy órajelig a 2-es értéken tudjuk tartani:
 reg read_cntr_2_daly;
 always @ (posedge clk)
@@ -438,11 +454,9 @@ begin
     read_cntr <= 2'b11;
     read_cntr_2_daly <= 0;
 end
-
 // Ha calc_index_cntr 12-re (4'b1100-ra) vált, tehát az indexek megvannak és lehet olvasni,
 // akkor read_cntr egyel nõ.
-always @ (posedge calc_index_cntr[2])
-if (calc_index_cntr[3])
+else if (calc_index_cntr == 4'd12)
     read_cntr <= read_cntr + 1;
 
 
@@ -510,19 +524,29 @@ end
 // viszont a szükség van arra az információra, hogy bármelyik írási ciklus pontosan
 // Mikor kezdõdik, ezért erre létrehoztam egy változót. Ez egy impulzussal jelti,
 // ha történt felfutó él a read_cntr-ben.
-reg [1:0] read_cntr_posedge;
-always @ (posedge read_cntr[0] or posedge read_cntr[1])
-read_cntr_posedge[0] <= 1;
+reg  read_cntr_0_delay;
+reg  read_cntr_1_delay;
+wire read_cntr_0_posedge;
+wire read_cntr_1_posedge;
 
-// Ezen kívül ennek az impulzusnak az egy órajellel késleltetett változatát is szolgáltatja.
 always @ (posedge clk)
-if (read_cntr_posedge[0])
 begin
-    read_cntr_posedge[0] <= 0;
-    read_cntr_posedge[1] <= 1;
+    read_cntr_0_delay <= read_cntr[0];
+    read_cntr_1_delay <= read_cntr[1];
 end
-else if (read_cntr_posedge[1])
-    read_cntr_posedge[1] <= 0;
+
+assign read_cntr_0_posedge = read_cntr[0] & ~read_cntr_0_delay;
+assign read_cntr_1_posedge = read_cntr[1] & ~read_cntr_1_delay;
+
+// Ezen kívül ennek az impulzusnak az egy órajellel késleltetett változata is kelleni fog.
+reg read_cntr_0_posedge_delay;
+reg read_cntr_1_posedge_delay;
+
+always @ (posedge clk)
+begin
+    read_cntr_0_posedge_delay <= read_cntr_0_posedge;
+    read_cntr_1_posedge_delay <= read_cntr_1_posedge;
+end
 
 
 
@@ -532,7 +556,7 @@ else if (read_cntr_posedge[1])
 always @ (posedge clk)
 if (read_cycle_done)
     read_cycle_done <= 0;
-else if (read_cntr_posedge[1] & read_cntr == 2'd1)
+else if (( read_cntr_0_posedge_delay | read_cntr_1_posedge_delay ) & read_cntr == 2'd1)
 begin
     x1_real_buff <= x1_real_reg;
     x1_imag_buff <= x1_imag_reg;
@@ -540,7 +564,7 @@ begin
     w1_imag_buff <= rom_imag_dout;
     read_cycle_done <= 1;
 end
-else if (read_cntr_posedge[1] & read_cntr == 2'd2)
+else if (( read_cntr_0_posedge_delay | read_cntr_1_posedge_delay ) & read_cntr == 2'd2)
 begin
     x2_real_buff <= x2_real_reg;
     x2_imag_buff <= x2_imag_reg;
@@ -558,7 +582,7 @@ end
 // 11: írás kész
 // butterfly_done-ra elkezdi a számlálást és ha már elkezdte, folyatatja is.
 // 2'b11 érték után újra nullázza magát.
-reg [1:0] write_cntr;
+
 always @ (posedge clk)
 if (rst | frame_start | write_cntr == 2'b11)
     write_cntr <= 0;
@@ -574,32 +598,31 @@ assign writing_done = (write_cntr == 2'b11);
 
 // A write_cntr már hagyományosan számol, viszont szintén szükség van az élváltásaira.
 // A következõ változó egy impulzussal jelti, ha történt felfutó él a write_cntr-ben.
-reg [1:0] write_cntr_posedge;
-always @ (posedge write_cntr[0])
-if (write_cntr[1] == 0)
-    write_cntr_posedge[0] <= 1;
+reg  write_cntr_0_delay;
+wire write_cntr_0_posedge;
 
-// Ezen kívül ennek az impulzusnak az egy órajellel késleltetett változatát is szolgáltatja.
 always @ (posedge clk)
-if (write_cntr_posedge[0])
-begin
-    write_cntr_posedge[0] <= 0;
-    write_cntr_posedge[1] <= 1;
-end
-else if (write_cntr_posedge[1])
-    write_cntr_posedge[1] <= 0;
+    write_cntr_0_delay <= write_cntr[0];
+
+assign write_cntr_0_posedge = write_cntr[0] & ~write_cntr_0_delay;
+
+// Ezen kívül ennek az impulzusnak az egy órajellel késleltetett változata is kelleni fog.
+reg write_cntr_0_posedge_delay;
+
+always @ (posedge clk)
+    write_cntr_0_posedge_delay <= write_cntr_0_posedge;
 
 
 
 // A kimeneti bufferek komplex huzalozásának megvalósítása demultiplexerekkel
 
-assign ram_2_real_din_a = (mem_dest == 2'b01) ? ( (write_cntr_posedge[0]) ? (y1_real) : ( (write_cntr_posedge[1]) ? (y2_real) : (24'b0) )  ) : 24'b0; 
-assign ram_1_real_din_b = (mem_dest == 2'b10) ? ( (write_cntr_posedge[0]) ? (y1_real) : ( (write_cntr_posedge[1]) ? (y2_real) : (24'b0) )  ) : 24'b0; 
-assign ram_3_real_din_a = (mem_dest == 2'b11) ? ( (write_cntr_posedge[0]) ? (y1_real) : ( (write_cntr_posedge[1]) ? (y2_real) : (24'b0) )  ) : 24'b0; 
+assign ram_2_real_din_a = (mem_dest == 2'b01) ? ( (write_cntr_0_posedge) ? (y1_real) : ( (write_cntr_0_posedge_delay) ? (y2_real) : (24'b0) )  ) : 24'b0; 
+assign ram_1_real_din_b = (mem_dest == 2'b10) ? ( (write_cntr_0_posedge) ? (y1_real) : ( (write_cntr_0_posedge_delay) ? (y2_real) : (24'b0) )  ) : 24'b0; 
+assign ram_3_real_din_a = (mem_dest == 2'b11) ? ( (write_cntr_0_posedge) ? (y1_real) : ( (write_cntr_0_posedge_delay) ? (y2_real) : (24'b0) )  ) : 24'b0; 
 
-assign ram_2_imag_din_a = (mem_dest == 2'b01) ? ( (write_cntr_posedge[0]) ? (y1_imag) : ( (write_cntr_posedge[1]) ? (y2_imag) : (24'b0) )  ) : 24'b0; 
-assign ram_1_imag_din_b = (mem_dest == 2'b10) ? ( (write_cntr_posedge[0]) ? (y1_imag) : ( (write_cntr_posedge[1]) ? (y2_imag) : (24'b0) )  ) : 24'b0; 
-assign ram_3_imag_din_a = (mem_dest == 2'b11) ? ( (write_cntr_posedge[0]) ? (y1_imag) : ( (write_cntr_posedge[1]) ? (y2_imag) : (24'b0) )  ) : 24'b0; 
+assign ram_2_imag_din_a = (mem_dest == 2'b01) ? ( (write_cntr_0_posedge) ? (y1_imag) : ( (write_cntr_0_posedge_delay) ? (y2_imag) : (24'b0) )  ) : 24'b0; 
+assign ram_1_imag_din_b = (mem_dest == 2'b10) ? ( (write_cntr_0_posedge) ? (y1_imag) : ( (write_cntr_0_posedge_delay) ? (y2_imag) : (24'b0) )  ) : 24'b0; 
+assign ram_3_imag_din_a = (mem_dest == 2'b11) ? ( (write_cntr_0_posedge) ? (y1_imag) : ( (write_cntr_0_posedge_delay) ? (y2_imag) : (24'b0) )  ) : 24'b0; 
 
 
 
@@ -677,13 +700,17 @@ reg [9:0] rom_real_addr_reg;
 reg [9:0] rom_imag_addr_reg;
 
 // Az címek kiadása a megfelelõ ütemben a megfelelõ vezetéken
-always @ (mem_dest or read_cntr or write_cntr)
+always @ (mem_dest or read_cntr or write_cntr or index_1 or index_2 or w_10_power_1 or w_10_power_2)
 if (mem_dest == 2'b01)
 begin
     if (read_cntr == 2'b01)
     begin
         ram_1_real_addr_b_reg <= index_1[9:0];
         ram_1_imag_addr_b_reg <= index_1[9:0];
+		ram_2_real_addr_a_reg <= 10'b0;
+		ram_2_imag_addr_a_reg <= 10'b0;
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
         rom_real_addr_reg <= w_10_power_1[9:0];
         rom_imag_addr_reg <= w_10_power_1[9:0];
     end
@@ -691,33 +718,57 @@ begin
     begin
         ram_1_real_addr_b_reg <= index_2[9:0];
         ram_1_imag_addr_b_reg <= index_2[9:0];
+		ram_2_real_addr_a_reg <= 10'b0;
+		ram_2_imag_addr_a_reg <= 10'b0;
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
         rom_real_addr_reg <= w_10_power_2[9:0];
         rom_imag_addr_reg <= w_10_power_2[9:0];
     end
     else if (write_cntr == 2'b01)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
         ram_2_real_addr_a_reg <= index_1[9:0];
         ram_2_imag_addr_a_reg <= index_1[9:0];
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
+		rom_real_addr_reg <= 10'b0;
+        rom_imag_addr_reg <= 10'b0;
     end
     else if (write_cntr == 2'b10)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
         ram_2_real_addr_a_reg <= index_2[9:0];
         ram_2_imag_addr_a_reg <= index_2[9:0];
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
+		rom_real_addr_reg <= 10'b0;
+        rom_imag_addr_reg <= 10'b0;
     end
 end
 else if (mem_dest == 2'b10)
 begin
     if (read_cntr == 2'b01)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
         ram_2_real_addr_a_reg <= index_1[9:0];
         ram_2_imag_addr_a_reg <= index_1[9:0];
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
         rom_real_addr_reg <= w_10_power_1[9:0];
         rom_imag_addr_reg <= w_10_power_1[9:0];
     end
     else if (read_cntr == 2'b10)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
         ram_2_real_addr_a_reg <= index_2[9:0];
         ram_2_imag_addr_a_reg <= index_2[9:0];
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
         rom_real_addr_reg <= w_10_power_2[9:0];
         rom_imag_addr_reg <= w_10_power_2[9:0];
     end
@@ -725,38 +776,71 @@ begin
     begin
         ram_1_real_addr_b_reg <= index_1[9:0];
         ram_1_imag_addr_b_reg <= index_1[9:0];
+		ram_2_real_addr_a_reg <= 10'b0;
+        ram_2_imag_addr_a_reg <= 10'b0;
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
+		rom_real_addr_reg <= 10'b0;
+        rom_imag_addr_reg <= 10'b0;
+		
     end
     else if (write_cntr == 2'b10)
     begin
         ram_1_real_addr_b_reg <= index_2[9:0];
         ram_1_imag_addr_b_reg <= index_2[9:0];
+		ram_2_real_addr_a_reg <= 10'b0;
+        ram_2_imag_addr_a_reg <= 10'b0;
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
+		rom_real_addr_reg <= 10'b0;
+        rom_imag_addr_reg <= 10'b0;
     end
 end
 else if (mem_dest == 2'b11)
 begin
     if (read_cntr == 2'b01)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
         ram_2_real_addr_a_reg <= index_1[9:0];
         ram_2_imag_addr_a_reg <= index_1[9:0];
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
         rom_real_addr_reg <= w_10_power_1[9:0];
         rom_imag_addr_reg <= w_10_power_1[9:0];
     end
     else if (read_cntr == 2'b10)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
         ram_2_real_addr_a_reg <= index_2[9:0];
         ram_2_imag_addr_a_reg <= index_2[9:0];
+		ram_3_real_addr_a_reg <= 10'b0;
+		ram_3_imag_addr_a_reg <= 10'b0;
         rom_real_addr_reg <= w_10_power_2[9:0];
         rom_imag_addr_reg <= w_10_power_2[9:0];
     end
     else if (write_cntr == 2'b01)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
+        ram_2_real_addr_a_reg <= 10'b0;
+        ram_2_imag_addr_a_reg <= 10'b0;
         ram_3_real_addr_a_reg <= index_1[9:0];
         ram_3_imag_addr_a_reg <= index_1[9:0];
+		rom_real_addr_reg <= 10'b0;
+        rom_imag_addr_reg <= 10'b0;
     end
     else if (write_cntr == 2'b10)
     begin
+		ram_1_real_addr_b_reg <= 10'b0;
+		ram_1_imag_addr_b_reg <= 10'b0;
+        ram_2_real_addr_a_reg <= 10'b0;
+        ram_2_imag_addr_a_reg <= 10'b0;
         ram_3_real_addr_a_reg <= index_2[9:0];
         ram_3_imag_addr_a_reg <= index_2[9:0];
+		rom_real_addr_reg <= 10'b0;
+        rom_imag_addr_reg <= 10'b0;
     end
 end
 

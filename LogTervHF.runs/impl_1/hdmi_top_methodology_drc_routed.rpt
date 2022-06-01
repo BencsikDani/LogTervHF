@@ -1,0 +1,362 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Thu Jun  2 01:26:45 2022
+| Host         : DANINITRO-PC running 64-bit major release  (build 9200)
+| Command      : report_methodology -file hdmi_top_methodology_drc_routed.rpt -pb hdmi_top_methodology_drc_routed.pb -rpx hdmi_top_methodology_drc_routed.rpx
+| Design       : hdmi_top
+| Device       : xc7k70tfbg676-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 63
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| LUTAR-1   | Warning  | LUT drives async reset alert  | 1          |
+| SYNTH-9   | Warning  | Small multiplier              | 8          |
+| TIMING-18 | Warning  | Missing input or output delay | 14         |
+| TIMING-20 | Warning  | Non-clocked latch             | 40         |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9]_i_3, with 2 or more inputs, drives asynchronous preset/clear pin(s) spec_anal/controller/core/ram_2_real_addr_a_reg_reg[0]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[1]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[2]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[3]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[4]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[5]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[6]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[7]/CLR,
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[8]/CLR
+spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9]/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+SYNTH-9#1 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[2]_i_1 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#2 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[3]_i_2 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#3 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[7]_i_1 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#4 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[9]_i_1 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#5 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[9]_i_5 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#6 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[9]_i_6 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#7 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[9]_i_7 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+SYNTH-9#8 Warning
+Small multiplier  
+Detected multiplier at spec_anal/controller/core/DSP1/m_reg_reg[9]_i_8 of size 10x10, it is implemented as LUTs due to its small size. To force the multiplier onto a DSP block, use the USE_DSP48 attribute.
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on codec_sdout relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on rstbt relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on codec_lrclk relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on codec_mclk relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on codec_rstn relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on codec_sclk relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on led_r[0] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on led_r[1] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on led_r[2] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on led_r[3] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on led_r[4] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on led_r[5] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on led_r[6] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on led_r[7] relative to clock(s) clk100M
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[0] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[1] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[2] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[3] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[4] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[5] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[6] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[7] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[8] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_1_real_addr_b_reg_reg[9] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_1_real_addr_b_reg_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[0] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[1] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[2] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[3] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[4] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[5] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[6] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[7] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[8] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_2_real_addr_a_reg_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[0] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[1] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[2] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[3] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#25 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[4] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#26 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[5] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#27 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[6] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#28 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[7] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#29 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[8] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#30 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/ram_3_real_addr_a_reg_reg[9] cannot be properly analyzed as its control pin spec_anal/controller/core/ram_3_real_addr_a_reg_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#31 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[0] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#32 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[1] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#33 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[2] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#34 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[3] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#35 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[4] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#36 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[5] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#37 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[6] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#38 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[7] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#39 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[8] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[8]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#40 Warning
+Non-clocked latch  
+The latch spec_anal/controller/core/rom_real_addr_reg_reg[9] cannot be properly analyzed as its control pin spec_anal/controller/core/rom_real_addr_reg_reg[9]/G is not reached by a timing clock
+Related violations: <none>
+
+
