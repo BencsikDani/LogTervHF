@@ -104,8 +104,11 @@ read_verilog -library xil_defaultlib {
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v
+  C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/fir_filter.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_tx.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v
+  C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/mul_24x35.v
+  C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/top_level.v
   C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_top.v

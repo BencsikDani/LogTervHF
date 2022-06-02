@@ -2,8 +2,8 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Thu Jun  2 01:24:13 2022
-# Process ID: 19440
+# Start of session at: Thu Jun  2 01:51:39 2022
+# Process ID: 14916
 # Current directory: C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/synth_1
 # Command line: vivado.exe -log hdmi_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source hdmi_top.tcl
 # Log file: C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/synth_1/hdmi_top.vds
@@ -11,6 +11,7 @@
 # Running On: DANINITRO-PC, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 17057 MB
 #-----------------------------------------------------------
 source hdmi_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1245.789 ; gain = 7.805
 Command: read_checkpoint -auto_incremental -incremental C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/utils_1/imports/synth_1/hdmi_top.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/utils_1/imports/synth_1/hdmi_top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -22,14 +23,14 @@ INFO: [Device 21-403] Loading part xc7k70tfbg676-1
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 23560
+INFO: [Synth 8-7075] Helper process launched with PID 8844
 WARNING: [Synth 8-2611] redeclaration of ansi port loading_samples is not allowed [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:30]
 WARNING: [Synth 8-2611] redeclaration of ansi port fft_in_progress is not allowed [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:34]
 WARNING: [Synth 8-2611] redeclaration of ansi port new_stage is not allowed [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:36]
 WARNING: [Synth 8-2611] redeclaration of ansi port stage_cntr is not allowed [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:38]
 WARNING: [Synth 8-2611] redeclaration of ansi port ram_2_real_dout_a is not allowed [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:271]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1245.789 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'hdmi_top' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_top.v:23]
 INFO: [Synth 8-6157] synthesizing module 'PLLE2_BASE' [E:/Xilinx/Vivado/2021.2/scripts/rt/data/unisim_comp.v:89476]
@@ -66,53 +67,167 @@ INFO: [Synth 8-6155] done synthesizing module 'hdmi_tx' (3#1) [C:/Users/Dani/Xil
 INFO: [Synth 8-6157] synthesizing module 'spec_anal_top_level' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/top_level.v:23]
 INFO: [Synth 8-6157] synthesizing module 'codec_if' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/codec_if.v:3]
 INFO: [Synth 8-6155] done synthesizing module 'codec_if' (4#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/codec_if.v:3]
-INFO: [Synth 8-6157] synthesizing module 'FFT_Controller' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Controller.v:3]
+INFO: [Synth 8-6157] synthesizing module 'fir_filter' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/fir_filter.v:3]
 INFO: [Synth 8-6157] synthesizing module 'smpl_ram' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
+	Parameter DATA_W bound to: 24 - type: integer 
+	Parameter ADDR_W bound to: 9 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'smpl_ram' (5#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
-INFO: [Synth 8-6157] synthesizing module 'FFT_Core' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:3]
+INFO: [Synth 8-6157] synthesizing module 'rom_512x35' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:21]
+INFO: [Synth 8-3876] $readmem data file 'coeffs_1k.txt' is read successfully [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:28]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+WARNING: [Synth 8-311] ignoring non-constant assignment in initial block [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:46]
+INFO: [Common 17-14] Message 'Synth 8-311' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'rom_512x35' (6#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/rom_512x35.v:21]
+INFO: [Synth 8-6157] synthesizing module 'mul_24x35' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/mul_24x35.v:21]
+INFO: [Synth 8-6157] synthesizing module 'dsp_25x18' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+	Parameter A_REG bound to: 1 - type: integer 
+	Parameter B_REG bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18' (7#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+INFO: [Synth 8-6157] synthesizing module 'dsp_25x18__parameterized0' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+	Parameter A_REG bound to: 2 - type: integer 
+	Parameter B_REG bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18__parameterized0' (7#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mul_24x35' (8#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/mul_24x35.v:21]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'coeff_rom'. This will prevent further optimization [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/fir_filter.v:104]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'mul_fir'. This will prevent further optimization [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/fir_filter.v:116]
+INFO: [Synth 8-6155] done synthesizing module 'fir_filter' (9#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/fir_filter.v:3]
+INFO: [Synth 8-6157] synthesizing module 'FFT_Controller' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Controller.v:3]
 INFO: [Synth 8-6157] synthesizing module 'smpl_ram__parameterized0' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'smpl_ram__parameterized0' (9#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
+INFO: [Synth 8-6157] synthesizing module 'FFT_Core' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:3]
+INFO: [Synth 8-6157] synthesizing module 'smpl_ram__parameterized1' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
 	Parameter DATA_W bound to: 24 - type: integer 
 	Parameter ADDR_W bound to: 10 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'smpl_ram__parameterized0' (5#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'smpl_ram__parameterized1' (9#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/smpl_ram.v:23]
 INFO: [Synth 8-6157] synthesizing module 'coeff_rom' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:23]
 	Parameter FILE bound to: coeff_real.txt - type: string 
 INFO: [Synth 8-3876] $readmem data file 'coeff_real.txt' is read successfully [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:32]
-INFO: [Synth 8-6155] done synthesizing module 'coeff_rom' (6#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'coeff_rom' (10#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:23]
 INFO: [Synth 8-6157] synthesizing module 'coeff_rom__parameterized0' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:23]
 	Parameter FILE bound to: coeff_imag.txt - type: string 
 INFO: [Synth 8-3876] $readmem data file 'coeff_imag.txt' is read successfully [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:32]
-INFO: [Synth 8-6155] done synthesizing module 'coeff_rom__parameterized0' (6#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'coeff_rom__parameterized0' (10#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/coeff_rom.v:23]
 INFO: [Synth 8-6157] synthesizing module 'butterfly' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/butterfly.v:3]
-INFO: [Synth 8-6157] synthesizing module 'dsp_25x18' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+INFO: [Synth 8-6157] synthesizing module 'dsp_25x18__parameterized1' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
 	Parameter A_REG bound to: 2'b10 
 	Parameter B_REG bound to: 2'b10 
-INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18' (7#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
-INFO: [Synth 8-6157] synthesizing module 'dsp_25x18__parameterized0' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18__parameterized1' (10#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+INFO: [Synth 8-6157] synthesizing module 'dsp_25x18__parameterized2' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
 	Parameter A_REG bound to: 2'b01 
 	Parameter B_REG bound to: 2'b01 
-INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18__parameterized0' (7#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'butterfly' (8#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/butterfly.v:3]
-INFO: [Synth 8-6157] synthesizing module 'dsp_25x18__parameterized1' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
-	Parameter A_REG bound to: 1 - type: integer 
-	Parameter B_REG bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18__parameterized1' (8#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'FFT_Core' (9#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18__parameterized2' (10#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'butterfly' (11#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/butterfly.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'FFT_Core' (12#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:3]
 WARNING: [Synth 8-689] width (1) of port connection 'cb_addr_out' does not match port width (10) of module 'FFT_Core' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Controller.v:82]
 INFO: [Synth 8-6157] synthesizing module 'fft_to_dB' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v:6]
 INFO: [Synth 8-6157] synthesizing module 'mul_24x24' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v:23]
-INFO: [Synth 8-6157] synthesizing module 'dsp_25x18__parameterized2' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
-	Parameter A_REG bound to: 2 - type: integer 
-	Parameter B_REG bound to: 2 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'dsp_25x18__parameterized2' (9#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'mul_24x24' (10#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mul_24x24' (13#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v:23]
 INFO: [Synth 8-6157] synthesizing module 'dB_value_rom' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v:3]
 	Parameter FILE bound to: dB_values.txt - type: string 
 INFO: [Synth 8-3876] $readmem data file 'dB_values.txt' is read successfully [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v:12]
-INFO: [Synth 8-6155] done synthesizing module 'dB_value_rom' (11#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'fft_to_dB' (12#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'FFT_Controller' (13#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Controller.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'spec_anal_top_level' (14#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/top_level.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'hdmi_top' (15#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_top.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'dB_value_rom' (14#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'fft_to_dB' (15#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'FFT_Controller' (16#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Controller.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'spec_anal_top_level' (17#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/top_level.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hdmi_top' (18#1) [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_top.v:23]
 WARNING: [Synth 8-3917] design hdmi_top has port led_r[7] driven by constant 0
 WARNING: [Synth 8-7129] Port cb_dout[9] in module FFT_Core is either unconnected or has no load
 WARNING: [Synth 8-7129] Port cb_dout[8] in module FFT_Core is either unconnected or has no load
@@ -124,7 +239,7 @@ WARNING: [Synth 8-7129] Port cb_dout[3] in module FFT_Core is either unconnected
 WARNING: [Synth 8-7129] Port cb_dout[2] in module FFT_Core is either unconnected or has no load
 WARNING: [Synth 8-7129] Port cb_dout[1] in module FFT_Core is either unconnected or has no load
 WARNING: [Synth 8-7129] Port cb_dout[0] in module FFT_Core is either unconnected or has no load
-WARNING: [Synth 8-7129] Port aud_dout_vld[0] in module FFT_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port aud_dout_vld[1] in module FFT_Controller is either unconnected or has no load
 WARNING: [Synth 8-7129] Port aud_din_vld[1] in module codec_if is either unconnected or has no load
 WARNING: [Synth 8-7129] Port aud_din_vld[0] in module codec_if is either unconnected or has no load
 WARNING: [Synth 8-7129] Port bt[2] in module hdmi_top is either unconnected or has no load
@@ -142,18 +257,18 @@ WARNING: [Synth 8-7129] Port hdmi_tx_hpdn in module hdmi_top is either unconnect
 WARNING: [Synth 8-7129] Port hdmi_tx_scl in module hdmi_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hdmi_tx_sda in module hdmi_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1245.789 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1245.789 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1245.789 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.127 . Memory (MB): peak = 1245.789 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -167,38 +282,40 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/hdmi_top_pro
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1265.207 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   PLLE2_BASE => PLLE2_ADV: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 1265.207 ; gain = 0.000
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1265.207 ; gain = 19.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k70tfbg676-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1265.207 ; gain = 19.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1265.207 ; gain = 19.418
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3936] Found unconnected internal register 'po_0_dl_reg' and it is trimmed from '48' to '17' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/FIR/mul_24x35.v:49]
 WARNING: [Synth 8-3936] Found unconnected internal register 'po_0_dl_reg' and it is trimmed from '48' to '17' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/mul_24x24.v:58]
 INFO: [Synth 8-3971] The signal "smpl_ram:/ram_array_reg" was recognized as a true dual port RAM template.
 INFO: [Synth 8-3971] The signal "smpl_ram__parameterized0:/ram_array_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "smpl_ram__parameterized1:/ram_array_reg" was recognized as a true dual port RAM template.
 WARNING: [Synth 8-327] inferring latch for variable 'ram_3_real_addr_a_reg_reg' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:712]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_2_real_addr_a_reg_reg' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:710]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_1_real_addr_b_reg_reg' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:708]
 WARNING: [Synth 8-327] inferring latch for variable 'rom_real_addr_reg_reg' [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v:714]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1265.207 ; gain = 19.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -209,41 +326,45 @@ Detailed RTL Component Info :
 	   2 Input   32 Bit       Adders := 3     
 	   2 Input   11 Bit       Adders := 1     
 	   2 Input   10 Bit       Adders := 9     
+	   2 Input    8 Bit       Adders := 3     
 	   2 Input    5 Bit       Adders := 2     
 	   2 Input    4 Bit       Adders := 3     
 	   2 Input    3 Bit       Adders := 2     
 	   2 Input    2 Bit       Adders := 2     
 +---Registers : 
+	               67 Bit    Registers := 1     
 	               49 Bit    Registers := 1     
-	               24 Bit    Registers := 24    
+	               31 Bit    Registers := 1     
+	               24 Bit    Registers := 27    
 	               23 Bit    Registers := 1     
-	               18 Bit    Registers := 20    
-	               17 Bit    Registers := 3     
+	               18 Bit    Registers := 22    
+	               17 Bit    Registers := 4     
 	               11 Bit    Registers := 2     
 	               10 Bit    Registers := 10    
-	                8 Bit    Registers := 2     
+	                8 Bit    Registers := 6     
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 2     
 	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 35    
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 37    
 +---RAMs : 
 	              24K Bit	(1024 X 24 bit)          RAMs := 9     
+	              12K Bit	(512 X 24 bit)          RAMs := 1     
 +---ROMs : 
-	                    ROMs := 3     
+	                    ROMs := 4     
 +---Muxes : 
 	   2 Input   24 Bit        Muxes := 12    
 	   4 Input   24 Bit        Muxes := 2     
 	   2 Input   10 Bit        Muxes := 2     
 	   3 Input   10 Bit        Muxes := 5     
-	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
 	   3 Input    8 Bit        Muxes := 1     
 	   3 Input    5 Bit        Muxes := 1     
 	   2 Input    5 Bit        Muxes := 2     
 	   3 Input    4 Bit        Muxes := 1     
 	   3 Input    2 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 19    
+	   2 Input    1 Bit        Muxes := 25    
 	   5 Input    1 Bit        Muxes := 1     
 	   3 Input    1 Bit        Muxes := 2     
 	   4 Input    1 Bit        Muxes := 1     
@@ -263,6 +384,24 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'DSP_MS/p_reg_reg' and it is trimmed from '48' to '42' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:52]
+WARNING: [Synth 8-3936] Found unconnected internal register 'DSP_MS/m_reg_reg' and it is trimmed from '43' to '42' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:51]
+DSP Report: Generating DSP DSP_LS/p_reg_reg, operation Mode is: (A2*B2)'.
+DSP Report: register DSP_LS/p_reg_reg is absorbed into DSP DSP_LS/p_reg_reg.
+DSP Report: register DSP_LS/a_reg_reg[0] is absorbed into DSP DSP_LS/p_reg_reg.
+DSP Report: register DSP_LS/p_reg_reg is absorbed into DSP DSP_LS/p_reg_reg.
+DSP Report: register DSP_LS/m_reg_reg is absorbed into DSP DSP_LS/p_reg_reg.
+DSP Report: operator DSP_LS/p_reg0 is absorbed into DSP DSP_LS/p_reg_reg.
+DSP Report: operator DSP_LS/m_reg0 is absorbed into DSP DSP_LS/p_reg_reg.
+DSP Report: Generating DSP DSP_MS/p_reg_reg, operation Mode is: (PCIN>>17)+(A''*B'')'.
+DSP Report: register DSP_MS/b_reg_reg[0] is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: register DSP_MS/b_reg_reg[1] is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: register DSP_LS/a_reg_reg[0] is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: register DSP_MS/a_reg_reg[1] is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: register DSP_MS/p_reg_reg is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: register DSP_MS/m_reg_reg is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: operator DSP_MS/p_reg0 is absorbed into DSP DSP_MS/p_reg_reg.
+DSP Report: operator DSP_MS/m_reg0 is absorbed into DSP DSP_MS/p_reg_reg.
 WARNING: [Synth 8-3936] Found unconnected internal register 'DSP3/p_reg_reg' and it is trimmed from '48' to '10' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:52]
 WARNING: [Synth 8-3936] Found unconnected internal register 'DSP3/m_reg_reg' and it is trimmed from '43' to '10' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:51]
 WARNING: [Synth 8-3936] Found unconnected internal register 'DSP2/p_reg_reg' and it is trimmed from '48' to '10' bits. [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dsp_25x18.v:52]
@@ -418,10 +557,11 @@ WARNING: [Synth 8-7129] Port hdmi_tx_cec in module hdmi_top is either unconnecte
 WARNING: [Synth 8-7129] Port hdmi_tx_hpdn in module hdmi_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hdmi_tx_scl in module hdmi_top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hdmi_tx_sda in module hdmi_top is either unconnected or has no load
-INFO: [Synth 8-3971] The signal "smpl_ram:/ram_array_reg" was recognized as a true dual port RAM template.
+WARNING: [Synth 8-6014] Unused sequential element ram_array_reg was removed. 
 INFO: [Synth 8-3971] The signal "smpl_ram__parameterized0:/ram_array_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-3971] The signal "smpl_ram__parameterized1:/ram_array_reg" was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1265.207 ; gain = 19.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -431,15 +571,16 @@ Block RAM: Preliminary Mapping Report (see note below)
 +--------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |Module Name               | RTL Object    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +--------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|smpl_ram:                 | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|\spec_anal/fir /fir_ram   | ram_array_reg | 512 x 24(READ_FIRST)   | W | R | 512 x 24(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
 |smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
 |smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram:                 | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram:                 | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
 +--------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
@@ -448,6 +589,8 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 +------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name | DSP Mapping           | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mul_24x35   | (A2*B2)'              | 25     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 1    | 1    | 
+|dsp_25x18   | (PCIN>>17)+(A''*B'')' | 25     | 18     | -      | -      | 42     | 2    | 2    | -    | -    | -     | 1    | 1    | 
 |FFT_Core    | (C'+(A''*B'')')'      | 25     | 18     | 40     | -      | 48     | 2    | 2    | 1    | -    | -     | 1    | 1    | 
 |dsp_25x18   | (PCIN+(A''*B'')')'    | 25     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 1    | 1    | 
 |FFT_Core    | (C'+(A''*B'')')'      | 25     | 18     | 40     | -      | 48     | 2    | 2    | 1    | -    | -     | 1    | 1    | 
@@ -470,13 +613,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1246.656 ; gain = 0.000
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1265.207 ; gain = 19.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1261.410 ; gain = 14.754
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1272.840 ; gain = 27.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -486,15 +629,16 @@ Block RAM: Final Mapping Report
 +--------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 |Module Name               | RTL Object    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
 +--------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|smpl_ram:                 | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|\spec_anal/fir /fir_ram   | ram_array_reg | 512 x 24(READ_FIRST)   | W | R | 512 x 24(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
+|smpl_ram__parameterized1: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
 |smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
 |smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram__parameterized0: | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram:                 | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
-|smpl_ram:                 | ram_array_reg | 1 K x 24(READ_FIRST)   | W | R | 1 K x 24(READ_FIRST)   | W | R | Port A and B     | 0      | 1      | 
 +--------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
 
 ---------------------------------------------------------------------------------
@@ -503,6 +647,10 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance spec_anal/fir/fir_ram/ram_array_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance spec_anal/fir/fir_ram/ram_array_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance spec_anal/fir/coeff_rom/dout_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance spec_anal/fir/coeff_rom/dout_reg_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance spec_anal/controller/circ_buff/ram_array_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance spec_anal/controller/circ_buff/ram_array_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance spec_anal/controller/core/inst[5].smpl_ram_inst/ram_array_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
@@ -525,7 +673,7 @@ INFO: [Synth 8-7052] The timing for the instance display_ram/ram_array_reg (impl
 INFO: [Synth 8-7052] The timing for the instance display_ram/ram_array_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance spec_anal/controller/convert/dB_values/dout_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1271.520 ; gain = 24.863
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1283.238 ; gain = 37.449
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -616,37 +764,37 @@ WARNING: [Synth 8-3295] tying undriven pin display_ram:din_b[1] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin display_ram:din_b[0] to constant 0
 CRITICAL WARNING: [Synth 8-6030] Inout pin 'bt[3]' is read and/or written without using tristate logic. Proper direction of connection may be wrongly inferred. Please use specific direction to avoid any incorrect logic issue [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_top.v:23]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 1277.609 ; gain = 30.953
+Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1288.230 ; gain = 42.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:47 . Memory (MB): peak = 1277.609 ; gain = 30.953
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1288.230 ; gain = 42.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1277.609 ; gain = 30.953
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1288.230 ; gain = 42.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1277.609 ; gain = 30.953
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1288.230 ; gain = 42.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1277.633 ; gain = 30.977
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1288.281 ; gain = 42.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1277.633 ; gain = 30.977
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1288.281 ; gain = 42.492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -665,51 +813,52 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |hdmi_tx    |     1|
 |2     |BUFG       |     3|
-|3     |CARRY4     |    60|
-|4     |DSP48E1    |    12|
-|7     |LUT1       |     9|
-|8     |LUT2       |   172|
-|9     |LUT3       |    41|
-|10    |LUT4       |   272|
-|11    |LUT5       |    76|
-|12    |LUT6       |   215|
+|3     |CARRY4     |    77|
+|4     |DSP48E1    |    14|
+|7     |LUT1       |    13|
+|8     |LUT2       |   273|
+|9     |LUT3       |   115|
+|10    |LUT4       |   283|
+|11    |LUT5       |    81|
+|12    |LUT6       |   226|
 |13    |PLLE2_BASE |     1|
-|14    |RAMB18E1   |     2|
-|16    |RAMB36E1   |    10|
-|18    |FDRE       |   429|
-|19    |LD         |    30|
-|20    |LDC        |    10|
-|21    |IBUF       |     5|
-|22    |OBUF       |    28|
+|14    |RAMB18E1   |     3|
+|17    |RAMB36E1   |    11|
+|20    |FDRE       |   543|
+|21    |FDSE       |    31|
+|22    |LD         |    30|
+|23    |LDC        |    10|
+|24    |IBUF       |     5|
+|25    |OBUF       |    28|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1277.633 ; gain = 30.977
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 1288.281 ; gain = 42.492
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 123 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:45 . Memory (MB): peak = 1277.633 ; gain = 30.977
-Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1277.633 ; gain = 30.977
+Synthesis finished with 0 errors, 1 critical warnings and 127 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:44 . Memory (MB): peak = 1288.281 ; gain = 23.074
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:48 . Memory (MB): peak = 1288.281 ; gain = 42.492
 INFO: [Project 1-571] Translating synthesized netlist
 Parsing EDIF File [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_tx.edn]
 Finished Parsing EDIF File [C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/imports/new/hdmi_tx.edn]
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.063 . Memory (MB): peak = 1295.133 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 130 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1305.879 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 151 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2018.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1302.812 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1320.500 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 41 instances were transformed.
   LD => LDCE: 30 instances
   LDC => LDCE: 10 instances
   PLLE2_BASE => PLLE2_ADV: 1 instance 
 
-Synth Design complete, checksum: ed82f815
+Synth Design complete, checksum: f46cb802
 INFO: [Common 17-83] Releasing license: Synthesis
-91 Infos, 157 Warnings, 1 Critical Warnings and 0 Errors encountered.
+108 Infos, 261 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1302.812 ; gain = 56.156
+synth_design: Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1320.500 ; gain = 74.711
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/synth_1/hdmi_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file hdmi_top_utilization_synth.rpt -pb hdmi_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jun  2 01:25:14 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Jun  2 01:52:42 2022...

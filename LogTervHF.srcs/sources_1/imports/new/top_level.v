@@ -129,13 +129,28 @@ codec_if codec_if_inst
 );
 
 
+wire [1:0]  fir_dout_valid;
+wire [23:0] fir_dout;
+
+fir_filter fir(
+    .clk(clk),
+    .rst(rst),
+
+    .din_valid(aud_dout_vld),
+    .din(aud_dout),
+
+    .dout_valid(fir_dout_valid),
+    .dout(fir_dout)
+);
+
+
 FFT_Controller controller(
     .clk          (clk),
     .rst          (rst),
     .frame_start  (frame_start),
     
-    .aud_dout_vld  (aud_dout_vld),
-    .aud_dout      (aud_dout),
+    .aud_dout_vld  (fir_dout_valid),
+    .aud_dout      (fir_dout),
     
     .frm_clk       (frm_clk),
     .frm_addr      (frm_addr),

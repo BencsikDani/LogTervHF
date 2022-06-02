@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k70tfbg676-1" LaunchTime="1654125848" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/hdmi_top.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7k70tfbg676-1" LaunchTime="1654127495" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/hdmi_top.dcp">
   <File Type="PA-TCL" Name="hdmi_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="hdmi_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="hdmi_top_reports.tcl"/>
@@ -77,6 +77,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/FIR/fir_filter.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/fir_filter.v"/>
+        <Attr Name="ImportTime" Val="1652110654"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/new/hdmi_tx.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../hdmi_loopback/hdmi_loopback.srcs/sources_1/new/hdmi_tx.v"/>
@@ -88,6 +97,24 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/mul_24x24.v">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/FIR/mul_24x35.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/mul_24x35.v"/>
+        <Attr Name="ImportTime" Val="1554279144"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/FIR/rom_512x35.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/rom_512x35.v"/>
+        <Attr Name="ImportTime" Val="1587625520"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

@@ -52,12 +52,12 @@ assign fft_rdy_posedge = fft_rdy & ~fft_rdy_delay;
 always @ (posedge clk)
 if (rst)
     smpl_addr_cntr <= 0;
-else if (aud_dout_vld[1])
+else if (aud_dout_vld[0])
     smpl_addr_cntr <= smpl_addr_cntr + 1;
 
 smpl_ram circ_buff (
     .clk_a(clk),
-    .we_a(aud_dout_vld[1]),
+    .we_a(aud_dout_vld[0]),
     .addr_a(smpl_addr_cntr),
     .din_a(aud_dout),
     .dout_a(),

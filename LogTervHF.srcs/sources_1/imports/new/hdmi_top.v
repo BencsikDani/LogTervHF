@@ -398,9 +398,9 @@ reg [7:0] red, green, blue;
 always @ (posedge clk40M)
 if (vde)
 begin
-    if ( h_cntr[9:0] <= {2'b0, display_ram_dout[23:16]} )
+    if ( h_cntr[9:0] <= {1'b0, display_ram_dout[23:15]} )
     begin
-        red   <= 8'd30;
+        red   <= 8'd30;  
         green <= 8'd144;
         blue  <= 8'd255;
     end
