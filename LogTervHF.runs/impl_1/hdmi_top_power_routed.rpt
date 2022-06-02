@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date             : Thu Jun  2 01:54:05 2022
+| Date             : Thu Jun  2 12:35:13 2022
 | Host             : DANINITRO-PC running 64-bit major release  (build 9200)
 | Command          : report_power -file hdmi_top_power_routed.rpt -pb hdmi_top_power_summary_routed.pb -rpx hdmi_top_power_routed.rpx
 | Design           : hdmi_top
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.388        |
+| Total On-Chip Power (W)  | 0.391        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.304        |
+| Dynamic (W)              | 0.307        |
 | Device Static (W)        | 0.084        |
 | Effective TJA (C/W)      | 1.9          |
 | Max Ambient (C)          | 84.3         |
@@ -52,20 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.005 |        6 |       --- |             --- |
-| Slice Logic    |     0.005 |     2076 |       --- |             --- |
-|   LUT as Logic |     0.004 |      908 |     41000 |            2.21 |
+| Clocks         |     0.006 |        6 |       --- |             --- |
+| Slice Logic    |     0.005 |     2091 |       --- |             --- |
+|   LUT as Logic |     0.005 |      916 |     41000 |            2.23 |
 |   CARRY4       |    <0.001 |       77 |     10250 |            0.75 |
-|   Register     |    <0.001 |      738 |     82000 |            0.90 |
+|   Register     |    <0.001 |      742 |     82000 |            0.90 |
 |   BUFG         |    <0.001 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |      131 |       --- |             --- |
-| Signals        |     0.009 |     2289 |       --- |             --- |
-| Block RAM      |     0.026 |     12.5 |       135 |            9.26 |
+| Signals        |     0.009 |     2310 |       --- |             --- |
+| Block RAM      |     0.025 |     12.5 |       135 |            9.26 |
 | PLL            |     0.106 |        1 |         6 |           16.67 |
 | DSPs           |     0.014 |       14 |       240 |            5.83 |
-| I/O            |     0.140 |       33 |       300 |           11.00 |
+| I/O            |     0.141 |       35 |       300 |           11.67 |
 | Static Power   |     0.084 |          |           |                 |
-| Total          |     0.388 |          |           |                 |
+| Total          |     0.391 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,8 +75,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.089 |       0.066 |      0.022 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.066 |       0.054 |      0.012 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.089 |       0.067 |      0.022 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.066 |       0.055 |      0.012 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.043 |       0.042 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -148,16 +148,16 @@ Table of Contents
 +----------------------+-----------+
 | Name                 | Power (W) |
 +----------------------+-----------+
-| hdmi_top             |     0.304 |
+| hdmi_top             |     0.307 |
 |   display_ram        |     0.001 |
-|   hdmi_tx_0          |     0.134 |
-|     tmds_transmitter |     0.134 |
+|   hdmi_tx_0          |     0.135 |
+|     tmds_transmitter |     0.135 |
 |       oserdes0       |     0.033 |
 |       oserdes1       |     0.033 |
 |       oserdes2       |     0.033 |
 |   spec_anal          |     0.055 |
 |     controller       |     0.045 |
-|       circ_buff      |     0.003 |
+|       circ_buff      |     0.002 |
 |       convert        |     0.007 |
 |       core           |     0.034 |
 |       dB_results     |     0.001 |

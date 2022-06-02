@@ -44,6 +44,9 @@ module spec_anal_top_level(
     
     // Debug
     output [1:0]      aud_dout_vld,
+    input             channel_select,
+    output [23:0]     aud_dout,
+    output [23:0]     fir_dout,
     input             frame_start,
     input             frm_clk,
     input  [9:0]      frm_addr,
@@ -93,7 +96,8 @@ assign vol_ud  = sw0;
 
 
 
-wire [23:0] aud_dout;
+//wire [23:0] aud_dout;
+wire [21:0] div_cntr;
 
 codec_if codec_if_inst
 (
@@ -130,7 +134,7 @@ codec_if codec_if_inst
 
 
 wire [1:0]  fir_dout_valid;
-wire [23:0] fir_dout;
+//wire [23:0] fir_dout;
 
 fir_filter fir(
     .clk(clk),
@@ -149,8 +153,9 @@ FFT_Controller controller(
     .rst          (rst),
     .frame_start  (frame_start),
     
-    .aud_dout_vld  (fir_dout_valid),
-    .aud_dout      (fir_dout),
+    .aud_dout_vld   (aud_dout_vld),
+    .channel_select (channel_select),
+    .aud_dout       (aud_dout),
     
     .frm_clk       (frm_clk),
     .frm_addr      (frm_addr),
@@ -164,7 +169,9 @@ FFT_Controller controller(
     .loading_samples(loading_samples),
     .fft_in_progress(fft_in_progress),
     .stage_cntr(stage_cntr),
-    .new_stage(new_stage)
+    .new_stage(new_stage),
+    
+    .div_cntr(div_cntr)
 );
     
 endmodule

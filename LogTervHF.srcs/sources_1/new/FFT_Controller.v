@@ -6,6 +6,7 @@ module FFT_Controller(
     input frame_start,
     
     input [1:0]  aud_dout_vld,
+    input        channel_select,
     input [23:0] aud_dout,
     
     input         frm_clk,
@@ -21,7 +22,9 @@ module FFT_Controller(
     output         loading_samples,
     output         fft_in_progress,
     output  [3:0]  stage_cntr,
-    output         new_stage
+    output         new_stage,
+    
+    input [21:0]   div_cntr
     );
     
 reg [9:0] smpl_addr_cntr;
@@ -49,17 +52,54 @@ fft_rdy_delay <= fft_rdy;
 assign fft_rdy_posedge = fft_rdy & ~fft_rdy_delay;
 
 
+wire channel_vld = (channel_select == 0) ? aud_dout_vld[0] : aud_dout_vld[1];
+reg channel_vld_delay;
+wire channel_vld_posedge;
+always @ (posedge clk)
+if (rst)
+    channel_vld_delay <= 0;
+else
+    channel_vld_delay <= channel_vld;
+
+assign channel_vld_posedge = channel_vld & ~channel_vld_delay;
+
+
 always @ (posedge clk)
 if (rst)
     smpl_addr_cntr <= 0;
-else if (aud_dout_vld[0])
+else if (channel_vld_posedge)
     smpl_addr_cntr <= smpl_addr_cntr + 1;
+
+
+
+
+reg [9:0]  test_addr;
+reg [23:0] test_data;
+
+always @ (posedge div_cntr[10])
+if (rst)
+    test_addr <= 0;
+else
+    test_addr <= test_addr + 1;
+
+always @ (posedge div_cntr[10])
+if (rst)
+    test_data <= 0;
+else
+begin
+    if (div_cntr[17])
+        test_data <= {1'b0, 23'b11111111111111111111111};
+    else
+        test_data <= 0;
+end
+
+
 
 smpl_ram circ_buff (
     .clk_a(clk),
-    .we_a(aud_dout_vld[0]),
-    .addr_a(smpl_addr_cntr),
-    .din_a(aud_dout),
+    .we_a(channel_vld_posedge),
+    .addr_a(test_addr),
+    .din_a(test_data),
     .dout_a(),
     
     .clk_b(clk),

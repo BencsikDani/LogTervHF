@@ -257,6 +257,9 @@ wire        frm_dout_vld;
 wire [23:0] frm_dout;
 
 wire [1:0]  aud_dout_vld;
+wire [23:0] aud_dout;
+wire [23:0] fir_dout;
+
 wire rst_ff;
 wire init_done_ff;
 wire [4:0] bit_cntr;
@@ -292,6 +295,9 @@ spec_anal_top_level spec_anal(
     .codec_sdout(codec_sdout),
     
     .aud_dout_vld(aud_dout_vld),
+    .channel_select(sw[6]),
+    .aud_dout(aud_dout),
+    .fir_dout(fir_dout),
 
     .bt3(bt[3]),
     .sw0(sw[0]),
@@ -322,7 +328,7 @@ spec_anal_top_level spec_anal(
     .new_stage(new_stage)
 );
 
-assign led_r = {1'b0, loading_samples, fft_in_progress, stage_cntr[3:0], new_stage};
+assign led_r = {sw[7], sw[6], aud_dout_vld[1:0], stage_cntr[3:0]};
 
 
 
@@ -390,6 +396,10 @@ smpl_ram display_ram(
 );
 
 
+// A megjelenítendõ jel kiválasztása:
+(* keep = "true" *) wire [9:0] signal;
+assign signal = (sw[7] == 1) ? ({ 1'b0, display_ram_dout[23:15] }) : cb_dout[19:10];
+
 
 // Spektrum kirajzolása
 
@@ -398,7 +408,7 @@ reg [7:0] red, green, blue;
 always @ (posedge clk40M)
 if (vde)
 begin
-    if ( h_cntr[9:0] <= {1'b0, display_ram_dout[23:15]} )
+    if ( h_cntr[9:0] <= signal )
     begin
         red   <= 8'd30;  
         green <= 8'd144;
