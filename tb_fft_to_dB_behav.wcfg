@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_fft_to_dB_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_fft_to_dB" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="82,026,528 ps"></ZoomStartTime>
+      <ZoomEndTime time="82,030,644 ps"></ZoomEndTime>
+      <Cursor1Time time="82,029,958 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="150"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/tb_fft_to_dB/convert/fft_rdy" type="logic">
+      <obj_property name="ElementShortName">fft_rdy</obj_property>
+      <obj_property name="ObjectShortName">fft_rdy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/fft_rdy_posedge" type="logic">
+      <obj_property name="ElementShortName">fft_rdy_posedge</obj_property>
+      <obj_property name="ObjectShortName">fft_rdy_posedge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/calc_dl" type="array">
+      <obj_property name="ElementShortName">calc_dl[2:0]</obj_property>
+      <obj_property name="ObjectShortName">calc_dl[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/fft_cntr" type="array">
+      <obj_property name="ElementShortName">fft_cntr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">fft_cntr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/dB_result_done" type="logic">
+      <obj_property name="ElementShortName">dB_result_done</obj_property>
+      <obj_property name="ObjectShortName">dB_result_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/dB_result_done_reg" type="logic">
+      <obj_property name="ElementShortName">dB_result_done_reg</obj_property>
+      <obj_property name="ObjectShortName">dB_result_done_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/all_dB_calculated" type="logic">
+      <obj_property name="ElementShortName">all_dB_calculated</obj_property>
+      <obj_property name="ObjectShortName">all_dB_calculated</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fft_to_dB/convert/all_dB_calculated_reg" type="logic">
+      <obj_property name="ElementShortName">all_dB_calculated_reg</obj_property>
+      <obj_property name="ObjectShortName">all_dB_calculated_reg</obj_property>
+   </wvobject>
+</wave_config>

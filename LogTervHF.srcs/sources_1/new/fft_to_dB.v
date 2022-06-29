@@ -1,23 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10.05.2022 09:28:19
-// Design Name: 
-// Module Name: fft_to_dB
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 //Converting FFT values to dB
 //20log10(sqrt(re^2+im^2)) = (10/log2(10))log2(re^2+im^2) ~ 3log2(re^2+im^2)
@@ -25,125 +6,144 @@
 module fft_to_dB(
     input clk,
     input rst,
-    input fft_rdy,
-    input [23:0] dre,
-    input [23:0] dim,
-    output [9:0] fft_addr_in,
-    output [23:0] dout,
-    output log2_vld,
-    output dB_vld
+    input fft_rdy,          // Bemeneti, ami jelzi, hogy az FFT kész, tehát kezdhetjük a dB értékek kiszámítását
+    
+    output [9:0] fft_result_addr,       // Annak a memóriának a címzésére szolgáló kimenet, amibe a Core írta az eredményeket
+    input [23:0] fft_result_re,        // A valós értékek adatvezetéke
+    input [23:0] fft_result_im,        // A képzetes értékek adatvezetéke
+    
+    output  [9:0] dB_result_addr,       // Annak a memóriának a címzésére szolgáló kimenet, amibe írjuk majd a dB értékeket 
+    output [23:0] dB_result_dout,       // dB értékek adatvezetéke (egyszere csak 1 dB értéket írunk)
+    output        dB_result_done,       // Jelezzük, hogy valid érték van a kimeneten, hogy az írás megtörténhessen
+    
+    output        all_dB_calculated     // Jelezzük, ha kiszámoltuk az összes frekvenciához tartozó dB értéket
     );
 
 reg [2:0] calc_dl;      // Késleltetés a szorzások és összeadás elvégzésének bevárására
-reg [9:0] smpl_cntr;    // Minták számlálója
-reg [47:0] powre_reg;   // Valós rész négyzetének regisztere
-wire[47:0] powre;       // Vezeték valós rész négyzetének
-reg [47:0] powim_reg;   // Képzetes rész négyzetének regisztere
-wire[47:0] powim;       // Vezeték képzetes rész négyzetének
+reg [9:0] fft_cntr;     // FFT együtthatók számlálója
+wire[47:0] re_sq;       // Vezeték valós rész négyzetének
+wire[47:0] im_sq;       // Vezeték képzetes rész négyzetének
 reg [48:0] sum;         // Valós és képzetes rész négyzetösszege
-reg [23:0] dB_reg;      // Regiszter és vezeték a kistámított dB értékek memóriába írásához
-wire[23:0] dB;          
-wire [9:0] mant_addr;   // Cím és adatvezetékek a log2 törtrészeket tartalmazó memóriához.
-wire[17:0] mant_data_out;
-reg log2_start;         // A log2 számítás kezdetét jelzõ regiszter
-reg log2_done_reg;      // A log2 számítás végét jelzõ regiszter és vezeték
-wire log2_done;
-reg dB_calculated;      // Flag a dB számítások befejeztérõl
 
-assign powre = powre_reg;
-assign powim = powim_reg;
-assign dB = dB_reg;
-assign fft_addr_in = smpl_cntr;
-assign log2_done = log2_done_reg;
+reg dB_result_done_reg;     // 1 frekvencia dB érték számításának végét jelzõ regiszter
+reg all_dB_calculated_reg;  // Jelzi, ha kész a dB számítás az összes frekvencián
 
-// A log2 törtrészek tárólójának példányosíta
-log2_rom mantissa(
-    .clk(clk),
-    .addr(mant_addr),
-    .dout(mant_data_out)
-);
 
-// rst logika
-always @ (posedge clk)
-if (rst)
-begin
-    calc_dl <= 3'b000;
-    smpl_cntr <= 10'b0000000000;
-end
 
-// fft_rdy jel logika
-always @ (posedge fft_rdy)
-smpl_cntr <= 10'b0000000000;
+// Impulzussal való jelzése annak, hogy kész az FFT eredménye
+reg fft_rdy_delay;
+wire fft_rdy_posedge;
 
 always @ (posedge clk)
-if(fft_rdy)
+fft_rdy_delay <= fft_rdy;
+
+assign fft_rdy_posedge = fft_rdy & ~fft_rdy_delay;
+
+
+
+
+// A dB értékek kiszámításához szükséges idõt számontartó számláló
+// Ha megjött az elsõ kiszámolandó érték, vagy ha egy elõzõ már ki lett számolva (ami nem az utolsó volt), akkor kezdi elõlrõl a számoilást.
+// Ha végig ért, akkor ott megáll.
+always @ (posedge clk)
+if (rst | fft_rdy_posedge | (dB_result_done_reg & (fft_cntr != 10'd1023)))
+    calc_dl <= 3'b0;
+else if (fft_rdy & (calc_dl != 3'd7))
     calc_dl <= calc_dl + 1;
 
+
+
+// Az FFT együtthatókat számláló számláló
+// Ha reset van, vagy ha kész az FFT, akkor nullázódik
+// Ha egy együtthatónak kiszámoltuk a dB értékét (ami nem az utolsó), akkor ugrik tovább
+// Ha végig ért, akkor ott megáll.
+always @ (posedge clk)
+if (rst | fft_rdy_posedge)
+    fft_cntr <= 10'b0;
+else if (dB_result_done_reg & (fft_cntr != 10'd1023))
+    fft_cntr <= fft_cntr + 1;
+
+assign fft_result_addr = fft_cntr;
+assign dB_result_addr = fft_cntr;
+
+
+
 // valós rész négyzetre emelése
-mul_24x24 re(
+mul_24x24 re_square(
     .clk(clk),
-    .a(dre),
-    .b(dre),
-    .m(powre)
+    .a(fft_result_re),
+    .b(fft_result_re),
+    .m(re_sq)
 );
 
 //képzetes rész négyzetre emelésee    
-mul_24x24 im(
+mul_24x24 im_square(
     .clk(clk),
-    .a(dim),
-    .b(dim),
-    .m(powim)
+    .a(fft_result_im),
+    .b(fft_result_im),
+    .m(im_sq)
+);
+// Megjegyzés: 1 ilyen négyzetre emeléshez 4 órajel szükséges
+
+// Négyzetek összeadása
+always @ (posedge clk)
+sum <= re_sq + im_sq;     // 22.26 + 22.26 = 23.26
+// Megjegyzés: a négyzetre emelt számok összeadásával együtt
+// 5 órajel kell egy teljes "sum" részeredmény kiszámlásához
+
+
+
+// A dB érték kiszámítása
+
+// Erre Lookup Table megoldást alkalmazunk.
+// Mivel a HDMI kimenetünk (bármelyik irányú) felbontása nem fogja meghaladni az 1024 pixelt,
+// Ezért ennyi féle dB érték fog tudni maximálisan látszódni a kimeneten.
+// Ebbõl adódóan tehát elég ennyi értéket eltárolnunk.
+
+// A ROM-unk tehát 10 bites címmel fog rendelkezni.
+// A kérdés az, hogy a kiszámolt 49 bites négyzetösszegbõl melyik az a hasznosan felhasználandó 10 bit.
+// Ez azért fontos, mert ezzel összhangban kell lennie az elõre eltárolt dB értékeknek.
+// sum egész része      sum tört része
+//    sum[48:26]           sum[25:0]
+// T.f.h. a legnagyobb érték, amit kij9het, elfér 10 bit egész részen.
+wire [9:0] dB_values_rom_addr;
+assign dB_values_rom_addr = sum[48:39];
+wire [23:0] dB_values_rom_dout;
+
+// A dB értékek tárolva vannak elõre az összes lehetséges bemenethez
+dB_value_rom #(
+    .FILE("dB_values.txt")
+)
+dB_values(
+    .clk(clk),
+    .addr(dB_values_rom_addr),
+    .dout(dB_values_rom_dout)
 );
 
-// négyzetek összeadása
+assign dB_result_dout = dB_values_rom_dout;
+
+
+
+// 1 frekvencia dB értéke 6 órajel alatt érvényes
 always @ (posedge clk)
-sum <= powre + powim;
+if (rst | dB_result_done_reg)
+    dB_result_done_reg <= 0;
+else if (fft_rdy & calc_dl == 3'd6)
+    dB_result_done_reg <= 1;
 
-// decibelérték kiszámításának meghívása
-log_2 sumToDB (
-    .clk(clk),
-    .rst(rst),
-    .log2_start(log2_start),
-    .sum(sum),
-    .mant_dout(mant_data_out),
-    .log2_done(log2_done),
-    .dB(dB),
-    .mant_addr(mant_addr)
-);
-
-// Log2 számítás kezdetét jelzõ flag
-always @ (posedge fft_rdy)
-log2_start <= 1;
+assign dB_result_done = dB_result_done_reg;
 
 
+
+// Jelzés, ha végig értünk a mintákon és minden dB érték valid
 always @ (posedge clk)
-if(log2_start)
-    log2_start = 1'b0;
+if (rst | all_dB_calculated_reg)
+    all_dB_calculated_reg <= 1'b0;
+else if (fft_cntr == 10'd1023 & dB_result_done_reg)
+    all_dB_calculated_reg <= 1'b1;
 
-always @ (posedge clk)
-if (fft_rdy & smpl_cntr < 10'b1111111111)
-begin
-if(smpl_cntr != 10'b0 & log2_done_reg)
-log2_start <= 1'b1;
-end   
-
-always @ (posedge clk)
-if(smpl_cntr == 10'b1111111111)
-    log2_start <= 1'b0;
-else if(log2_done_reg)
-    smpl_cntr <= smpl_cntr + 1;
+assign all_dB_calculated = all_dB_calculated_reg;
 
 
-
-// Állapotlogika a dB értékek kiszámításához
-always @ (posedge clk)
-if(smpl_cntr < 10'b1111111111)
-    dB_calculated <= 1'b0;
-else if (smpl_cntr == 10'b1111111111 & log2_done)
-    dB_calculated <= 1'b1;
-
-assign log2_vld = log2_done;
-assign dout = dB_reg;
-assign dB_vld = dB_calculated;
 
 endmodule

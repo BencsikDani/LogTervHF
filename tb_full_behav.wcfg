@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_full_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_full" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="975,065.833 ns"></ZoomStartTime>
+      <ZoomEndTime time="975,688.834 ns"></ZoomEndTime>
+      <Cursor1Time time="976,060.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="184"></NameColumnWidth>
+      <ValueColumnWidth column_width="64"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="30" />
+   <wvobject fp_name="/tb_full/hdmi_top_inst/clk100M" type="logic">
+      <obj_property name="ElementShortName">clk100M</obj_property>
+      <obj_property name="ObjectShortName">clk100M</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/clk40M" type="logic">
+      <obj_property name="ElementShortName">clk40M</obj_property>
+      <obj_property name="ObjectShortName">clk40M</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/div_cntr" type="array">
+      <obj_property name="ElementShortName">div_cntr[21:0]</obj_property>
+      <obj_property name="ObjectShortName">div_cntr[21:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/codec_mclk" type="logic">
+      <obj_property name="ElementShortName">codec_mclk</obj_property>
+      <obj_property name="ObjectShortName">codec_mclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/codec_sclk" type="logic">
+      <obj_property name="ElementShortName">codec_sclk</obj_property>
+      <obj_property name="ObjectShortName">codec_sclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/bit_cntr" type="array">
+      <obj_property name="ElementShortName">bit_cntr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_cntr[4:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/sclk_rise" type="logic">
+      <obj_property name="ElementShortName">sclk_rise</obj_property>
+      <obj_property name="ObjectShortName">sclk_rise</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/sclk_rise_long" type="logic">
+      <obj_property name="ElementShortName">sclk_rise_long</obj_property>
+      <obj_property name="ObjectShortName">sclk_rise_long</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/sclk_fall" type="logic">
+      <obj_property name="ElementShortName">sclk_fall</obj_property>
+      <obj_property name="ObjectShortName">sclk_fall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/sclk_fall_long" type="logic">
+      <obj_property name="ElementShortName">sclk_fall_long</obj_property>
+      <obj_property name="ObjectShortName">sclk_fall_long</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/rst_ff" type="logic">
+      <obj_property name="ElementShortName">rst_ff</obj_property>
+      <obj_property name="ObjectShortName">rst_ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/init_done_ff" type="logic">
+      <obj_property name="ElementShortName">init_done_ff</obj_property>
+      <obj_property name="ObjectShortName">init_done_ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/codec_lrclk" type="logic">
+      <obj_property name="ElementShortName">codec_lrclk</obj_property>
+      <obj_property name="ObjectShortName">codec_lrclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/aud_dout_vld" type="array">
+      <obj_property name="ElementShortName">aud_dout_vld[1:0]</obj_property>
+      <obj_property name="ObjectShortName">aud_dout_vld[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/circ_buff/ram_array" type="array">
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/h_cntr" type="array">
+      <obj_property name="ElementShortName">h_cntr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">h_cntr[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/h_sync" type="logic">
+      <obj_property name="ElementShortName">h_sync</obj_property>
+      <obj_property name="ObjectShortName">h_sync</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/v_cntr" type="array">
+      <obj_property name="ElementShortName">v_cntr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">v_cntr[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/v_sync" type="logic">
+      <obj_property name="ElementShortName">v_sync</obj_property>
+      <obj_property name="ObjectShortName">v_sync</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/vde" type="logic">
+      <obj_property name="ElementShortName">vde</obj_property>
+      <obj_property name="ObjectShortName">vde</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/fft_start" type="logic">
+      <obj_property name="ElementShortName">fft_start</obj_property>
+      <obj_property name="ObjectShortName">fft_start</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="group751" type="group">
+      <obj_property name="label">Core</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/core/frame_start" type="logic">
+         <obj_property name="ElementShortName">frame_start</obj_property>
+         <obj_property name="ObjectShortName">frame_start</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/core/loading_samples" type="logic">
+         <obj_property name="ElementShortName">loading_samples</obj_property>
+         <obj_property name="ObjectShortName">loading_samples</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/core/stage_cntr" type="array">
+         <obj_property name="ElementShortName">stage_cntr[3:0]</obj_property>
+         <obj_property name="ObjectShortName">stage_cntr[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/core/fft_done" type="logic">
+         <obj_property name="ElementShortName">fft_done</obj_property>
+         <obj_property name="ObjectShortName">fft_done</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group752" type="group">
+      <obj_property name="label">fft_to_dB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/fft_rdy" type="logic">
+         <obj_property name="ElementShortName">fft_rdy</obj_property>
+         <obj_property name="ObjectShortName">fft_rdy</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/fft_rdy_posedge" type="logic">
+         <obj_property name="ElementShortName">fft_rdy_posedge</obj_property>
+         <obj_property name="ObjectShortName">fft_rdy_posedge</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/fft_result_re" type="array">
+         <obj_property name="ElementShortName">fft_result_re[23:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_result_re[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/fft_result_im" type="array">
+         <obj_property name="ElementShortName">fft_result_im[23:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_result_im[23:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/calc_dl" type="array">
+         <obj_property name="ElementShortName">calc_dl[2:0]</obj_property>
+         <obj_property name="ObjectShortName">calc_dl[2:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/fft_cntr" type="array">
+         <obj_property name="ElementShortName">fft_cntr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">fft_cntr[9:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/dB_result_done" type="logic">
+         <obj_property name="ElementShortName">dB_result_done</obj_property>
+         <obj_property name="ObjectShortName">dB_result_done</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/convert/all_dB_calculated" type="logic">
+         <obj_property name="ElementShortName">all_dB_calculated</obj_property>
+         <obj_property name="ObjectShortName">all_dB_calculated</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/spec_anal/controller/dB_results/ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">dB_results</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/display_ram_we" type="logic">
+      <obj_property name="ElementShortName">display_ram_we</obj_property>
+      <obj_property name="ObjectShortName">display_ram_we</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/display_ram_write_addr" type="array">
+      <obj_property name="ElementShortName">display_ram_write_addr[9:0]</obj_property>
+      <obj_property name="ObjectShortName">display_ram_write_addr[9:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/display_ram/ram_array" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_array[0:1023][23:0]</obj_property>
+      <obj_property name="label">display_ram</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/red" type="array">
+      <obj_property name="ElementShortName">red[7:0]</obj_property>
+      <obj_property name="ObjectShortName">red[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/green" type="array">
+      <obj_property name="ElementShortName">green[7:0]</obj_property>
+      <obj_property name="ObjectShortName">green[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_full/hdmi_top_inst/blue" type="array">
+      <obj_property name="ElementShortName">blue[7:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+</wave_config>

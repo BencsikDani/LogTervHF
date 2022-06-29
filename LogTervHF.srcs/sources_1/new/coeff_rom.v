@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module coeff_rom #(
+(* keep_hierarchy = "yes" *) module coeff_rom #(
    parameter FILE = ""
 )(
     input               clk,

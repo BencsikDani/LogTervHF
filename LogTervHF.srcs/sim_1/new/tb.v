@@ -23,7 +23,7 @@ reg  [ 4:0] sim_cntr;
 wire [1:0] aud_dout_vld;
 wire [23:0] aud_dout;
 
-codec_if uut
+codec_if codec_if_inst
 (
    .clk           (clk),
    .rst           (rst),

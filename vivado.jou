@@ -2,10 +2,10 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Mon May 30 11:18:17 2022
-# Process ID: 45352
+# Start of session at: Tue May 31 11:22:09 2022
+# Process ID: 7596
 # Current directory: C:/Users/Dani/XilinxProjects/LogTervHF
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent27160 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6472 C:\Users\Dani\XilinxProjects\LogTervHF\LogTervHF.xpr
 # Log file: C:/Users/Dani/XilinxProjects/LogTervHF/vivado.log
 # Journal file: C:/Users/Dani/XilinxProjects/LogTervHF\vivado.jou
 # Running On: DANINITRO-PC, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 17057 MB
@@ -13,45 +13,685 @@
 start_gui
 open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
-source tb_FFT_Core.tcl
-open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
-run 2600 us
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
-relaunch_sim
-relaunch_sim
-run 100 us
-relaunch_sim
-run 2600 us
-restart
-run 100 us
-relaunch_sim
-run 100 us
-restart
-run 2600 us
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
-restart
-run 2600 us
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_square.v w ]
+add_files -fileset sim_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_square.v
+update_compile_order -fileset sim_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top tb [get_filesets sim_1]
+set_property top tb_square [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
-close_sim
 update_compile_order -fileset sim_1
 launch_simulation
 open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run 2600 us
+source tb_square.tcl
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+set_property xsim.view {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg} [get_filesets sim_1]
+restart
 run all
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg}
+restart
+run 10 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
 close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+source tb_square.tcl
+run 10 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+source tb_square.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+source tb_square.tcl
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
+close_sim
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/log2.v] -no_script -reset -force -quiet
+remove_files  C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/log2.v
+close [ open C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v w ]
+add_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/dB_value_rom.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v] -no_script -reset -force -quiet
+remove_files  C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v
+file delete -force C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/log2_rom.v
+update_compile_order -fileset sources_1
+import_files -norecurse {C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/sources_1/new/hdmi_tx.edn C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/sources_1/new/hdmi_rx.edn}
+import_files -norecurse {C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/sources_1/new/hdmi_tx.v C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/sources_1/new/hdmi_rx.v C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/sources_1/new/hdmi_top.v}
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/constrs_1/new/hdmi_top.xdc
+import_files -fileset constrs_1 C:/Users/Dani/XilinxProjects/hdmi_loopback/hdmi_loopback.srcs/constrs_1/new/hdmi_top.xdc
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+source tb_square.tcl
+close_sim
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/pinout.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/pinout.xdc
+file delete -force C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/pinout.xdc
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_full.v w ]
+add_files -fileset sim_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_full.v
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_full [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top hdmi_top [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_full [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+source tb_full.tcl
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+set_property xsim.view {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg} [get_filesets sim_1]
+run 10 us
+restart
+run 10 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run 10 us
+run 100 us
+run 100 us
+run 200 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run 200 us
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+restart
+run all
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+restart
+run all
+reset_run synth_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+run all
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+run all
+run all
+run all
+run all
+run all
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_fft_to_dB.v w ]
+add_files -fileset sim_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/new/tb_fft_to_dB.v
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_fft_to_dB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+close_sim
+close_design
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_fft_to_dB.tcl
+run all
+restart
+create_wave_config
+restart
+run all
+restart
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+restart
+run 100 us
+restart
+run 91 us
+restart
+run 81 us
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 20 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+restart
+run 81950 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
+set_property xsim.view {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg} [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
+source tb_fft_to_dB.tcl
+restart
+run 100 us
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 47
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 47
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 60
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 47
+restart
+run 91940 ns
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 47
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 60
+restart
+run 91940 ns
+restart
+run 81940 ns
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 60
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 47
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 48
+run 10 ns
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 61
+run 10 ns
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 47
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 47
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 48
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 47
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 61
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 60
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
+source tb_fft_to_dB.tcl
+restart
+run 81950 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 010 ns
+run 010 ns
+run 010 ns
+run 010 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+close_design
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
+source tb_fft_to_dB.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_full [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+launch_simulation
+close_sim
+close_project
+open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
+source tb_full.tcl
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+restart
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_run synth_1 -name synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
+source tb_full.tcl
+close_design
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/timing.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/timing.xdc
+file delete -force C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/timing.xdc
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+open_run synth_1 -name synth_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
 set_property top tb_FFT_Core [get_filesets sim_1]
@@ -59,27 +699,1369 @@ set_property top_lib xil_defaultlib [get_filesets sim_1]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sim_1
+close_design
+launch_simulation
+close_sim
 launch_simulation
 open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg
 source tb_FFT_Core.tcl
-run 2600 us
 open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
 restart
-run 2600 us
+run all
+restart
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 us
 save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+set_property is_enabled false [get_files  {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}]
+set_property is_enabled true [get_files  {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}]
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg C:/Users/Dani/XilinxProjects/LogTervHF/tb_square_behav.wcfg}
+restart
+run 10 us
+run 10 us
+restart
+run 10 us
+run 10 us
+reset_run synth_1
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+close_sim
+launch_simulation
+source tb_FFT_Core.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+restart
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+close_sim
+launch_simulation
+source tb_FFT_Core.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+restart
+run all
+restart
+run 2600 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+source tb_FFT_Core.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg}
+restart
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+source tb_FFT_Core.tcl
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/LogTervHF/core_test.wcfg
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_simulation -mode post-synthesis -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg}
+launch_simulation -mode post-implementation -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+restart
+run 100 us
+run 100 us
+current_sim simulation_36
+close_sim
+current_sim simulation_37
+close_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+launch_simulation -mode post-implementation -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+close_sim
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+close_design
+launch_simulation -mode post-implementation -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+current_sim simulation_44
+close_sim
+launch_simulation
+close_sim
+close_design
+close_design
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_FFT_Core.tcl
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg}
+restart
+run 2700 us
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg}
 close_sim
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top tb [get_filesets sim_1]
+set_property top tb_fft_to_dB [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sim_1
 launch_simulation
-open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg
-source tb.tcl
-run all
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg}
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg}
-save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_behav.wcfg}
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_fft_to_dB.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg}
+run 2700 us
+restart
+run 2700 us
+restart
+run 100 us
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 50
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} 62
+restart
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 50
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/fft_to_dB.v} -line 62
 close_sim
+reset_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_simulation -mode post-implementation -type timing
+launch_simulation -mode post-implementation -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_fft_to_dB.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg}
+restart
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+close_sim
+launch_simulation -mode post-implementation -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_fft_to_dB.tcl
+restart
+run 100 us
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg}
+restart
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+run 100 us
+restart
+run 100 us
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_fft_to_dB.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg}
+restart
+run 100 us
+restart
+run 10 us
+close_sim
+close_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_full [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+reset_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+close_design
+launch_simulation -mode post-implementation -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_fft_to_dB_behav.wcfg}
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+close_design
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg}
+run all
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run impl_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+close_design
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+open_run impl_1
+copy_run -name synth_1_copy_1 [get_runs synth_1] 
+set_property include_dirs C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/files [current_fileset]
+copy_run -name impl_1_copy_1 [get_runs impl_1] -parent_run synth_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+close_design
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+refresh_design
+close_design
+refresh_design
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+launch_simulation -mode post-implementation -type timing
+launch_simulation -mode post-synthesis -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg}
+current_sim simulation_52
+close_sim
+launch_simulation
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg}
+close_sim
+close_design
+close_design
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+run all
+close_sim
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_project
+open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sim_1/new/tb_codec_if.v
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_codec_if [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_codec_if.tcl
+create_wave_config
+restart
+restart
+run all
+run all
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_sim
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_project
+open_project C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.xpr
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top tb_full [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run 10 us
+run all
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/tb_full_behav.wcfg
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+restart
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+run all
+run all
+run 10 ns
+run 10 ns
+run 10 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 1000 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 100 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+refresh_design
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_sim
+close_hw_manager
+close_design
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+close_hw_manager
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+run all
+save_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run 10 ns
+run 10 ns
+run 10 ns
+run 10 ns
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+run all
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+run all
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+run all
+open_wave_config {C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg}
+restart
+run all
+run all
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+run all
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+current_wave_config {core_test.wcfg}
+report_drivers {/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/\genblk1.sclk_fall_long }
+current_wave_config {core_test.wcfg}
+report_drivers {/tb_full/hdmi_top_inst/spec_anal/codec_if_inst/\genblk1.sclk_fall_long }
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+source tb_full.tcl
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+close_sim
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_simulation -mode post-synthesis -type timing
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+run all
+close_sim
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+launch_simulation
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sim_1/imports/LogTervHF/core_test.wcfg
+open_wave_config C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+source tb_full.tcl
+restart
+run all
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+set_msg_config -suppress -id {Vivado 12-12986} -string {{WARNING: [Vivado 12-12986] Compiled library path does not exist: ''} } 
+set_msg_config -suppress -id {Vivado 12-1017} -string {{WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/synth_1} } 
+set_msg_config -suppress -id {filemgmt 20-354} -string {{WARNING: [filemgmt 20-354] The following file(s) were not imported. Local copy of file(s) already exists:
+C:/Users/Dani/XilinxProjects/LogTervHF/tb_full_behav.wcfg
+Hint: use the '-force' option to overwrite the local copies.} } 
+add_bp {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v} 696
+remove_bps -file {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/sources_1/new/FFT_Core.v} -line 696
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+set_msg_config -suppress -id {Designutils 20-4072} -string {{WARNING: [Designutils 20-4072] Reference run did not run incremental synthesis because the design is too small; reverting to default synthesis} } 
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+close_design
+close_sim
+import_files -norecurse {C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/fir_filter.v C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/mul_24x35.v C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/rom_512x35.v}
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/sources_1/new/FIR/tb_fir.v
+update_compile_order -fileset sim_1
+add_files -fileset constrs_1 -norecurse C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/constrs_1/new/others.xdc
+import_files -fileset constrs_1 C:/Users/Dani/XilinxProjects/logterv_gyak4_2021_full/logterv_gyak4_full/logterv_gyak4.srcs/constrs_1/new/others.xdc
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+export_ip_user_files -of_objects  [get_files C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/others.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.srcs/constrs_1/imports/new/others.xdc
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+update_compile_order -fileset sources_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run impl_1
+close_hw_manager
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+close_hw_manager
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+current_hw_device [get_hw_devices xc7k70t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7k70t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7k70t_0]
+set_property PROGRAM.FILE {C:/Users/Dani/XilinxProjects/LogTervHF/LogTervHF.runs/impl_1/hdmi_top.bit} [get_hw_devices xc7k70t_0]
+program_hw_devices [get_hw_devices xc7k70t_0]
+refresh_hw_device [lindex [get_hw_devices xc7k70t_0] 0]
