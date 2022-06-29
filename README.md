@@ -26,8 +26,8 @@
 - Left-Justified audió interfész.
 <br/></br>
 - CLK = 100 MHz
-- MCLK = 1024 * FS = 1024 * LRCK = CLK/2 = 50 MHz
-- LRCK = MCLK/1024 = 48.828125 kHz
+- MCLK = 256 * FS = 256 * LRCK = CLK/8 = 12.5 MHz
+- LRCK = MCLK/256 = 48.828125 kHz
 - SCLK = LRCK * 64 = 3.125 MHz
 ##### Generálás div_cntr-ből:
 - LRCK = CLK / 2048 → bit[10]
